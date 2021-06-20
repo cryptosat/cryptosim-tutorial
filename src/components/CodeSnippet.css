@@ -1,0 +1,33 @@
+.code-snippet pre {
+  background: #f4f4f4;
+  /*background: #282c34;*/
+  border: 1px solid #ddd;
+  border-left: 3px solid #6052a7;
+  color: #666;
+  /*color: rgb(222, 222, 222);*/
+  page-break-inside: avoid;
+  font-family: monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 0em 1.5em;
+  display: block;
+  word-wrap: break-word;
+  position: relative;
+  padding-top: 30px;
+  padding-right: 1.5em;
+  padding-bottom: 10px;
+  padding-left: 1.5em;
+}
+
+
+.code-snippet button {  
+  background: none;
+  border-width: 1px;
+  border-radius: 2px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}

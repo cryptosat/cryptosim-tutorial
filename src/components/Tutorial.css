@@ -1,0 +1,26 @@
+.tutorial-content {
+  /*height:  100%;*/
+  width:  100%;
+}
+
+.tutorial {
+  height:  100%;
+  padding:  10px;
+  background-color: #8f95a2;
+  overflow:  scroll;
+}
+
+.tutorial .nav {
+  /*position:  fixed;*/
+  /*bottom:  50px;*/
+}
+
+.tutorial .nav .nav-button {
+  background-color: #6052a7;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  padding: 8px;
+  margin: 10px;
+  width:  100px;
+}
