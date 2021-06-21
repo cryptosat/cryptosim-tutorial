@@ -2,7 +2,7 @@ import React from 'react';
 import './NavBar.css';
 import Menu from './Menu.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faBug } from '@fortawesome/free-solid-svg-icons'
 
 class NavBar extends React.Component {
 
@@ -11,32 +11,36 @@ class NavBar extends React.Component {
     this.state = {
       menuVisible: false,
     }
-    this.onClick = this.onClick.bind(this);
+    this.fileBug = this.fileBug.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
   }
 
-  onClick(e) {
-    this.toggleMenu();
+  toggleMenu(e) {
     e.stopPropagation();
-  }
-
-  toggleMenu() {
     this.setState({
       menuVisible: !this.state.menuVisible
     });
   }
 
+  fileBug(e) {
+    e.stopPropagation();
+    window.open("https://github.com/cryptosat/cryptosim-tutorial/issues/new");
+  }
+
  render() {
     const overlay = this.state.menuVisible ? (
-      <button id='sideMenuOverlay' onClick={this.onClick}></button>
+      <div id='sideMenuOverlay' onClick={this.toggleMenu}></div>
     ) : null;
     return(
       <div className='navbar'>
         {overlay}
         <Menu visible={this.state.menuVisible} />
         Cryptosim Tutorial
-        <button onClick={this.onClick}>
+        <button onClick={this.toggleMenu}>
           <FontAwesomeIcon icon={faBars}/>
+        </button>
+        <button onClick={this.fileBug}>
+          <FontAwesomeIcon icon={faBug}/>
         </button>
       </div>
     )
