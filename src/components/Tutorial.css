@@ -11,6 +11,8 @@
 }
 
 .tutorial .nav {
+  margin-top: 20px;
+  text-align: center;
   /*position:  fixed;*/
   /*bottom:  50px;*/
 }

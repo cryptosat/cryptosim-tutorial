@@ -1,5 +1,6 @@
 import React from 'react';
 import './NavBar.css';
+import Menu from './Menu.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 
@@ -26,15 +27,13 @@ class NavBar extends React.Component {
   }
 
  render() {
-    const visibilityClass = this.state.menuVisible ? 'show' : 'hide';
-    const menu = (
-      <div id='sideMenu' className={visibilityClass}>
-        Hello, World!
-      </div>
-    )
+    const overlay = this.state.menuVisible ? (
+      <button id='sideMenuOverlay' onClick={this.onClick}></button>
+    ) : null;
     return(
       <div className='navbar'>
-        {menu}
+        {overlay}
+        <Menu visible={this.state.menuVisible} />
         Cryptosim Tutorial
         <button onClick={this.onClick}>
           <FontAwesomeIcon icon={faBars}/>
@@ -44,4 +43,4 @@ class NavBar extends React.Component {
   }
 }
 
-export default NavBar
+export default NavBar;

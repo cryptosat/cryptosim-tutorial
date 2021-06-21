@@ -13,8 +13,8 @@ class Tutorial extends React.Component {
       <div className='tutorial'>
         {this.props.content}
         <div className="nav">
-          <button className='nav-button'>Previous</button>
-          <button className='nav-button'>Next</button>
+          <button className='nav-button'>&lt; Previous</button>
+          <button className='nav-button'>Next &gt;</button>
         </div>
       </div>
     )
