@@ -1,25 +1,28 @@
-.tutorial-content {
+.lesson-content {
   /*height:  100%;*/
   width:  100%;
 }
 
-.tutorial {
+.lesson {
   height:  100%;
   padding:  10px;
   background-color: #8f95a2;
   overflow:  scroll;
 }
 
-.tutorial .nav {
+.lesson .nav {
   margin-top: 20px;
+  margin-bottom:  10px;
   text-align: center;
   /*position:  fixed;*/
   /*bottom:  50px;*/
 }
 
-.tutorial .nav .nav-button {
+.lesson .nav a {
   background-color: #6052a7;
-  color: white;
+  text-decoration: none;
+  font-size:  1rem;
+  color: #cccccc;
   border: none;
   border-radius: 2px;
   padding: 8px;

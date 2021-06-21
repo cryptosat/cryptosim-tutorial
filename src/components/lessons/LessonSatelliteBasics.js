@@ -1,18 +1,21 @@
+import React from 'react';
+import { Link } from "react-router-dom";
+import { Map } from '@cryptosat/cryptosim-visualization';
+import { Console } from '@cryptosat/jsconsole';
+import CodeSnippet from '../CodeSnippet';
+import './Lesson.css';
+import payload from './basePayload';
+
 import SimulatedClock from '@cryptosat/cryptosim/lib/clocks/simulatedClock';
+import GeoCoordinates from '@cryptosat/cryptosim/lib/geoCoordinates';
+import GroundStationNetwork from '@cryptosat/cryptosim/lib/groundStationNetwork';
 import Universe from '@cryptosat/cryptosim/lib/universe';
-import Satellite from '@cryptosat/cryptosim/lib/satellite';
-import CodeSnippet from '../components/CodeSnippet';
 
 const clock = new SimulatedClock(new Date(2021, 2, 1, 2, 30, 0, 0));
-const universe = new Universe(clock);
-
-const payload = {
-  universe: universe,
-  Satellite: Satellite,
-};
+payload.universe = new Universe(clock);;
 
 const content = (
-  <div className='tutorial-content'>
+  <div className='lesson-content'>
     <h2>Satellites</h2>
     <p>
       The basic building block of the cryptosim simulator is the satellite.
@@ -50,10 +53,40 @@ const content = (
     of the satellite in geodetic coordinates, the familiar latitude, longitude and altitude.
     You will also notice that the satellite you just created appears in the map.
   </div>
-)
+);
 
+class LessonSatelliteBasics extends React.Component {
 
-export {
-  payload,
-  content,
-};
+ render() {
+    const center = new GeoCoordinates(13.500122104857502, 1.9946736964921719, 0);
+    const gsnetwork = new GroundStationNetwork('empty');
+    // TODO: replace with new universe.clear() method;
+    payload.universe.stations().clear();
+    payload.universe.satellites().clear();
+    return(
+      <div style={{'flex': '1 1 auto', 'overflowY': 'auto'}}>
+        <div className='split-pane-horizontal' style={{height: '100%'}}>
+          <div className='left-pane' style={{height: '100%'}}>
+            <div className='lesson'>
+              {content}
+              <div className="nav">
+                <Link to={this.props.previous}>&lt; Previous</Link>
+                <Link to={this.props.next}>Next &gt;</Link>
+              </div>
+            </div>
+          </div>
+          <div className='right-pane'>
+            <div className='top-pane' style={{overflowY: 'scroll'}}>
+              <Console payload={payload} />
+            </div>
+            <div className='bottom-pane'>
+              <Map universe={payload.universe} gsnetwork={gsnetwork} center={center} />
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
+
+export default LessonSatelliteBasics

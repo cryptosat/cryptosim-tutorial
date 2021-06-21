@@ -16,10 +16,6 @@ function copyToClipboard(text) {
 
 class CodeSnippet extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   copy() {
     copyToClipboard(this.props.code);
   }
