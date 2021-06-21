@@ -230,7 +230,8 @@ module.exports = function (webpackEnv) {
       globalObject: 'this',
     },
     optimization: {
-      minimize: isEnvProduction,
+      // disable minimzation to preserve naming of cryptosim classes.
+      minimize: isEnvProduction && false,
       minimizer: [
         // This is only used in production mode
         new TerserPlugin({
