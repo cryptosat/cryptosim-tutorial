@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './NavBar.css';
 import Menu from './Menu.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -35,7 +36,7 @@ class NavBar extends React.Component {
       <div className='navbar'>
         {overlay}
         <Menu visible={this.state.menuVisible} />
-        Cryptosim Tutorial
+        <Link to="/">Cryptosim Tutorial</Link>
         <button onClick={this.toggleMenu}>
           <FontAwesomeIcon icon={faBars}/>
         </button>
