@@ -14,7 +14,21 @@ class Menu extends React.Component {
       items.push(<li key={Math.random()} className='section'>{section.name}</li>);
       for (const lesson of section.lessons) {
         // TODO: replace key with unique path
-        items.push(<li key={Math.random()}><Link to={lesson.path}>{lesson.name}</Link></li>)
+        let elem = null;
+        if (lesson.disabled) {
+          elem = (
+            <li key={Math.random()}>
+              <a className="disabled">{lesson.name}</a>
+            </li>
+          );
+        } else {
+          elem = (
+            <li key={Math.random()}>
+              <Link to={lesson.path}>{lesson.name}</Link>
+            </li>
+          );
+        }
+        items.push(elem);
       }
     }
     return (

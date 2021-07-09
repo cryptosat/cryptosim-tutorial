@@ -63,3 +63,8 @@
   height:  100%;
   padding-left:  10px;
 }
+
+#sideMenu li a.disabled {
+  color: #806e6e;
+  cursor: default;
+}

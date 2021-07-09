@@ -32,10 +32,12 @@ class App extends React.Component {
       let next = null;
       let previous = null;
       if  (i > 0) {
-        previous = flatLessons[i - 1].path;
+        const previousLesson = flatLessons[i - 1];
+        previous = previousLesson.disabled ? null : previousLesson.path;
       }
       if (i < flatLessons.length - 1) {
-        next = flatLessons[i + 1].path;
+        const nextLesson = flatLessons[i + 1];
+        next = nextLesson.disabled ? null : nextLesson.path;
       }
       const props = {'next': next, 'previous': previous}
       const route = (
