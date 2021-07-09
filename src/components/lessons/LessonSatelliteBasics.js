@@ -15,7 +15,7 @@ const clock = new SimulatedClock(new Date(2021, 2, 1, 2, 30, 0, 0));
 payload.universe = new Universe(clock);;
 
 const content = (
-  <div className='lesson-content'>
+  <div>
     <h2>Satellites</h2>
     <p>
       The basic building block of the cryptosim simulator is the satellite.
@@ -64,27 +64,27 @@ class LessonSatelliteBasics extends React.Component {
     payload.universe.stations().clear();
     payload.universe.satellites().clear();
     return(
-      <div style={{'flex': '1 1 auto', 'overflowY': 'auto'}}>
-        <div className='split-pane-horizontal' style={{height: '100%'}}>
-          <div className='left-pane' style={{height: '100%'}}>
+        <div className='split-pane-horizontal'>
+          <div className='left-pane'>
             <div className='lesson'>
-              {content}
-              <div className="nav">
+              <div className="lesson-content">
+                {content}
+              </div>
+              <div className="pager">
                 <Link to={this.props.previous}>&lt; Previous</Link>
                 <Link to={this.props.next}>Next &gt;</Link>
               </div>
             </div>
           </div>
           <div className='right-pane'>
-            <div className='top-pane' style={{overflowY: 'scroll'}}>
-              <Console payload={payload} />
+            <div className='top-pane'>
+              <Console payload={payload} theme='dark'/>
             </div>
             <div className='bottom-pane'>
               <Map universe={payload.universe} gsnetwork={gsnetwork} center={center} />
             </div>
           </div>
         </div>
-      </div>
     )
   }
 }

@@ -1,24 +1,23 @@
-.lesson-content {
-  /*height:  100%;*/
-  width:  100%;
-}
-
 .lesson {
   height:  100%;
   padding:  10px;
   background-color: #8f95a2;
   overflow:  scroll;
+  display: flex;
+  flex-direction: column;
 }
 
-.lesson .nav {
-  margin-top: 20px;
-  margin-bottom:  10px;
+.lesson-content {
+  width:  100%;
+  height: 100%;
+  overflow-y:  scroll;
+}
+
+.lesson .pager {
   text-align: center;
-  /*position:  fixed;*/
-  /*bottom:  50px;*/
 }
 
-.lesson .nav a {
+.lesson .pager a {
   background-color: #6052a7;
   text-decoration: none;
   font-size:  1rem;
@@ -28,4 +27,41 @@
   padding: 8px;
   margin: 10px;
   width:  100px;
+  display: inline-block;
+}
+
+.split-pane-vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.split-pane-horizontal {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.right-pane {
+  /*height: 100%;*/
+  width: 50%;
+  border-left-width: 4px;
+  border-left-style: solid;
+  border-left-color:  #5e5380;
+}
+
+.left-pane {
+  height: 100%;
+  width: 50%;
+}
+
+.top-pane {
+  height: 50%;
+  border-bottom-width: 4px;
+  border-bottom-style: solid;
+  border-bottom-color:  #5e5380;
+  overflow-y: scroll;
+}
+
+.bottom-pane {
+  height: 50%;
 }

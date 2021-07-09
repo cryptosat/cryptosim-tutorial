@@ -53,16 +53,18 @@ class App extends React.Component {
     const routes = this.createRoutes();
     return (
       <Router>
-       <div className='main' style={{'display': 'flex', 'flexFlow': 'column', 'overflow': 'hidden'}}>
-        <div style={{height: '80px', 'flex': '0 0 50px'}}>
-          <NavBar />
-        </div>
-          <Switch>
-           {routes}
-           <Route path="/">
-              <Redirect to='/satellites/basics' />
-           </Route>
-          </Switch>
+        <div className='main'>
+          <div className='nav-container'>
+            <NavBar />
+          </div>
+          <div className='content'>
+            <Switch>
+              {routes}
+              <Route path="/">
+                <Redirect to='/satellites/basics' />
+              </Route>
+            </Switch>
+          </div>
         </div>
       </Router>
     );
