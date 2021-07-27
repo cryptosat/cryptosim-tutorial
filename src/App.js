@@ -8,12 +8,31 @@ import {
 import './App.css';
 import NavBar from './components/NavBar';
 import plan from './components/lessons/plan';
+import MultipleSatelliteDemo from './components/lessons/MultipleSatelliteDemo';
+import LessonOverview from './components/lessons/LessonOverview';
+import LessonCommunication from './components/lessons/LessonCommunication';
+import LessonVersion from './components/lessons/LessonVersion';
+import LessonPublicKeys from './components/lessons/LessonPublicKeys';
+import LessonTimestamp from './components/lessons/LessonTimestamp';
+import LessonPublicRandomness from './components/lessons/LessonPublicRandomness';
+import LessonPrivateRandomness from './components/lessons/LessonPrivateRandomness';
+import LessonSignature from './components/lessons/LessonSignature';
+import LessonNextOnline from './components/lessons/LessonNextOnline';
 import LessonSatelliteBasics from './components/lessons/LessonSatelliteBasics';
 import LessonGroundStationBasics from './components/lessons/LessonGroundStationBasics';
 
 const componentMap = new Map([
   ['LessonSatelliteBasics', LessonSatelliteBasics],
   ['LessonGroundStationBasics', LessonGroundStationBasics],
+  ['LessonOverview', LessonOverview],
+  ['LessonCommunication', LessonCommunication],
+  ['LessonVersion', LessonVersion],
+  ['LessonPublicKeys', LessonPublicKeys],
+  ['LessonTimestamp', LessonTimestamp],
+  ['LessonPublicRandomness', LessonPublicRandomness],
+  ['LessonPrivateRandomness', LessonPrivateRandomness],
+  ['LessonSignature', LessonSignature],
+  ['LessonNextOnline', LessonNextOnline],
 ]);
 
 class App extends React.Component {
@@ -62,6 +81,9 @@ class App extends React.Component {
           <div className='content'>
             <Switch>
               {routes}
+              <Route exact path='/multiple_satellite_demo'>
+                <MultipleSatelliteDemo />
+              </Route>
               <Route path="/">
                 <Redirect to='/satellites/basics' />
               </Route>
