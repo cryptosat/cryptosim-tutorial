@@ -20,7 +20,7 @@ const content = (
   <div>
     <h2>Private Randomness</h2>
     <p>
-      The cryptosatellite can serve private randomness to users. Users can
+      The cryptosat can serve private randomness to users. Users can
       supply their own public key and the cryptosate service will generate
       random bits and encrypt them with the user-provided key. The cryptosat
       also signs the message using its signature key. First, generate a local
@@ -39,7 +39,7 @@ nonce = nacl.randomBytes(nacl.box.nonceLength);`} />
     </p>
     <CodeSnippet code={`tracker.status();`} />
     <p>
-      After the satellite signed the message and transmits the signature back
+      After the cryptosat signed the message and transmits the signature back
       to earth, the status of the message will change to ‘Ready’ and the result
       of the request can be obtained by invoking the tracker’s result method:
     </p>

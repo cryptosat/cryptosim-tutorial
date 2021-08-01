@@ -30,8 +30,8 @@ const content = (
     </p>
     <CodeSnippet code={`cryptosat.getPublicEncryptionKey();`} />
     <p>
-      The keys are generated securely once the satellite is in orbit and remain
-      constant throughout the lifetime of the cryptosatellite.
+      The keys are generated securely once the cryptosat is in orbit and remain
+      constant throughout the lifetime of the cryptosat.
     </p>
   </div>
 );

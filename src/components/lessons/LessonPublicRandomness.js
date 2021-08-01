@@ -21,7 +21,7 @@ const content = (
     <h2>Public Randomness</h2>
     <p>
       The cryptosat periodically generates random bits and transmits them back
-      to earth. The public random values are signed by the satellite’s public
+      to earth. The public random values are signed by the cryptosat's public
       signing key. The random values and the corresponding signature can be
       obtained using the following API call:
     </p>

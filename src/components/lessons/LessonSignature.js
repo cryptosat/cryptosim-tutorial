@@ -35,7 +35,7 @@ const content = (
     </p>
     <CodeSnippet code={`tracker.status();`} />
     <p>
-      After the satellite signed the message and transmits the signature back to
+      After the cryptosat signed the message and transmits the signature back to
       earth, the status of the message will change to ‘Ready’ and the result of
       the request can be obtained by invoking the tracker’result method:
     </p>
