@@ -85,7 +85,7 @@ class App extends React.Component {
                 <MultipleSatelliteDemo />
               </Route>
               <Route path="/">
-                <Redirect to='/satellites/basics' />
+                <Redirect to='/getting-started/overview' />
               </Route>
             </Switch>
           </div>
