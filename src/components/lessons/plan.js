@@ -10,6 +10,7 @@ const plan = [
     lessons: [
       { name: 'Overview', component: 'LessonOverview', path: '/getting-started/overview', disabled: false },
       { name: 'Communication Windows', component: 'LessonCommunication', path: '/getting-started/communication', disabled: false },
+      { name: 'Asynchrony', component: 'LessonAsynchrony', path: '/getting-started/asynchrony', disabled: false },
     ],
   },
   {

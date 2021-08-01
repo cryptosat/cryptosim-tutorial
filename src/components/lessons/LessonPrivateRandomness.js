@@ -31,13 +31,19 @@ nonce = nacl.randomBytes(nacl.box.nonceLength);`} />
     <p>
       Then invoke the Cryptosat API call:
     </p>
-    <CodeSnippet code={`promise = cryptosat.getPrivateRandom(clientKey.publicKey, nonce);`} />
+    <CodeSnippet code={`tracker = cryptosat.getPrivateRandom(clientKey.publicKey, nonce);`} />
     <p>
-      The API call returns a promise which is fulfilled once the satellite
-      signed the message and transmitted the signature back to earth. When the
-      request has been fulfilled, obtain the result using the await keyword:
+      The API call returns a tracker object allowing the user to track the
+      status of the request. The status of the request can be obtained by
+      invoking the status method:
     </p>
-    <CodeSnippet code={`result = await promise;`} />
+    <CodeSnippet code={`tracker.status();`} />
+    <p>
+      After the satellite signed the message and transmits the signature back
+      to earth, the status of the message will change to ‘Ready’ and the result
+      of the request can be obtained by invoking the tracker’s result method:
+    </p>
+    <CodeSnippet code={`result = tracker.result();`} />
     <p>You can now decrypt the message using the following snippet:</p>
     <CodeSnippet code={`encryptionKey = cryptosat.getPublicEncryptionKey();
 plain = nacl.box.open(result.encryptedRandom, nonce, encryptionKey, clientKey.secretKey);`} />

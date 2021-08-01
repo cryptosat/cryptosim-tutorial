@@ -11,6 +11,7 @@ import plan from './components/lessons/plan';
 import MultipleSatelliteDemo from './components/lessons/MultipleSatelliteDemo';
 import LessonOverview from './components/lessons/LessonOverview';
 import LessonCommunication from './components/lessons/LessonCommunication';
+import LessonAsynchrony from './components/lessons/LessonAsynchrony';
 import LessonVersion from './components/lessons/LessonVersion';
 import LessonPublicKeys from './components/lessons/LessonPublicKeys';
 import LessonTimestamp from './components/lessons/LessonTimestamp';
@@ -26,6 +27,7 @@ const componentMap = new Map([
   ['LessonGroundStationBasics', LessonGroundStationBasics],
   ['LessonOverview', LessonOverview],
   ['LessonCommunication', LessonCommunication],
+  ['LessonAsynchrony', LessonAsynchrony],
   ['LessonVersion', LessonVersion],
   ['LessonPublicKeys', LessonPublicKeys],
   ['LessonTimestamp', LessonTimestamp],
