@@ -37,8 +37,7 @@ class LessonSignature extends React.Component {
   constructor(props) {
     super(props);
     this.payload = payload;
-    const clock = new SimulatedClock(new Date(2021, 2, 1, 2, 30, 0, 0));
-    clock.setSpeed(10);
+    const clock = new SimulatedClock(new Date(2021, 2, 1, 6, 50, 0, 0));
     clock.play();
     const universe = new Universe(clock);
     const ISS_TLE = [
@@ -56,7 +55,8 @@ class LessonSignature extends React.Component {
   } 
 
  render() {
-    const center = new GeoCoordinates(13.500122104857502, 1.9946736964921719, 0);
+    const zoom = 2.5;
+    const center = new GeoCoordinates(40.567952, -98.518132, 0);
     const gsnetwork = new GroundStationNetwork('empty');
     return(
         <div className='split-pane-horizontal'>
@@ -75,7 +75,9 @@ class LessonSignature extends React.Component {
               <Console payload={payload} theme='dark'/>
             </div>
             <div className='bottom-pane'>
-              <Map universe={this.payload.universe} gsnetwork={this.payload.gsnetwork} center={center} />
+              <Map universe={this.payload.universe}
+                   gsnetwork={this.payload.gsnetwork}
+                   center={center} zoom={zoom} />
             </div>
           </div>
         </div>

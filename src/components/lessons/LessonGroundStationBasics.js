@@ -11,7 +11,7 @@ import GeoCoordinates from '@cryptosat/cryptosim/lib/geoCoordinates';
 import GroundStationNetwork from '@cryptosat/cryptosim/lib/groundStationNetwork';
 import Universe from '@cryptosat/cryptosim/lib/universe';
 
-const clock = new SimulatedClock(new Date(2021, 2, 1, 2, 30, 0, 0));
+const clock = new SimulatedClock(new Date(2021, 2, 1, 6, 50, 0, 0));
 payload.universe = new Universe(clock);;
 
 const content = (
@@ -42,7 +42,8 @@ const station = new GroundStation(universe, 'houston', position);`
 class LessonGroundStationBasics extends React.Component {
 
  render() {
-    const center = new GeoCoordinates(30.8159954,-94.9617495, 0);
+    const zoom = 2.5;
+    const center = new GeoCoordinates(40.567952, -98.518132, 0);
     const gsnetwork = new GroundStationNetwork('empty');
     // TODO: replace with new universe.clear() method;
     payload.universe.stations().clear();
@@ -64,7 +65,9 @@ class LessonGroundStationBasics extends React.Component {
               <Console payload={payload} />
             </div>
             <div className='bottom-pane'>
-              <Map universe={payload.universe} gsnetwork={gsnetwork} center={center} zoom={5} />
+              <Map universe={this.payload.universe}
+                   gsnetwork={this.payload.gsnetwork}
+                   center={center} zoom={zoom} />
             </div>
           </div>
         </div>

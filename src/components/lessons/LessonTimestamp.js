@@ -42,9 +42,7 @@ class LessonTimestamp extends React.Component {
   constructor(props) {
     super(props);
     this.payload = payload;
-    const clock = new SimulatedClock(new Date(2021, 2, 1, 2, 30, 0, 0));
-    clock.setSpeed(10);
-    clock.play();
+    const clock = new SimulatedClock(new Date(2021, 2, 1, 6, 50, 0, 0));
     const universe = new Universe(clock);
     const ISS_TLE = [
       '1 25544U 98067A   21027.77992426  .00003336  00000-0  68893-4 0  9991',
@@ -61,8 +59,8 @@ class LessonTimestamp extends React.Component {
   }
 
  render() {
-    const center = new GeoCoordinates(13.500122104857502, 1.9946736964921719, 0);
-    const gsnetwork = new GroundStationNetwork('empty');
+    const zoom = 2.5;
+    const center = new GeoCoordinates(40.567952, -98.518132, 0);
     return(
         <div className='split-pane-horizontal'>
           <div className='left-pane'>
@@ -81,7 +79,9 @@ class LessonTimestamp extends React.Component {
               <Console payload={payload} theme='dark'/>
             </div>
             <div className='bottom-pane'>
-              <Map universe={this.payload.universe} gsnetwork={this.payload.gsnetwork} center={center} />
+              <Map universe={this.payload.universe}
+                   gsnetwork={this.payload.gsnetwork}
+                   center={center} zoom={zoom} />
             </div>
           </div>
         </div>
