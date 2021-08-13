@@ -16,6 +16,13 @@ class MultipleSatelliteDemo extends React.Component {
       displayCoverage: false,
       displayTrajectory: false,
     };
+
+    // WARNING: ugly hack to remove top bar.
+    setTimeout(() => {
+      const navContainer = document.getElementsByClassName('nav-container')[0];
+      console.log(navContainer);
+      if (navContainer) navContainer.remove();
+    }, 2000);
   }
 
   setupUniverse() {
