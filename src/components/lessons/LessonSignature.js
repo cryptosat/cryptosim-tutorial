@@ -48,7 +48,7 @@ const content = (
     <CodeSnippet code={`key = cryptosat.getPublicSigningKey();
 msg = binary.appendBuffers(
       binary.str2ab('hello, world!'),
-      binary.intToArrayBuffer(result.timestamp));
+      binary.int2ab(result.timestamp));
 nacl.sign.detached.verify(msg, result.signature, key);`} />
   </div>
 );

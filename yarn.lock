@@ -1240,10 +1240,10 @@
     typescript "^4.2.3"
     uuid "^8.3.2"
 
-"@cryptosat/cryptosim@^0.3.2":
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/@cryptosat/cryptosim/-/cryptosim-0.3.2.tgz#774829ff3bafd7c33b47c96944b55d490c6ba85f"
-  integrity sha512-0CxXpqdRxwSQx47uoSFneBZriN3Ghy8CCz8bAPyOQ0PKo5eMs5VhiGtkoKY4Sb5/ZFbAqAep5bC46NBfnD+/1g==
+"@cryptosat/cryptosim@^0.3.3":
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/@cryptosat/cryptosim/-/cryptosim-0.3.3.tgz#35a4f3fb6760fafa4582aa4ee3fd7e74c7eaa25c"
+  integrity sha512-cJhKx53biVSDxKa4NFlhcavsd/pugk6D0EjlvsfWhWWCeBmZ8EE2wwslyL87oxRWhwjTDAcpMkLJesuLf82EZw==
   dependencies:
     promise-timeout "^1.3.0"
     satellite.js "^4.1.3"

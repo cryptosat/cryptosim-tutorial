@@ -32,7 +32,7 @@ const content = (
       the following snippet:
     </p>
     <CodeSnippet code={`key = cryptosat.getPublicSigningKey();
-timestamp = binary.intToArrayBuffer(result.timestamp);
+timestamp = binary.int2ab(result.timestamp);
 nacl.sign.detached.verify(timestamp, result.signature, key);`} />
   </div>
 );
