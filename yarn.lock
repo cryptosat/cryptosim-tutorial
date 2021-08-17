@@ -1216,10 +1216,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@cryptosat/cryptosim-visualization@^0.1.3":
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/@cryptosat/cryptosim-visualization/-/cryptosim-visualization-0.1.3.tgz#24f4edb94c3c3092768de660dad1b32daf417608"
-  integrity sha512-FpQlyYRIVM4O5jUEEDwu1f/LXOu3hVPBVL68fbGikeqtXJnEPIkf2RHxz4MzwNILlGuRbmVHtvRO6Yxu3Rn5fg==
+"@cryptosat/cryptosim-visualization@^0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@cryptosat/cryptosim-visualization/-/cryptosim-visualization-0.1.4.tgz#06cb223a9967ac4f6fc16aa6e7fe9f84a391ef86"
+  integrity sha512-g0gTmazLqQ0Jo65oV31p1CwZ324tOVhJV1QMmlLAnIxJlQJknSGeXiOsu0WPKrtVEbqlBEOhSBW+8jFo0wvciQ==
   dependencies:
     "@cryptosat/cryptosim" "^0.1.6"
     "@fortawesome/fontawesome-svg-core" "^1.2.35"
