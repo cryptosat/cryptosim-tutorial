@@ -35,12 +35,12 @@ const content = (
       query the status of the request. For example, when issuing a signing
       request:
     </p>
-    <CodeSnippet code={`tracker = cryptosat.sign('hello, world!');`} />
+    <CodeSnippet code={`request = cryptosat.sign('hello, world!');`} />
     <p>
       The tracker object can be queried in the following manner to determine the
       status of the request:
     </p>
-    <CodeSnippet code={`tracker.status();`} />
+    <CodeSnippet code={`request.status();`} />
     <p>
       The status can be one of <i>Pending</i>, <i>Sent</i> and <i>Ready</i>.
       A <i>Pending</i> status indicates the request is waiting for the cryptosat
@@ -50,7 +50,7 @@ const content = (
       result is ready to be consumed by the user. To obtain the result of the
       operation issue the following call:
     </p>
-    <CodeSnippet code={`tracker.result();`} />
+    <CodeSnippet code={`request.result();`} />
     <p>
       The result will return null until the status of the request
       is <i>Ready</i>.
