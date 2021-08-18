@@ -12,11 +12,10 @@ class ResizablePanelsContainer extends React.Component {
     this.onMouseMove = this.onMouseMove.bind(this);
     this.onMouseDown = this.onMouseDown.bind(this);
     this.onMouseUp = this.onMouseUp.bind(this);
-    this.numPanels = 3;
     this.state = {
       dragging: false,
       contentWidth: null,
-      panelWidths: [200, 200, 300],
+      panelWidths: new Array(this.props.children.length).fill(0),
       selectedDividerIndex: null,
       selectedDividerX: null,
     }
@@ -24,9 +23,11 @@ class ResizablePanelsContainer extends React.Component {
 
   componentDidMount() {
     const contentWidth = this.ref.current.offsetWidth;
+    const width = contentWidth / this.props.children.length;
+    const panelWidths = this.state.panelWidths.fill(width);
     this.setState({
       contentWidth: contentWidth,
-      panelWidths: [200, 400, contentWidth - (200 + 400)],
+      panelWidths: panelWidths,
     });
   }
 
@@ -48,7 +49,7 @@ class ResizablePanelsContainer extends React.Component {
     delta = Math.min(delta, sum(widths.slice(index + 1)));
     widths[index] += delta;
     let shrinkAmount = -delta;
-    for (let i = index + 1; i < this.numPanels; ++i) {
+    for (let i = index + 1; i < this.props.children.length; ++i) {
       widths[i] += shrinkAmount;
       if (widths[i] > 0) {
         break;
@@ -117,7 +118,7 @@ class ResizablePanelsContainer extends React.Component {
     panels.pop();
 
     return (
-      <div ref={this.ref} style={{height: '100%', width: '100%'}}
+      <div ref={this.ref} className='panel-container' style={{height: '100%', width: '100%'}}
           onMouseMove={this.onMouseMove}
           onMouseUp={this.onMouseUp}
           onMouseLeave={this.onMouseLeave}>
