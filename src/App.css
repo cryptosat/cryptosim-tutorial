@@ -33,7 +33,9 @@
 
 .divider {
   display: inline-block;
-  height:  100%;
+  height:  60px;
+  position: absolute;
+  top:  100px;
   width:  4px;
   background-color: green;
   cursor: col-resize;
