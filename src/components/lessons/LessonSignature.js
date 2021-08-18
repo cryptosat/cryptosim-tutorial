@@ -27,19 +27,19 @@ const content = (
       transmission of the message to the appropriate ground station when the
       cryptosat is online. To sign a message invoke the following API call:
     </p>
-    <CodeSnippet code={`tracker = cryptosat.sign('hello, world!');`} />
+    <CodeSnippet code={`sigRequest = cryptosat.sign('hello, world!');`} />
     <p>
-      The API call returns a tracker object allowing the user to track the
-      status of the request. The status of the request can be obtained by
+      The API call returns a request object allowing the user to track the
+      the request status. The status of the request can be obtained by
       invoking the status method:
     </p>
-    <CodeSnippet code={`tracker.status();`} />
+    <CodeSnippet code={`sigRequest.status();`} />
     <p>
       After the cryptosat signed the message and transmits the signature back to
       earth, the status of the message will change to ‘Ready’ and the result of
       the request can be obtained by invoking the tracker’result method:
     </p>
-    <CodeSnippet code={`result = tracker.result();`} />
+    <CodeSnippet code={`result = sigRequest.result();`} />
     <p>
       You can verify that the signature is valid using the
       <a href="https://nacl.cr.yp.to/box.html">NaCl</a> library as shown in the
