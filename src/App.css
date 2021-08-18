@@ -41,3 +41,7 @@
   cursor: col-resize;
   flex-shrink: 0;
 }
+
+.panel-container .divider:nth-of-type(4) {
+  top:  240px;
+}
