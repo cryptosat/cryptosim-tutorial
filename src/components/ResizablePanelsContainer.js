@@ -3,6 +3,14 @@ import '../App.css';  // DELETE
 
 const sum = (arr) => arr.reduce((a, b) => a + b);
 
+const cumsum = ((arr) => {
+  let result = [arr[0]]
+  for (let i = 1; i < arr.length; ++i) {
+    result[i] = result[i - 1] + arr[i];
+  }
+  return result;
+});
+
 class ResizablePanelsContainer extends React.Component {
 
   constructor(props) {
@@ -98,22 +106,28 @@ class ResizablePanelsContainer extends React.Component {
   }
 
   render() {
-    const childContainerStyle = {
-      display: 'inlineBlock',
-      height: '100%',
-    }
-
     let panels = [];
+    const lefts = cumsum([0, ...this.state.panelWidths]);
     for (let i = 0; i < this.props.children.length; ++i) {
-      const c = this.props.children[i];
-      const s = {
+      const panel = this.props.children[i];
+      const panelStyle = {
         display: 'inline-block',
+        position: 'absolute',
         height: '100%',
+        wordWrap: 'break-word',
+        left: lefts[i],
         width: this.state.panelWidths[i],
       };
+      const dividerWidth = 4;
+      const dividerStyle = {
+        display: 'inline-block',
+        position: 'absolute',
+        left: lefts[i + 1] - dividerWidth,
+        width: dividerWidth,
+      }
       const f = (e) => {this.onMouseDown(i, e)}
-      panels.push(<div style={s}>{c}</div>);
-      panels.push(<div className='divider' onMouseDown={f} />);
+      panels.push(<div className='panel' style={panelStyle}>{panel}</div>);
+      panels.push(<div className='divider' style={dividerStyle} onMouseDown={f} />);
     }
     panels.pop();
 
