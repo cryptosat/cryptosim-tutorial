@@ -1,20 +1,31 @@
 body {
   overscroll-behavior: none;
+  overflow-x: hidden;
 }
 
 .main {
-  height:  100%;
-  width:  100%;
+  height:  100vh;
+  width:  100vw;
+  display: flex;
+  flex-flow: column;
+  overflow: hidden;
+}
+
+.main .nav-container {
+  z-index: 2;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 55px;
+  height: 100%;
+  width: 100%;
 }
 
 .content {
-  /*display:  flex;*/
-  /*flex-direction: row;*/
-  /*align-items: stretch;*/
-  /*flex-wrap:  nowrap;*/
+  flex-grow:  1;
+  flex-shrink: 1;
+  flex-basis: auto;
   overflow-y:  auto;
-  height:  100%;
-  width:  100%;
+  overflow-x: hidden;
 }
 
 .left {
@@ -38,14 +49,41 @@ body {
 .divider {
   display: inline-block;
   height:  60px;
-  position: absolute;
   top:  100px;
   width:  4px;
   background-color: green;
   cursor: col-resize;
-  flex-shrink: 0;
+  z-index: 2;
+}
+
+.panel-container {
+  height:  100%;
+  width:  100%;
 }
 
 .panel-container .divider:nth-of-type(4) {
   top:  240px;
+}
+
+.panel {
+  z-index: 2;
+}
+
+.panel-container .panel:nth-of-type(3) {
+  z-index: 1;
+}
+
+.map-revealer {
+  height: 100%;
+}
+
+.map-container {
+  position: fixed;
+  left:  0;
+  top:  0;
+  width: 100vw;
+}
+
+.mapboxgl-ctrl-attrib-inner {
+  z-index: -1;
 }
