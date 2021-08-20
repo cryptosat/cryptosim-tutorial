@@ -11,7 +11,7 @@ const cumsum = ((arr) => {
   return result;
 });
 
-class ResizablePanelsContainer extends React.Component {
+class PanelContainer extends React.Component {
 
   constructor(props) {
     super(props);
@@ -20,23 +20,46 @@ class ResizablePanelsContainer extends React.Component {
     this.onMouseMove = this.onMouseMove.bind(this);
     this.onMouseDown = this.onMouseDown.bind(this);
     this.onMouseUp = this.onMouseUp.bind(this);
+    this.onResize = this.onResize.bind(this);
     this.state = {
       dragging: false,
       contentWidth: null,
       panelWidths: new Array(this.props.children.length).fill(0),
       selectedDividerIndex: null,
       selectedDividerX: null,
+      initializedWidths: false,
     }
+    window.addEventListener('resize', this.onResize);
   }
 
-  componentDidMount() {
+  pauseEvent(e) {
+    if(e.stopPropagation) e.stopPropagation();
+    if(e.preventDefault) e.preventDefault();
+    e.cancelBubble=true;
+    e.returnValue=false;
+    return false;
+  }
+
+  onResize() {
+    if (this.ref.current == null) return;
+    const uniform = 1. / this.props.children.length;
+    let ratios;
+    if (!this.state.initializedWidths) {
+      ratios = new Array(this.props.children.length).fill(uniform);
+    } else {
+      ratios = this.state.panelWidths.map((w) => w / this.state.contentWidth);
+    }
     const contentWidth = this.ref.current.offsetWidth;
-    const width = contentWidth / this.props.children.length;
-    const panelWidths = this.state.panelWidths.fill(width);
+    const panelWidths = ratios.map((r) => contentWidth * r);
     this.setState({
       contentWidth: contentWidth,
       panelWidths: panelWidths,
+      initializedWidths: true,
     });
+  }
+
+  componentDidMount() {
+    this.onResize();
   }
 
   onMouseDown(index, e) {
@@ -44,13 +67,15 @@ class ResizablePanelsContainer extends React.Component {
       dragging: true,
       selectedDividerIndex: index,
       selectedDividerX: e.clientX,
-    })
+    });
+    this.pauseEvent(e);
   }
 
   onMouseUp(e) {
     this.setState({
       dragging: false,
     });
+    this.pauseEvent(e);
   }
 
   expandRight(widths, index, delta) {
@@ -103,6 +128,7 @@ class ResizablePanelsContainer extends React.Component {
       selectedDividerX: e.clientX,
       panelWidths: widths,
     });
+    this.pauseEvent(e);
   }
 
   render() {
@@ -126,8 +152,8 @@ class ResizablePanelsContainer extends React.Component {
         width: dividerWidth,
       }
       const f = (e) => {this.onMouseDown(i, e)}
-      panels.push(<div className='panel' style={panelStyle}>{panel}</div>);
-      panels.push(<div className='divider' style={dividerStyle} onMouseDown={f} />);
+      panels.push(<div className='panel' key={'panels-' + i} style={panelStyle}>{panel}</div>);
+      panels.push(<div className='divider' key={'divider-' + i} style={dividerStyle} onMouseDown={f} />);
     }
     panels.pop();
 
@@ -143,4 +169,4 @@ class ResizablePanelsContainer extends React.Component {
 
 }
 
-export default ResizablePanelsContainer;
+export default PanelContainer;
