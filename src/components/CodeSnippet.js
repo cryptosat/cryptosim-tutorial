@@ -1,7 +1,7 @@
 import React from 'react';
 import './CodeSnippet.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClipboard } from '@fortawesome/free-solid-svg-icons'
+import { faCopy} from '@fortawesome/pro-light-svg-icons'
 
 
 function copyToClipboard(text) {
@@ -24,12 +24,14 @@ class CodeSnippet extends React.Component {
     return(
       <div className='code-snippet'>
         <pre>
-          <button onClick={this.copy.bind(this)}>
-            <FontAwesomeIcon icon={faClipboard}/>
-          </button>
           <code>
             {this.props.code}
           </code>
+            <div className='icon-container'>
+              <button onClick={this.copy.bind(this)}>
+                <FontAwesomeIcon icon={faCopy}/>
+              </button>
+            </div>
         </pre>
       </div>
     )

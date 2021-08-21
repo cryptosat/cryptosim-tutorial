@@ -2,9 +2,22 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import './Menu.css';
 import plan from './lessons/plan';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/pro-light-svg-icons'
 
 
 class Menu extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.props = props;
+    this.closeMenu = this.closeMenu.bind(this);
+  }
+
+  closeMenu(e) {
+    e.stopPropagation();
+    this.props.setMenuVisible(false);
+  }
 
  render() {
     const visibilityClass = this.props.visible ? 'show' : 'hide';
@@ -33,6 +46,9 @@ class Menu extends React.Component {
     }
     return (
       <div id='sideMenu' className={visibilityClass}>
+          <button onClick={this.closeMenu}>
+            <FontAwesomeIcon icon={faTimes}/>
+          </button>
         <ul>
           {items}
         </ul>

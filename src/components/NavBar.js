@@ -1,26 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './NavBar.css';
+import logo from './cryptosat_logo.svg';
 import Menu from './Menu.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faBug } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faBug } from '@fortawesome/pro-light-svg-icons'
 
 class NavBar extends React.Component {
 
   constructor(props) {
     super(props);
+    this.fileBug = this.fileBug.bind(this);
+    this.setMenuVisible = this.setMenuVisible.bind(this);
+    this.toggleMenu = this.toggleMenu.bind(this);
     this.state = {
       menuVisible: false,
-    }
-    this.fileBug = this.fileBug.bind(this);
-    this.toggleMenu = this.toggleMenu.bind(this);
+    };
+  }
+
+  setMenuVisible(visible) {
+    this.setState({
+      menuVisible: visible
+    });
   }
 
   toggleMenu(e) {
     e.stopPropagation();
-    this.setState({
-      menuVisible: !this.state.menuVisible
-    });
+    this.setMenuVisible(!this.state.menuVisible);
   }
 
   fileBug(e) {
@@ -29,20 +35,21 @@ class NavBar extends React.Component {
   }
 
  render() {
-    const overlay = this.state.menuVisible ? (
-      <div id='sideMenuOverlay' onClick={this.toggleMenu}></div>
-    ) : null;
     return(
       <div className='navbar'>
-        {overlay}
-        <Menu visible={this.state.menuVisible} />
-        <Link to="/">Cryptosim Tutorial</Link>
-        <button onClick={this.toggleMenu}>
-          <FontAwesomeIcon icon={faBars}/>
-        </button>
-        <button onClick={this.fileBug}>
-          <FontAwesomeIcon icon={faBug}/>
-        </button>
+        <Menu visible={this.state.menuVisible} setMenuVisible={this.setMenuVisible}/>
+        <div className='title-container'>
+          <img src={logo} />
+          <Link to="/">Crytposat <b>Simulator</b></Link>
+        </div>
+        <div className='actions-container'>
+          <button onClick={this.fileBug}>
+            <FontAwesomeIcon icon={faBug}/>
+          </button>
+          <button onClick={this.toggleMenu}>
+            <FontAwesomeIcon icon={faBars}/>
+          </button>
+        </div>
       </div>
     )
   }

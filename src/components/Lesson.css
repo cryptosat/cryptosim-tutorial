@@ -1,0 +1,30 @@
+.lesson {
+  height:  100%;
+  background-color: #242830;
+  overflow:  scroll;
+  display: flex;
+  flex-direction: column;
+  color: #777E8B;
+  box-sizing: border-box;
+}
+
+.lesson-content {
+  width:  100%;
+  padding:  16px;
+  overflow-y:  scroll;
+  overflow-x: hidden;
+  margin-bottom: 40px;
+  box-sizing: border-box;
+}
+
+.lesson-content h2 {
+  border-bottom-color: #31353E;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  padding-bottom: 16px;
+  font-weight: 400;
+}
+
+.lesson-content a {
+  color: #a9a9a9
+}

@@ -1,6 +1,8 @@
 body {
   overscroll-behavior: none;
   overflow-x: hidden;
+  font-family: poppins;
+  font-size: 0.9rem;
 }
 
 .main {
@@ -12,10 +14,10 @@ body {
 }
 
 .main .nav-container {
-  z-index: 2;
+  z-index: 100;
   flex-grow: 0;
   flex-shrink: 0;
-  flex-basis: 55px;
+  flex-basis: 45px;
   height: 100%;
   width: 100%;
 }
@@ -48,10 +50,10 @@ body {
 
 .divider {
   display: inline-block;
-  height:  60px;
+  height:  86px;
   top:  100px;
   width:  4px;
-  background-color: green;
+  background-color: #6187EB;
   cursor: col-resize;
   z-index: 2;
 }
@@ -59,21 +61,25 @@ body {
 .panel-container {
   height:  100%;
   width:  100%;
+  position: relative;
+  box-sizing: border-box;
 }
 
 .panel-container .divider:nth-of-type(4) {
-  top:  240px;
+  top:  440px;
 }
 
 .panel {
+  box-sizing: border-box;
   z-index: 2;
+  overflow-y: scroll;
 }
 
 .panel-container .panel:nth-of-type(3) {
   z-index: 1;
 }
 
-.map-revealer {
+.map-hole {
   height: 100%;
 }
 
