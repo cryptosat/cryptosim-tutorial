@@ -100,8 +100,6 @@ class App extends React.Component {
         next = nextLesson.disabled ? null : nextLesson.path;
       }
       const content = componentMap.get(lesson.content);
-      console.log(content);
-      const props = {'next': next, 'previous': previous}
       const route = (
         <Route key={lesson.path} exact path={lesson.path}>
           <Lesson content={content} previous={previous} next={next} />

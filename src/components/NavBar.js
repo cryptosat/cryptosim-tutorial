@@ -39,7 +39,7 @@ class NavBar extends React.Component {
       <div className='navbar'>
         <Menu visible={this.state.menuVisible} setMenuVisible={this.setMenuVisible}/>
         <div className='title-container'>
-          <img src={logo} />
+          <img src={logo} alt=''/>
           <Link to="/">Crytposat <b>Simulator</b></Link>
         </div>
         <div className='actions-container'>

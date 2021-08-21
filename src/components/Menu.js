@@ -23,20 +23,19 @@ class Menu extends React.Component {
     const visibilityClass = this.props.visible ? 'show' : 'hide';
     const items = [];
     for (const section of Object.values(plan)) {
-        // TODO: replace key with unique path
-      items.push(<li key={Math.random()} className='section'>{section.name}</li>);
+      items.push(<li key={section.name} className='section'>{section.name}</li>);
       for (const lesson of section.lessons) {
         // TODO: replace key with unique path
         let elem = null;
         if (lesson.disabled) {
           elem = (
-            <li key={Math.random()}>
-              <a className="disabled">{lesson.name}</a>
+            <li key={lesson.path}>
+              <a href={lesson.path} className="disabled">{lesson.name}</a>
             </li>
           );
         } else {
           elem = (
-            <li key={Math.random()}>
+            <li key={lesson.path}>
               <Link to={lesson.path}>{lesson.name}</Link>
             </li>
           );

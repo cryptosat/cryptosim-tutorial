@@ -1,9 +1,4 @@
 
-// These should be removed once there exists a lesson component and valid route
-// for each menu item.
-const PLACEHOLDER_COMPONENT = 'LessonSatelliteBasics'
-const PLACEHOLDER_LINK = '/placeholder'
-
 const plan = [
  {
     name: 'Getting Started',
@@ -25,5 +20,6 @@ const plan = [
       { name: 'Next Online', content: 'nextOnline', path: '/cryptosat-api/next-online', disabled: false },
     ],
   },
-]
+];
+
 export default plan;

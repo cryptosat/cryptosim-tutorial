@@ -115,7 +115,6 @@ class PanelContainer extends React.Component {
     const index = this.state.selectedDividerIndex;
     const didExpandRight = e.clientX > this.state.selectedDividerX;
     let widths = this.state.panelWidths;
-    let maxWidth = this.state.contentWidth;
     let delta = Math.abs(e.clientX - this.state.selectedDividerX);
 
     if (didExpandRight) {
@@ -123,7 +122,6 @@ class PanelContainer extends React.Component {
     } else {
       widths = this.expandLeft(widths, index, delta);
     }
-    const minWidth = 1;
     this.setState({
       selectedDividerX: e.clientX,
       panelWidths: widths,

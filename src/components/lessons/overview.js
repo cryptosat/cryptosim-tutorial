@@ -1,5 +1,3 @@
-import CodeSnippet from '../CodeSnippet';
-
 const content = (
   <div>
     <h2>Welcome</h2>
