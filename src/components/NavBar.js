@@ -19,7 +19,6 @@ class NavBar extends React.Component {
     };
 
     window.document.addEventListener('keydown', (e) => {
-      console.log(e);
       if (e.altKey && e.ctrlKey) {
         this.setState({
           easterEgg: true,
