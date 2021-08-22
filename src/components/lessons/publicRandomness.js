@@ -11,9 +11,9 @@ const content = (
     </p>
     <CodeSnippet code={`result = cryptosat.getPublicRandom();`} />
     <p>
-      You can verify that the signature is valid using the
-      <a href="https://nacl.cr.yp.to/box.html">NaCl</a> library as shown in
-      the following snippet:
+      You can verify the signature of the timestamp with
+      the <a href="https://nacl.cr.yp.to/box.html">NaCl</a> library as shown
+      in the following snippet:
     </p>
     <CodeSnippet code={`key = cryptosat.getPublicSigningKey();
 nacl.sign.detached.verify(result.publicRandom, result.signature, key);`} />

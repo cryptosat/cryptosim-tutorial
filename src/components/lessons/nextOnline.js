@@ -9,8 +9,8 @@ const content = (
     </p>
     <CodeSnippet code={`cryptosat.nextOnlineTime();`} />
     <p>
-      The result will be javascript `Date` object representing the next time
-      the cryptosat will be available. If the cryptosat is currently online
+      The result will be a javascript <i>Date</i> object of the next
+      time the cryptosat will be available. If the cryptosat is currently online
       then the current timestamp will be returned.
     </p>
   </div>

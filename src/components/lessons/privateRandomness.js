@@ -5,10 +5,13 @@ const content = (
     <h2>Private Randomness</h2>
     <p>
       The cryptosat can serve private randomness to users. Users can
-      supply their own public key and the cryptosate service will generate
+      supply their own public key and the cryptosat service will generate
       random bits and encrypt them with the user-provided key. The cryptosat
-      also signs the message using its signature key. First, generate a local
-      key pair and a nonce.
+      also signs the message using its signature key.
+    </p>
+    <p>
+      To obtain private bits from the cryptosat first generate a local
+      key pair and a nonce:
     </p>
     <CodeSnippet code={`clientKey = nacl.box.keyPair();
 nonce = nacl.randomBytes(nacl.box.nonceLength);`} />
@@ -23,11 +26,11 @@ nonce = nacl.randomBytes(nacl.box.nonceLength);`} />
     <CodeSnippet code={`request.status();`} />
     <p>
       After the cryptosat signed the message and transmits the signature back
-      to earth, the status of the message will change to ‘Ready’ and the result
-      of the request can be obtained by invoking the tracker’s result method:
+      to earth, the status of the message will change to <i>Ready</i> and the result
+      of the request can be obtained by invoking the result method:
     </p>
     <CodeSnippet code={`result = request.result();`} />
-    <p>You can now decrypt the message using the following snippet:</p>
+    <p>You can then decrypt the message using the following snippet:</p>
     <CodeSnippet code={`encryptionKey = cryptosat.getPublicEncryptionKey();
 plain = nacl.box.open(result.encryptedRandom, nonce, encryptionKey, clientKey.secretKey);`} />
     <p>And verify that the signature is valid using the this snippet:</p>
