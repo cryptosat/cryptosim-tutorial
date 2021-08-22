@@ -4,7 +4,7 @@
   "private": false,
   "dependencies": {
     "@cryptosat/cryptosim": "^0.3.4",
-    "@cryptosat/cryptosim-visualization": "^0.2.0",
+    "@cryptosat/cryptosim-visualization": "^0.2.1",
     "@cryptosat/jsconsole": "^0.2.2",
     "@fortawesome/fontawesome-pro": "^5.15.4",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",

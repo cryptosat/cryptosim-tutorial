@@ -4,12 +4,13 @@ import {
   Switch,
   Route,
   Redirect,
+  withRouter,
 } from "react-router-dom";
 import './App.css';
 import NavBar from './components/NavBar';
 import PanelContainer from './components/PanelContainer';
 import plan from './components/lessons/plan';
-import MultipleSatelliteDemo from './components/lessons/MultipleSatelliteDemo';
+import MultiSatDemo from './components/MultiSatDemo';
 import Lesson from './components/Lesson';
 
 import overview from './components/lessons/overview';
@@ -47,6 +48,20 @@ const componentMap = new Map([
   ['signature', signature],
   ['nextOnline', nextOnline],
 ])
+
+
+/* This is an ugly hack in order to make MultiSatDemo override the entire
+ * page. */
+class AppContainer extends React.Component {
+  render() {
+    const AppWithRouter = withRouter(App);
+    return (
+      <Router>
+        <AppWithRouter />
+      </Router>
+    );
+  }
+}
 
 class App extends React.Component {
 
@@ -111,39 +126,38 @@ class App extends React.Component {
   }
 
   render() {
+    if (this.props.location.pathname === '/multisat') {
+      return <MultiSatDemo />;
+    }
+
     const zoom = 2.5;
     const center = new GeoCoordinates(40.567952, -98.518132, 0);
     const routes = this.createRoutes();
     return (
-      <Router>
-        <div className='main'>
-          <div className='nav-container'>
-            <NavBar />
-          </div>
-          <div className='content'>
-            <PanelContainer>
-              <Console theme='dark' payload={this.payload}/>
-              <div className='map-hole'>
-                <WorldMap universe={this.universe}
-                   gsnetwork={this.gsnetwork}
-                   center={center} zoom={zoom}/>
-              </div>
-              <Switch>
-                {routes}
-                <Route exact path='/multisat'>
-                  <MultipleSatelliteDemo />
-                </Route>
-                <Route path="/">
-                  <Redirect to='/getting-started/overview' />
-                </Route>
-              </Switch>
-            </PanelContainer>
-          </div>
+      <div className='main'>
+        <div className='nav-container'>
+          <NavBar />
         </div>
-      </Router>
+        <div className='content'>
+          <PanelContainer>
+            <Console theme='dark' payload={this.payload}/>
+            <div className='map-hole'>
+              <WorldMap universe={this.universe}
+                 gsnetwork={this.gsnetwork}
+                 center={center} zoom={zoom}/>
+            </div>
+            <Switch>
+              {routes}
+              <Route path="/">
+                <Redirect to='/getting-started/overview' />
+              </Route>
+            </Switch>
+          </PanelContainer>
+        </div>
+      </div>
     );
   }
 
 }
 
-export default App;
+export default AppContainer;
