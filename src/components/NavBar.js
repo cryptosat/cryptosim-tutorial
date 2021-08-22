@@ -15,7 +15,17 @@ class NavBar extends React.Component {
     this.toggleMenu = this.toggleMenu.bind(this);
     this.state = {
       menuVisible: false,
+      easterEgg: false,
     };
+
+    window.document.addEventListener('keydown', (e) => {
+      console.log(e);
+      if (e.altKey && e.ctrlKey) {
+        this.setState({
+          easterEgg: true,
+        })
+      }
+    });
   }
 
   setMenuVisible(visible) {
@@ -34,13 +44,16 @@ class NavBar extends React.Component {
     window.open("https://github.com/cryptosat/cryptosim-tutorial/issues/new");
   }
 
- render() {
+  render() {
+    const href = this.state.easterEgg ? '/multisat' : '/';
     return(
       <div className='navbar'>
         <Menu visible={this.state.menuVisible} setMenuVisible={this.setMenuVisible}/>
         <div className='title-container'>
-          <img src={logo} alt=''/>
-          <Link to="/">Crytposat <b>Simulator</b></Link>
+          <Link to={href}>
+            <img src={logo} alt=''/>
+            Crytposat <b>Simulator</b>
+          </Link>
         </div>
         <div className='actions-container'>
           <button onClick={this.fileBug}>
