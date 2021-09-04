@@ -72,7 +72,7 @@ class App extends React.Component {
 
   setupUniverse() {
     const clock = new SimulatedClock(new Date(2021, 2, 1, 6, 50, 0, 0));
-    clock.setSpeed(1);
+    clock.setSpeed(8);
     clock.play();
     const universe = new Universe(clock);
 
