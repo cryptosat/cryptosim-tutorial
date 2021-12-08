@@ -6,6 +6,7 @@ import {
   Redirect,
   withRouter,
 } from "react-router-dom";
+import tweetnacl from 'tweetnacl';
 import './App.css';
 import NavBar from './components/NavBar';
 import PanelContainer from './components/PanelContainer';
@@ -34,6 +35,7 @@ import Universe from '@cryptosat/cryptosim/lib/universe';
 import Satellite from '@cryptosat/cryptosim/lib/satellite';
 import MainService from '@cryptosat/cryptosim/lib/services/main';
 import MainClient from '@cryptosat/cryptosim/lib/clients/main';
+import binary from '@cryptosat/cryptosim/lib/binary';
 
 
 const componentMap = new Map([
@@ -88,7 +90,11 @@ class App extends React.Component {
     sat.bindService('main', mainService);
     const client = new MainClient(universe, sat, gsnetwork, 'main');
 
-    this.payload = {cryptosat: client};
+    this.payload = {
+      cryptosat: client,
+      binary: binary,
+      nacl: tweetnacl,
+    };
     this.universe = universe;
     this.gsnetwork = gsnetwork;
   }
