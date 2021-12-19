@@ -73,7 +73,18 @@ class App extends React.Component {
   }
 
   setupUniverse() {
-    const clock = new SimulatedClock(new Date(2021, 2, 1, 6, 50, 0, 0));
+    // This is an ugly hack to make the visualization display the satellite
+    // at the same coordiantes regardless of the local time. It's a "hack"
+    // because the javascript Date object operates in UTC and has no notion of
+    // a timezone. The TLE specification is also timezone agnostic and so it
+    // is unclear where the timezone effect is coming from. Since this date was
+    // chosen in PST, this the hack does an effective timezone conversion to
+    // the equivalent PST time of the chosen timestamp.
+    let timestamp = new Date(2021, 2, 1, 6, 50, 0, 0);
+    let offset = (8 * 60 - timestamp.getTimezoneOffset()) * 60 * 1000;
+    timestamp.setMilliseconds(timestamp.getMilliseconds() + offset);
+
+    const clock = new SimulatedClock(timestamp);
     clock.setSpeed(8);
     clock.play();
     const universe = new Universe(clock);
