@@ -150,6 +150,24 @@ class App extends React.Component {
     const zoom = 2.5;
     const center = new GeoCoordinates(40.567952, -98.518132, 0);
     const routes = this.createRoutes();
+
+    const leftPanelContent = (
+            <Switch>
+              {routes}
+              <Route path="/">
+                <Redirect to='/getting-started/overview' />
+              </Route>
+            </Switch>
+    )
+
+    const middlePanelContent = (
+        <div className='map-hole'>
+          <WorldMap universe={this.universe}
+                 gsnetwork={this.gsnetwork}
+                 center={center} zoom={zoom}/>
+        </div>
+    )
+
     return (
       <div className='main'>
         <div className='nav-container'>
@@ -157,18 +175,9 @@ class App extends React.Component {
         </div>
         <div className='content'>
           <PanelContainer>
+            {leftPanelContent}
+            {middlePanelContent}
             <Console theme='dark' payload={this.payload}/>
-            <div className='map-hole'>
-              <WorldMap universe={this.universe}
-                 gsnetwork={this.gsnetwork}
-                 center={center} zoom={zoom}/>
-            </div>
-            <Switch>
-              {routes}
-              <Route path="/">
-                <Redirect to='/getting-started/overview' />
-              </Route>
-            </Switch>
           </PanelContainer>
         </div>
       </div>
