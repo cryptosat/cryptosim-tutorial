@@ -1,15 +1,28 @@
 .lesson {
-  height: 100%;
-  background-color: #242830;
+  /* padding-top: 5vh; */
+  /* margin-left: 1em; */
+  height: 93vh;
+  width: 25vw;
+  background-color: #0e0e0e;
+  /* overflow: scroll; */
+  overflow-x: hidden;
   display: flex;
+  justify-content: space-between;
+  align-item: flex-end;
   flex-direction: column;
   color: #777e8b;
   box-sizing: border-box;
+  border-radius: 1em;
 }
 
 .lesson-content {
+  width: 100%;
+  height: 100%;
   padding: 16px;
-  margin-bottom: "2em";
+  overflow-y: scroll;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  scrollbar-color: red yellow;
 }
 
 .lesson-content h2 {

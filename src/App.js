@@ -174,11 +174,19 @@ class App extends React.Component {
           <NavBar />
         </div>
         <div className='content'>
-          <PanelContainer>
-            {leftPanelContent}
+          {leftPanelContent}
+          {/* <PanelContainer> */}
+            {/* <div style={{ display: 'flex', flexDirection: "column", height: "100%", border:"1px solid red" }}> */}
+              {/* {middlePanelContent} */}
+              {/* <Console theme='dark' payload={this.payload}/> */}
+            {/* </div> */}
+          {/* </PanelContainer> */}
+          <div style={{ display: 'flex', flexDirection: "column", height: "100%", paddingTop: '2em', paddingBottom: '2em', marginRight: '2em' }}>
+            {/* <Console theme='dark' payload={this.payload} /> */}
             {middlePanelContent}
-            <Console theme='dark' payload={this.payload}/>
-          </PanelContainer>
+            <Console theme='dark' payload={this.payload} />
+          </div>
+
         </div>
       </div>
     );
