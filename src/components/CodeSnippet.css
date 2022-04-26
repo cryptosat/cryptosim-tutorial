@@ -2,9 +2,9 @@
   display: inline-block;
   width: 100%;
   box-sizing: border-box;
-  background: #292D36;
-  border: 1px solid #31353E;
-  border-left: 3px solid #7A63F2;
+  background: #292d36;
+  border: 1px solid #31353e;
+  border-left: 3px solid #7a63f2;
   line-height: 1.6;
   margin-bottom: 1.6em;
   margin-right: 10px;
@@ -23,17 +23,17 @@
   float: left;
   width: calc(100% - 20px);
   overflow-x: scroll;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   word-wrap: break-word;
 }
 
 .code-snippet icon-container {
   display: inline-block;
-  width:  20px;
+  width: 20px;
 }
 
 .code-snippet button {
-  color: #777E8B;
+  color: #777e8b;
   background: none;
   border-style: none;
   padding: 10px;
@@ -46,7 +46,7 @@
 }
 
 .code-snippet button:hover {
-  color: #AFB4BE;
+  color: #afb4be;
 }
 
 .code-snippet button:active {
