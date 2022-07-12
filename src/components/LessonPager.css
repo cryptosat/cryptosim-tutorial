@@ -3,13 +3,15 @@
   box-sizing: border-box;
   border-top-style: solid;
   border-top-width: 1px;
-  border-top-color: #31353E;
-  display: block;
-  position: absolute;
+  border-top-color: #31353e;
+  display: flex;
+
+
+  /* position: absolute;
   bottom: 0px;
   height:  40px;
   width:  100%;
-  overflow: hidden;
+  overflow: hidden; */
 }
 
 .pager .link-container {
@@ -20,13 +22,13 @@
   /*border-left-style: solid;*/
   /*border-right-style: solid;*/
   border-width: 1px;
-  border-color: #31353E;
-  width:  50%;
+  border-color: #31353e;
+  width: 50%;
   height: 100%;
   position: relative;
   text-decoration: none;
-  font-size:  1rem;
-  color: #8C95A7;
+  font-size: 1rem;
+  color: #8c95a7;
   overflow: hidden;
 }
 
@@ -44,27 +46,35 @@
 }
 
 .pager .link-container.next a {
-  text-align:  left;
-  background-color: #06DFA4;
+  text-align: left;
+  background-color: #06dfa4;
   color: white;
-} 
+}
 
 .pager .link-container.previous a {
-  text-align:  left;
-  background-color: #292D36;
-  color: #8C95A7;
-} 
-
- .pager .link-container.previous a:hover {
-  background-color: #373B46;
+  text-align: left;
+  background-color: #292d36;
+  color: #8c95a7;
 }
 
- .pager .link-container.next a:hover {
-  background-color: #05C792;
+.pager .link-container.previous a:hover {
+  background-color: #373b46;
 }
 
- .pager .link-container.previous .caption { float:right }
- .pager .link-container.previous .arrow { float: left }
+.pager .link-container.next a:hover {
+  background-color: #05c792;
+}
 
- .pager .link-container.next .caption { float:left }
- .pager .link-container.next .arrow { float: right }
+.pager .link-container.previous .caption {
+  float: right;
+}
+.pager .link-container.previous .arrow {
+  float: left;
+}
+
+.pager .link-container.next .caption {
+  float: left;
+}
+.pager .link-container.next .arrow {
+  float: right;
+}

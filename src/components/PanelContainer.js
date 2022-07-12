@@ -139,8 +139,9 @@ class PanelContainer extends React.Component {
         position: 'absolute',
         height: '100%',
         wordWrap: 'break-word',
-        left: lefts[i],
-        width: this.state.panelWidths[i],
+        // left: lefts[i],
+        // width: this.state.panelWidths[i],
+        // width: "33%"
       };
       const dividerWidth = 4;
       const dividerStyle = {

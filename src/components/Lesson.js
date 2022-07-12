@@ -5,13 +5,16 @@ import LessonPager from './LessonPager';
 class Lesson extends React.Component {
 
   render() {
-    return(
-      <div className='lesson'>
-        <div className='lesson-content'>
-          {this.props.content}
+    return (
+      <div style={{ padding: '2em'}}>
+        <div className='lesson' >
+          <div className='lesson-content'>
+            {this.props.content}
+          </div>
+          <LessonPager previous={this.props.previous} next={this.props.next} />
         </div>
-        <LessonPager previous={this.props.previous} next={this.props.next} />
       </div>
+      
     )
   }
 
