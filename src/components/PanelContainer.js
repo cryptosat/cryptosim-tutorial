@@ -118,9 +118,9 @@ class PanelContainer extends React.Component {
     let delta = Math.abs(e.clientX - this.state.selectedDividerX);
 
     if (didExpandRight) {
-      widths = this.expandRight(widths, index, delta);
-    } else {
       widths = this.expandLeft(widths, index, delta);
+    } else {
+      widths = this.expandRight(widths, index, delta);
     }
     this.setState({
       selectedDividerX: e.clientX,
@@ -139,14 +139,14 @@ class PanelContainer extends React.Component {
         position: 'absolute',
         height: '100%',
         wordWrap: 'break-word',
-        left: lefts[i],
+        right: lefts[i],
         width: this.state.panelWidths[i],
       };
       const dividerWidth = 4;
       const dividerStyle = {
         display: 'inline-block',
         position: 'absolute',
-        left: lefts[i + 1] - dividerWidth,
+        right: lefts[i + 1] - dividerWidth,
         width: dividerWidth,
       }
       const f = (e) => {this.onMouseDown(i, e)}
