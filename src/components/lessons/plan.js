@@ -18,6 +18,7 @@ const plan = [
       { name: 'Private Randomness', content: 'privateRandomness', path: '/cryptosat-api/private-randomness', disabled: false },
       { name: 'Signature', content: 'signature', path: '/cryptosat-api/signature', disabled: false },
       { name: 'Next Online', content: 'nextOnline', path: '/cryptosat-api/next-online', disabled: false },
+      { name: 'Delay Encryption', content: 'DelayEncryption', path: '/cryptosat-api/delay_encryption', disabled: false},
     ],
   },
 ];

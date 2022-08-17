@@ -24,6 +24,7 @@ import publicRandomness from './components/lessons/publicRandomness';
 import privateRandomness from './components/lessons/privateRandomness';
 import signature from './components/lessons/signature';
 import nextOnline from './components/lessons/nextOnline';
+import delayEncryption from './components/lessons/delay_encryption'
 
 import { Map as WorldMap } from '@cryptosat/cryptosim-visualization';
 import { Console } from '@cryptosat/jsconsole';
@@ -49,6 +50,7 @@ const componentMap = new Map([
   ['privateRandomness', privateRandomness],
   ['signature', signature],
   ['nextOnline', nextOnline],
+  ['DelayEncryption', delayEncryption],
 ])
 
 
