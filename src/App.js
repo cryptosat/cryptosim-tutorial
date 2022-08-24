@@ -24,6 +24,7 @@ import publicRandomness from './components/lessons/publicRandomness';
 import privateRandomness from './components/lessons/privateRandomness';
 import signature from './components/lessons/signature';
 import nextOnline from './components/lessons/nextOnline';
+import delayEncryption from './components/lessons/delay_encryption'
 
 import { Map as WorldMap } from '@cryptosat/cryptosim-visualization';
 import { Console } from '@cryptosat/jsconsole';
@@ -49,6 +50,7 @@ const componentMap = new Map([
   ['privateRandomness', privateRandomness],
   ['signature', signature],
   ['nextOnline', nextOnline],
+  ['DelayEncryption', delayEncryption],
 ])
 
 
@@ -80,26 +82,33 @@ class App extends React.Component {
     // is unclear where the timezone effect is coming from. Since this date was
     // chosen in PST, this the hack does an effective timezone conversion to
     // the equivalent PST time of the chosen timestamp.
-    let timestamp = new Date(2021, 2, 1, 6, 50, 0, 0);
-    let offset = (8 * 60 - timestamp.getTimezoneOffset()) * 60 * 1000;
-    timestamp.setMilliseconds(timestamp.getMilliseconds() + offset);
+    let timestamp = new Date();
+    console.log(timestamp);
+    timestamp.setMilliseconds(timestamp.getMilliseconds());
 
     const clock = new SimulatedClock(timestamp);
     clock.setSpeed(8);
     clock.play();
     const universe = new Universe(clock);
 
-    const ISS_TLE = [
-      '1 52761U 22057AF  22227.96696642  .00001590  00000+0  93813-4 0  9992',
-      '2 52761  97.5231 341.8252 0011139 317.5310  42.5058 15.12944340 12437',
+    const CRYPTO1_TLE = [
+      '1 52761U 22057AF  22233.85321675  .00001599  00000+0  94288-4 0  9994',
+      '2 52761  97.5232 347.6308 0010802 295.0245  64.9864 15.12964773 13321',
     ];
 
-    const sat = new Satellite(universe, 'crypto1', ISS_TLE[0], ISS_TLE[1]);
+    const ISS_TLE = [
+      '1 25544U 98067A   22236.34828140  .00005850  00000+0  10925-3 0  9992',
+      '2 25544  51.6437 358.9021 0005107 154.3750 303.9467 15.50304916355755',
+    ];
+
+    const iss = new Satellite(universe, 'iss', ISS_TLE[0], ISS_TLE[1]);
+    const crypto1 = new Satellite(universe, 'crypto1', CRYPTO1_TLE[0], CRYPTO1_TLE[1]);
     const gsnetwork = GroundStationNetwork.load(universe,
       require('@cryptosat/cryptosim/data/rbcNetwork'));
     const mainService = new MainService(universe);
-    sat.bindService('main', mainService);
-    const client = new MainClient(universe, sat, gsnetwork, 'main');
+    crypto1.bindService('main', mainService);
+    iss.bindService('main', mainService);
+    const client = new MainClient(universe, crypto1, gsnetwork, 'main');
 
     this.payload = {
       cryptosat: client,
