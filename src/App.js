@@ -107,7 +107,6 @@ class App extends React.Component {
       require('@cryptosat/cryptosim/data/rbcNetwork'));
     const mainService = new MainService(universe);
     crypto1.bindService('main', mainService);
-    iss.bindService('main', mainService);
     const client = new MainClient(universe, crypto1, gsnetwork, 'main');
 
     this.payload = {
