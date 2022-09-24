@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "dependencies": {
-    "@cryptosat/cryptosim": "^0.3.7",
+    "@cryptosat/cryptosim": "^0.3.8",
     "@cryptosat/cryptosim-visualization": "^0.2.1",
     "@cryptosat/jsconsole": "^0.2.2",
     "@fortawesome/fontawesome-pro": "^5.15.4",

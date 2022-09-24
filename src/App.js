@@ -82,6 +82,20 @@ class App extends React.Component {
     // is unclear where the timezone effect is coming from. Since this date was
     // chosen in PST, this the hack does an effective timezone conversion to
     // the equivalent PST time of the chosen timestamp.
+    /*let timestamp = new Date();
+    console.log(timestamp);
+    timestamp.setMilliseconds(timestamp.getMilliseconds());
+
+    const clock = new SimulatedClock(timestamp);
+    clock.setSpeed(8);
+    clock.play();
+    const universe = new Universe(clock);
+
+    const CRYPTO1_TLE = [
+      '1 52761U 22057AF  22233.85321675  .00001599  00000+0  94288-4 0  9994',
+      '2 52761  97.5232 347.6308 0010802 295.0245  64.9864 15.12964773 13321',
+    ];*/
+
     let timestamp = new Date();
     timestamp.setMilliseconds(timestamp.getMilliseconds());
 
@@ -96,12 +110,12 @@ class App extends React.Component {
     ];
 
     const CRYPTO1_TLE = [
-      '1 52761U 22057AF  22261.82845649  .00002061  00000+0  12006-3 0  9996',
-      '2 52761  97.5253  15.2301 0011911 188.3151 171.7885 15.13077449 17552',
+      '1 25544U 98067A   21027.77992426  .00003336  00000-0  68893-4 0  9991',
+      '2 25544  51.6465 317.1909 0002399 302.6503 164.1536 15.48908950266831',
     ];
 
-    const iss = new Satellite(universe, 'iss', ISS_TLE[0], ISS_TLE[1]);
-    const crypto1 = new Satellite(universe, 'crypto1', CRYPTO1_TLE[0], CRYPTO1_TLE[1]);
+    const iss = new Satellite(universe, 0, 'iss', ISS_TLE[0], ISS_TLE[1]);
+    const crypto1 = new Satellite(universe, 1, 'crypto1', CRYPTO1_TLE[0], CRYPTO1_TLE[1]);
     const gsnetwork = GroundStationNetwork.load(universe,
       require('@cryptosat/cryptosim/data/rbcNetwork'));
     const mainService = new MainService(universe);
