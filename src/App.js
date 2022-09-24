@@ -83,7 +83,6 @@ class App extends React.Component {
     // chosen in PST, this the hack does an effective timezone conversion to
     // the equivalent PST time of the chosen timestamp.
     let timestamp = new Date();
-    console.log(timestamp);
     timestamp.setMilliseconds(timestamp.getMilliseconds());
 
     const clock = new SimulatedClock(timestamp);
@@ -91,14 +90,14 @@ class App extends React.Component {
     clock.play();
     const universe = new Universe(clock);
 
-    const CRYPTO1_TLE = [
-      '1 52761U 22057AF  22233.85321675  .00001599  00000+0  94288-4 0  9994',
-      '2 52761  97.5232 347.6308 0010802 295.0245  64.9864 15.12964773 13321',
-    ];
-
     const ISS_TLE = [
       '1 25544U 98067A   22236.34828140  .00005850  00000+0  10925-3 0  9992',
       '2 25544  51.6437 358.9021 0005107 154.3750 303.9467 15.50304916355755',
+    ];
+
+    const CRYPTO1_TLE = [
+      '1 52761U 22057AF  22261.82845649  .00002061  00000+0  12006-3 0  9996',
+      '2 52761  97.5253  15.2301 0011911 188.3151 171.7885 15.13077449 17552',
     ];
 
     const iss = new Satellite(universe, 'iss', ISS_TLE[0], ISS_TLE[1]);
