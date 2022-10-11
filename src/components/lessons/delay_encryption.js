@@ -4,8 +4,8 @@ const content = (
   <div>
     <h2>Delay encryption</h2>
     <p>
-    One of the features of cryptosat is delay encryption.
-    Delay encryption allows the user to generate a keypair that is stored on the satellite, and the keypair will be released in the future.
+    One of the features of cryptosat is Delay Encryption.
+    Delay Encryption allows the user to generate a keypair that is stored on the satellite, and the keypair will be released in the future.
     To generate a delayed keypair a user can use the following function:
     </p>
     <CodeSnippet code={`const time_to_release_in_secs = 10;\nlet keypair_id_req = cryptosat.createDelayedKeypair(time_to_release_in_secs);
