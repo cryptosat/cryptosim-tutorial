@@ -1241,10 +1241,10 @@
     typescript "^4.2.3"
     uuid "^8.3.2"
 
-"@cryptosat/cryptosim@^0.3.5":
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/@cryptosat/cryptosim/-/cryptosim-0.3.5.tgz#8b87db1b659bf5cd768cb43900ef886740fa45de"
-  integrity sha512-FzAT3RSdGybxKDfnX0sPB9Lu2u41c2WkKRvuw+pZibG/T1SBiWfiPPwkW82e7ffP4XWS78j3rnyfcu21lpQyTQ==
+"@cryptosat/cryptosim@^0.3.8":
+  version "0.3.8"
+  resolved "https://registry.yarnpkg.com/@cryptosat/cryptosim/-/cryptosim-0.3.8.tgz#bbaf4fddf11492f0ea19fab699a1cb1c17926fc3"
+  integrity sha512-gn+8d93tzjeIB7DCrsA+ga31DPcmgcxPDC/W8sXg2z2UGvtd2GcaDqmNXQD4KmfLPE1zVXEpH3hGBBW2lmVdiw==
   dependencies:
     promise-timeout "^1.3.0"
     satellite.js "^4.1.3"
@@ -4545,9 +4545,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001125, caniuse-lite@^1.0.30001219:
-  version "1.0.30001239"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001239.tgz#66e8669985bb2cb84ccb10f68c25ce6dd3e4d2b8"
-  integrity sha512-cyBkXJDMeI4wthy8xJ2FvDU6+0dtcZSJW3voUF8+e9f1bBeuvyZfc3PNbkOETyhbR+dGCPzn9E7MA3iwzusOhQ==
+  version "1.0.30001393"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001393.tgz"
+  integrity sha512-N/od11RX+Gsk+1qY/jbPa0R6zJupEa0lxeBG598EbrtblxVCTJsQwbRBm6+V+rxpc5lHKdsXb9RY83cZIPLseA==
 
 capture-exit@^2.0.0:
   version "2.0.0"
@@ -12272,6 +12272,11 @@ turf-jsts@*:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/turf-jsts/-/turf-jsts-1.2.3.tgz#59757f542afbff9a577bbf411f183b8f48d38aa4"
   integrity sha512-Ja03QIJlPuHt4IQ2FfGex4F4JAr8m3jpaHbFbQrgwr7s7L6U8ocrHiF3J1+wf9jzhGKxvDeaCAnGDot8OjGFyA==
+
+tweetnacl-util@^0.15.1:
+  version "0.15.1"
+  resolved "https://registry.yarnpkg.com/tweetnacl-util/-/tweetnacl-util-0.15.1.tgz#b80fcdb5c97bcc508be18c44a4be50f022eea00b"
+  integrity sha512-RKJBIj8lySrShN4w6i/BonWp2Z/uxwC3h4y7xsRrpP59ZboCd0GpEVsOnMDYLMmKBpYhb5TgHzZXy7wTfYFBRw==
 
 tweetnacl@^1.0.3:
   version "1.0.3"
