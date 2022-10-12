@@ -1,5 +1,4 @@
 import nacl from 'tweetnacl';
-import util from 'tweetnacl-util';
 import binary from '@cryptosat/cryptosim/lib/binary';
 import GeoCoordinates from '@cryptosat/cryptosim/lib/geoCoordinates';
 import GroundStation from '@cryptosat/cryptosim/lib/groundStation';
