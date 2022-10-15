@@ -25,6 +25,7 @@ import privateRandomness from './components/lessons/privateRandomness';
 import signature from './components/lessons/signature';
 import nextOnline from './components/lessons/nextOnline';
 import delayEncryption from './components/lessons/delay_encryption';
+import sealedBidAcution from './components/lessons/sealedBidAuction';
 
 import { Map as WorldMap } from '@cryptosat/cryptosim-visualization';
 import { Console } from '@cryptosat/jsconsole';
@@ -37,6 +38,7 @@ import Satellite from '@cryptosat/cryptosim/lib/satellite';
 import MainService from '@cryptosat/cryptosim/lib/services/main';
 import MainClient from '@cryptosat/cryptosim/lib/clients/main';
 import binary from '@cryptosat/cryptosim/lib/binary';
+import util from 'tweetnacl-util';
 
 
 const componentMap = new Map([
@@ -51,6 +53,7 @@ const componentMap = new Map([
   ['signature', signature],
   ['nextOnline', nextOnline],
   ['DelayEncryption', delayEncryption],
+  ['sealedBidAuction', sealedBidAcution],
 ])
 
 
@@ -126,6 +129,7 @@ class App extends React.Component {
       cryptosat: client,
       binary: binary,
       nacl: tweetnacl,
+      util: util,
     };
     this.universe = universe;
     this.gsnetwork = gsnetwork;
