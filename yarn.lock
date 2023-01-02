@@ -1216,10 +1216,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@cryptosat/cryptosim-visualization@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@cryptosat/cryptosim-visualization/-/cryptosim-visualization-0.2.1.tgz#6b4169fbfa2d07183b9bbf214e995103a12a0d4c"
-  integrity sha512-2D4LzZ0ZyhEZxJGTaTo+ycRl4ATBDJS9nOozVQ9/JYEJlgJmu2KEu1BYJErs4WHMTUjJi35y7aF2SZ/bpmZ5sw==
+"@cryptosat/cryptosim-visualization@^0.2.9999":
+  version "0.2.29999"
+  resolved "https://registry.yarnpkg.com/@cryptosat/cryptosim-visualization/-/cryptosim-visualization-0.2.29999.tgz#a1a28048511ba7ea08ff48c751784bacfa7602c4"
+  integrity sha512-TX+Sf2QP4DV32TLRw7XTSjnVJte6U+VNs4f6+0ahqfjAJX3MjsuTl5yctVY4kD6+pKEk0dHCpdjX7eHyhHGK1A==
   dependencies:
     "@cryptosat/cryptosim" "^0.1.6"
     "@fortawesome/fontawesome-svg-core" "^1.2.35"
@@ -4547,9 +4547,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001125, caniuse-lite@^1.0.30001219:
-  version "1.0.30001418"
-  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001418.tgz"
-  integrity sha512-oIs7+JL3K9JRQ3jPZjlH6qyYDp+nBTCais7hjh0s+fuBwufc7uZ7hPYMXrDOJhV360KGMTcczMRObk0/iMqZRg==
+  version "1.0.30001441"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001441.tgz"
+  integrity sha512-OyxRR4Vof59I3yGWXws6i908EtGbMzVUi3ganaZQHmydk1iwDhRnvaPG2WaR0KcqrDFKrxVZHULT396LEPhXfg==
 
 capture-exit@^2.0.0:
   version "2.0.0"
