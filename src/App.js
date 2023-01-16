@@ -25,7 +25,8 @@ import privateRandomness from './components/lessons/privateRandomness';
 import signature from './components/lessons/signature';
 import nextOnline from './components/lessons/nextOnline';
 import delayEncryption from './components/lessons/delay_encryption';
-import sealedBidAcution from './components/lessons/sealedBidAuction';
+import sealedBidAuction from './components/lessons/sealedBidAuction';
+import privateVoting from './components/lessons/privateVoting';
 
 import { Map as WorldMap } from '@cryptosat/cryptosim-visualization';
 import { Console } from '@cryptosat/jsconsole';
@@ -53,7 +54,8 @@ const componentMap = new Map([
   ['signature', signature],
   ['nextOnline', nextOnline],
   ['DelayEncryption', delayEncryption],
-  ['sealedBidAuction', sealedBidAcution],
+  ['sealedBidAuction', sealedBidAuction],
+  ['privateVoting', privateVoting]
 ])
 
 
