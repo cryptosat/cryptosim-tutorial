@@ -4,7 +4,7 @@ import "./NavBar.css";
 import logo from "./cryptosat_logo.svg";
 import Menu from "./Menu.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faChevronDoubleRight } from "@fortawesome/pro-light-svg-icons";
+import { faBars, faChevronDoubleRight, faChevronDoubleLeft } from "@fortawesome/pro-light-svg-icons";
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -76,13 +76,13 @@ class NavBar extends React.Component {
           <div className="title-container">
             <Link to={href}>
               <img src={logo} alt="" />
-              Crytposat <b>Simulator</b>
+              Cryptosat Simulator
             </Link>
           </div>
 
           <div className="actions-container">
             <button onClick={this.togglePanel}>
-              <FontAwesomeIcon icon={faChevronDoubleRight} />
+              <FontAwesomeIcon icon={faChevronDoubleLeft} />
             </button>
           </div>
         </div>

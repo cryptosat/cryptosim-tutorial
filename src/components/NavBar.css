@@ -4,6 +4,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 12px;
+  margin-top: 20px;
+  font-size: 18px;
 }
 
 .navbar img {
@@ -23,12 +25,12 @@
 
 .navbar .title-container a {
   text-decoration: none;
-  font-family: poppins;
-  color: white;
+  font-family: 'Anek Latin';
+  color: #F4F4F4;
+  letter-spacing: 0.5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-transform: uppercase;
 }
 
 .navbar .actions-container button {
