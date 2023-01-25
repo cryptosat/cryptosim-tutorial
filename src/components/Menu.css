@@ -6,8 +6,7 @@
   /*border-style: solid;*/
   width: 400px;
   position: fixed;
-  right: 0px;
-  top: 45px; /* This should match the height of the top menu bar */
+  left: 0px;
   height: calc(100vh - 58px);
   z-index: 999;
   transition: transform .4s
@@ -16,7 +15,7 @@
 }
 
 #sideMenu.hide {
-  transform: translate3d(450px, 0, 0);
+  transform: translate3d(-450px, 0, 0);
 }
 
 #sideMenu.show {
