@@ -29,6 +29,21 @@
   flex-grow: 1;
 }
 
+.map-hole {
+  height: 100%;
+}
+
+.map-container {
+  position: fixed;
+  left:  0;
+  top:  0;
+  width: 100vw;
+}
+
+.mapboxgl-ctrl-attrib-inner {
+  z-index: -1;
+}
+
 @media (min-width: 1512px) {
   .panel-container__left {
     width: 31.75rem;
