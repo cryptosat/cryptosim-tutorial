@@ -29,7 +29,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
 }
-.panel-right {
+/* .panel-right {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -84,7 +84,7 @@ body {
 
 .panel-container .panel:nth-of-type(3) {
   z-index: 1;
-}
+} */
 
 .content-container {
   display: flex;
