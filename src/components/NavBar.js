@@ -4,7 +4,7 @@ import "./NavBar.css";
 import logo from "./cryptosat_logo.svg";
 import Menu from "./Menu.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faChevronDoubleRight, faChevronDoubleLeft } from "@fortawesome/pro-light-svg-icons";
+import { faBars, faChevronDoubleRight, faChevronDoubleLeft, faBug } from "@fortawesome/pro-light-svg-icons";
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -49,9 +49,11 @@ class NavBar extends React.Component {
 
   render() {
     const href = this.state.easterEgg ? "/multisat" : "/";
+    const bugButton = (<button className="bug-button" onClick={this.fileBug}><FontAwesomeIcon icon={faBug} />&nbsp;REPORT BUG</button>)
     if (this.props.isPannelCollapse) {
       return (
-        <div className="navbar" style={{}}>
+        <div className="navbar">
+          {bugButton}
           <div className="actions-container">
             <button onClick={this.togglePanel}>
               <FontAwesomeIcon icon={faChevronDoubleRight} />
@@ -62,11 +64,12 @@ class NavBar extends React.Component {
     }
     return (
       <>
+        {bugButton}
         <Menu
           visible={this.state.menuVisible}
           setMenuVisible={this.setMenuVisible}
         />
-        <div className="navbar" style={{}}>
+        <div className="navbar">
           <div className="actions-container">
             <button onClick={this.toggleMenu}>
               <FontAwesomeIcon color="white" icon={faBars} />

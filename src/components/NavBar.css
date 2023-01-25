@@ -44,3 +44,18 @@
   color: #777e8b;
   font-weight: 100;
 }
+
+.bug-button {
+  background-color: transparent;
+  color: #686672;
+  border: none;
+  position: fixed;
+  top: 30.5px;
+  right: 22px;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  font-family: 'Anek Latin';
+  padding: 5px 10px;
+  cursor: pointer;
+  z-index: 1;
+}
