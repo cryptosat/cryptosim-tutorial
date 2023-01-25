@@ -220,6 +220,7 @@ class App extends React.Component {
                 style={{
                   height: "40vh",
                   overflow: "scroll",
+                  zIndex: 1
                 }}
               >
                 <Console theme="dark" payload={this.payload} />

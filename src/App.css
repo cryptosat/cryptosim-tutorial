@@ -91,10 +91,10 @@ body {
 }
 
 .map-container {
-  /* position: fixed;
+  position: fixed;
   left:  0;
-  top:  0; */
-  width: 100%;
+  top:  0;
+  width: 100vw;
 }
 
 .mapboxgl-ctrl-attrib-inner {

@@ -27,6 +27,7 @@ class PanelContainer extends React.Component {
           flexDirection: "column",
           display: "flex",
           backgroundColor: "#02000E",
+          zIndex: 2
         }}
       >
         {/* <div className="nav-container"> */}
