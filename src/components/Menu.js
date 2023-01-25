@@ -21,7 +21,6 @@ class Menu extends React.Component {
 
  render() {
     const visibilityClass = this.props.visible ? 'show' : 'hide';
-    const overlayVisibilityClass = this.props.visible ? 'visible': '';
     const items = [];
     for (const section of Object.values(plan)) {
       items.push(<li key={section.name} className='section'>{section.name}</li>);
@@ -37,7 +36,7 @@ class Menu extends React.Component {
         } else {
           elem = (
             <li key={lesson.path}>
-              <Link  to={lesson.path}>{lesson.name}</Link>
+              <Link onClick={this.closeMenu} to={lesson.path}>{lesson.name}</Link>
             </li>
           );
         }
@@ -46,7 +45,7 @@ class Menu extends React.Component {
     }
     return (
       <>
-        <div id='sideMenu__screenOverlay' className={overlayVisibilityClass}></div>
+        <div className={`backdrop ${visibilityClass}`} onClick={this.closeMenu}></div>
         <div id='sideMenu' className={visibilityClass}>
             <button onClick={this.closeMenu}>
               <FontAwesomeIcon icon={faTimes}/>
@@ -61,3 +60,6 @@ class Menu extends React.Component {
 }
 
 export default Menu;
+
+
+
