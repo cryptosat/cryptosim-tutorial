@@ -185,13 +185,7 @@ class App extends React.Component {
     return (
       <div className="main">
         <div className="content">
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              backgroundColor: "#31353E",
-            }}
-          >
+          <div className="content-container">
             <PanelContainer>
               <Switch>
                 {routes}
@@ -201,28 +195,14 @@ class App extends React.Component {
               </Switch>
             </PanelContainer>
 
-            <div
-              style={{
-                flex: 1,
-                display: "flex",
-                flexDirection: "column",
-                height: "100vh",
-                width: "100%",
-              }}
-            >
+            <div className="content-container__right">
               <WorldMap
                 universe={this.universe}
                 gsnetwork={this.gsnetwork}
                 center={center}
                 zoom={zoom}
               />
-              <div
-                style={{
-                  height: "40vh",
-                  overflow: "scroll",
-                  zIndex: 1
-                }}
-              >
+              <div className="console-container">
                 <Console theme="dark" payload={this.payload} />
               </div>
             </div>
