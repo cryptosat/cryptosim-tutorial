@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 import tweetnacl from 'tweetnacl';
 import './App.css';
-import NavBar from './components/NavBar';
 import PanelContainer from './components/PanelContainer';
 import plan from './components/lessons/plan';
 import MultiSatDemo from './components/MultiSatDemo';
@@ -179,10 +178,6 @@ class App extends React.Component {
     const routes = this.createRoutes();
     return (
       <div className='main'>
-        <div className='nav-container'>
-          <NavBar />
-        </div>
-        <div className='content'>
           <PanelContainer>
             <Console theme='dark' payload={this.payload}/>
             <div className='map-hole'>
@@ -197,7 +192,6 @@ class App extends React.Component {
               </Route>
             </Switch>
           </PanelContainer>
-        </div>
       </div>
     );
   }
