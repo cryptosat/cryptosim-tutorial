@@ -4,7 +4,8 @@
   background-color: #030014;
   /*border-width: 4px;*/
   /*border-style: solid;*/
-  width: 400px;
+  width: 390px;
+  box-sizing: border-box;
   position: fixed;
   left: 0px;
   top: 0px; /* This should match the height of the top menu bar */
@@ -94,9 +95,9 @@
 
 @media (min-width: 1512px) {
   #sideMenu {
-    width: 400px;
+    width: 508px;
   }
   #sideMenu.hide {
-    transform: translate3d(-450px, 0, 0);
+    transform: translate3d(-560px, 0, 0);
   }
 }
