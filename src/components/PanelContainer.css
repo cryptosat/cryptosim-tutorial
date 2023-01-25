@@ -7,6 +7,10 @@
   width: 24.375rem;
   height: 100%;
   z-index: 1;
+  background-color: #02000E; /* setting the background at the parent level */
+}
+.instructions-collapsed {
+  width: 5.875rem;
 }
 .instructionsPanel {
   height: 100%;
@@ -47,6 +51,9 @@
 @media (min-width: 1512px) {
   .panel-container__left {
     width: 31.75rem;
+  }
+  .instructions-collapsed {
+    width: 6.25rem;
   }
   .consolePanel {
     height: 20.188rem;
