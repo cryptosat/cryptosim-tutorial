@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 import tweetnacl from "tweetnacl";
 import "./App.css";
-import NavBar from "./components/NavBar";
 import PanelContainer from "./components/PanelContainer";
 import plan from "./components/lessons/plan";
 import MultiSatDemo from "./components/MultiSatDemo";
