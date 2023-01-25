@@ -37,7 +37,7 @@ class Menu extends React.Component {
         } else {
           elem = (
             <li key={lesson.path}>
-              <Link to={lesson.path}>{lesson.name}</Link>
+              <Link  to={lesson.path}>{lesson.name}</Link>
             </li>
           );
         }
