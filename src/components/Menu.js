@@ -21,6 +21,7 @@ class Menu extends React.Component {
 
  render() {
     const visibilityClass = this.props.visible ? 'show' : 'hide';
+    const overlayVisibilityClass = this.props.visible ? 'visible': '';
     const items = [];
     for (const section of Object.values(plan)) {
       items.push(<li key={section.name} className='section'>{section.name}</li>);
@@ -44,14 +45,17 @@ class Menu extends React.Component {
       }
     }
     return (
-      <div id='sideMenu' className={visibilityClass}>
-          <button onClick={this.closeMenu}>
-            <FontAwesomeIcon icon={faTimes}/>
-          </button>
-        <ul>
-          {items}
-        </ul>
-      </div>
+      <>
+        <div id='sideMenu__screenOverlay' className={overlayVisibilityClass}></div>
+        <div id='sideMenu' className={visibilityClass}>
+            <button onClick={this.closeMenu}>
+              <FontAwesomeIcon icon={faTimes}/>
+            </button>
+          <ul>
+            {items}
+          </ul>
+        </div>
+      </>
     )
   }
 }

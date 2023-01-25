@@ -184,12 +184,12 @@ class App extends React.Component {
         </div>
         <div className='content'>
           <PanelContainer>
-            <Console theme='dark' payload={this.payload}/>
+            {/* <Console theme='dark' payload={this.payload}/>
             <div className='map-hole'>
               <WorldMap universe={this.universe}
                  gsnetwork={this.gsnetwork}
                  center={center} zoom={zoom}/>
-            </div>
+            </div> */}
             <Switch>
               {routes}
               <Route path="/">
