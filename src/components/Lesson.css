@@ -28,3 +28,22 @@
 .lesson-content a {
   color: #a9a9a9
 }
+
+/* scrollbar */
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-track-piece:start {
+  background: transparent;
+}
+::-webkit-scrollbar-track-piece:end {
+  background: transparent;
+}
