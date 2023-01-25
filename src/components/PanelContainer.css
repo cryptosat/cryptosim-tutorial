@@ -1,0 +1,39 @@
+.panel-container {
+  display: flex;
+  height: 100%;
+  width: 100vw;
+}
+.panel-container__left {
+  width: 24.375rem;
+  height: 100%;
+  z-index: 1;
+}
+.instructionsPanel {
+  height: 100%;
+  position: relative;
+}
+.panel-container__right {
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column wrap;
+  height: 100%;
+  justify-content: space-between;
+}
+.consolePanel {
+  width: 100%;
+  height: 14.938rem;
+  overflow-y: scroll;
+  z-index: 1;
+}
+.mapPanel {
+  flex-grow: 1;
+}
+
+@media (min-width: 1512px) {
+  .panel-container__left {
+    width: 31.75rem;
+  }
+  .consolePanel {
+    height: 20.188rem;
+  }
+}
