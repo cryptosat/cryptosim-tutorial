@@ -13,7 +13,7 @@
   height:  25px;
   margin-right: 12px;
   position: relative;
-  top: 7px;
+  /* top: 7px; */
 }
 
 .navbar .title-container {
@@ -23,7 +23,7 @@
 .navbar .actions-container {
   /* float:  right; */
   display: inline-block;
-  padding-top: 6px;
+  /* padding-top: 6px; */
 }
 
 .navbar .title-container a {

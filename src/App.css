@@ -6,8 +6,8 @@ body {
 }
 
 .main {
-  height:  100vh;
-  width:  100vw;
+  height: 100vh;
+  width: 100vw;
   display: flex;
   flex-flow: column;
   overflow: hidden;
@@ -23,50 +23,57 @@ body {
 }
 
 .content {
-  flex-grow:  1;
+  flex-grow: 1;
   flex-shrink: 1;
   flex-basis: auto;
-  overflow-y:  auto;
+  overflow-y: auto;
   overflow-x: hidden;
+}
+.panel-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
 }
 
 .left {
-  width:  100%;
-  height:  100%;
+  width: 100%;
+  height: 100%;
   background: limegreen;
 }
 
 .middle {
-  width:  100%;
-  height:  100%;
+  width: 100%;
+  height: 100%;
   background: paleturquoise;
 }
 
 .right {
-  width:  100%;
-  height:  100%;
+  width: 100%;
+  height: 100%;
   background: orangered;
 }
 
 .divider {
   display: inline-block;
-  height:  86px;
-  top:  100px;
-  width:  4px;
-  background-color: #6187EB;
+  height: 86px;
+  top: 100px;
+  width: 4px;
+  background-color: #6187eb;
   cursor: col-resize;
   z-index: 2;
 }
 
 .panel-container {
-  height:  100%;
-  width:  100%;
+  height: 100%;
+  width: 100%;
   position: relative;
   box-sizing: border-box;
 }
 
 .panel-container .divider:nth-of-type(4) {
-  top:  440px;
+  top: 440px;
 }
 
 .panel {
@@ -84,10 +91,10 @@ body {
 }
 
 .map-container {
-  position: fixed;
+  /* position: fixed;
   left:  0;
-  top:  0;
-  width: 100vw;
+  top:  0; */
+  width: 100%;
 }
 
 .mapboxgl-ctrl-attrib-inner {

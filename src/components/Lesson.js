@@ -10,7 +10,7 @@ class Lesson extends React.Component {
         <div className='lesson-content'>
           {this.props.content}
         </div>
-        <LessonPager previous={this.props.previous} next={this.props.next} />
+        {/* <LessonPager previous={this.props.previous} next={this.props.next} /> */}
       </div>
     )
   }
