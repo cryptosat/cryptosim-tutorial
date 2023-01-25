@@ -94,7 +94,7 @@
 
 @media (min-width: 1512px) {
   #sideMenu {
-    width: 450px;
+    width: 400px;
   }
   #sideMenu.hide {
     transform: translate3d(450px, 0, 0);
