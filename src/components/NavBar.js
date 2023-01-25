@@ -51,10 +51,12 @@ class NavBar extends React.Component {
     const href = this.state.easterEgg ? "/multisat" : "/";
     if (this.props.isPannelCollapse) {
       return (
-        <div className="">
-          <button onClick={this.togglePanel}>
-            <FontAwesomeIcon icon={faBars} />
-          </button>
+        <div className="navbar" style={{}}>
+          <div className="actions-container">
+            <button onClick={this.togglePanel}>
+              <FontAwesomeIcon icon={faChevronDoubleRight} />
+            </button>
+          </div>
         </div>
       );
     }
