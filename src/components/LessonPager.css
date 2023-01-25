@@ -1,15 +1,22 @@
 .pager {
-  background-color: #242830;
+  background-color: transparent;
   box-sizing: border-box;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #31353E;
-  display: block;
   position: absolute;
-  bottom: 0px;
-  height:  40px;
-  width:  100%;
+  height: 40px;
+  width: 100%;
   overflow: hidden;
+  bottom: 70px;
+  
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
 }
 
 .pager .link-container {
@@ -17,17 +24,20 @@
   box-sizing: border-box;
   display: inline-block;
   border: none;
-  /*border-left-style: solid;*/
-  /*border-right-style: solid;*/
   border-width: 1px;
-  border-color: #31353E;
-  width:  50%;
+  width: 30%;
   height: 100%;
   position: relative;
   text-decoration: none;
-  font-size:  1rem;
-  color: #8C95A7;
+  font-size: 1rem;
+  color: #8c95a7;
   overflow: hidden;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.pager .link-container.numbering {
+  padding: 7px 15px;
 }
 
 .pager .link-container a {
@@ -37,34 +47,48 @@
   height: 100%;
   text-decoration: none;
   color: inherit;
-  padding-top: 7px;
-  padding-bottom: 7px;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding: 7px 15px;
 }
 
 .pager .link-container.next a {
-  text-align:  left;
-  background-color: #06DFA4;
-  color: white;
-} 
+  text-align: left;
+  color: #f4f4f4;
+}
 
 .pager .link-container.previous a {
-  text-align:  left;
-  background-color: #292D36;
-  color: #8C95A7;
-} 
-
- .pager .link-container.previous a:hover {
-  background-color: #373B46;
+  text-align: left;
+  color: #f4f4f4;
 }
 
- .pager .link-container.next a:hover {
-  background-color: #05C792;
+.pager .link-container.previous a:hover {
+  color: #8c95a7;
 }
 
- .pager .link-container.previous .caption { float:right }
- .pager .link-container.previous .arrow { float: left }
+.pager .link-container.next a:hover {
+  color: #8c95a7;
+}
 
- .pager .link-container.next .caption { float:left }
- .pager .link-container.next .arrow { float: right }
+.pager .link-container.previous .arrow,
+.link-container.previous .caption {
+  float: left;
+  margin: 0 5px;
+}
+
+.pager .link-container.next .arrow,
+.link-container.next .caption {
+  float: right;
+  margin: 0 5px;
+}
+
+.progress-bar {
+  background-color: rgba(244, 244, 244, 0.6);
+  width: 100%;
+  height: 10px;
+  position: absolute;
+  bottom: 10px;
+}
+
+.progress-bar .progress-fill {
+  background-color: #1ef9fa;
+  height: inherit;
+}
