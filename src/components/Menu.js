@@ -36,7 +36,7 @@ class Menu extends React.Component {
         } else {
           elem = (
             <li key={lesson.path}>
-              <Link to={lesson.path}>{lesson.name}</Link>
+              <Link onClick={this.closeMenu} to={lesson.path}>{lesson.name}</Link>
             </li>
           );
         }
@@ -44,16 +44,22 @@ class Menu extends React.Component {
       }
     }
     return (
-      <div id='sideMenu' className={visibilityClass}>
-          <button onClick={this.closeMenu}>
-            <FontAwesomeIcon icon={faTimes}/>
-          </button>
-        <ul>
-          {items}
-        </ul>
-      </div>
+      <>
+        <div className={`backdrop ${visibilityClass}`} onClick={this.closeMenu}></div>
+        <div id='sideMenu' className={visibilityClass}>
+            <button onClick={this.closeMenu}>
+              <FontAwesomeIcon icon={faTimes}/>
+            </button>
+          <ul>
+            {items}
+          </ul>
+        </div>
+      </>
     )
   }
 }
 
 export default Menu;
+
+
+

@@ -1,17 +1,16 @@
 #sideMenu {
   color: rgb(176, 180, 190);
-  padding:  10px;
-  background-color: #31353E;
+  padding: 24px;
+  background-color: #030014;
   /*border-width: 4px;*/
   /*border-style: solid;*/
   width: 400px;
   position: fixed;
   right: 0px;
-  top: 45px; /* This should match the height of the top menu bar */
-  height: calc(100vh - 58px);
+  top: 0px; /* This should match the height of the top menu bar */
+  height: 100vh;
   z-index: 999;
-  transition: transform .4s
-              cubic-bezier(0, .52, 0, 1);
+  transition: transform 0.4s cubic-bezier(0, 0.52, 0, 1);
   overflow-y: scroll;
 }
 
@@ -24,47 +23,80 @@
 }
 
 #sideMenu button {
-  float: right;
+  /* float: right; */
   font-size: 20px;
-  background:  none;
+  background: none;
   border: none;
   padding: 0;
-  margin-right: 10px;
+  /* margin-right: 10px; */
   cursor: pointer;
   outline: inherit;
-  color: #777E8B;
+  color: #ffffff;
   font-weight: 100;
 }
 
 #sideMenu ul {
   list-style-type: none;
-  padding:  0;
-  margin:  0;
+  padding: 0;
+  margin: 0;
 }
 
 #sideMenu li {
-  padding-top:  7px;
-  padding-bottom:  7px;
+  padding-top: 7px;
+  padding-bottom: 7px;
   font-size: 1rem;
 }
 
 #sideMenu li.section {
-  color:  white;
-  font-size: 1.3rem;
+  color: #9a99a1;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-size: 1.8rem;
   font-weight: 500;
-  padding-left:  10px;
 }
 
 #sideMenu li a {
   text-decoration: none;
-  color: #777E8B;
+  color: #ffffff;
   display: block;
-  width:  100%;
-  height:  100%;
-  padding-left:  10px;
+  width: 100%;
+  height: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 #sideMenu li a.disabled {
   color: #806e6e;
   cursor: default;
+}
+
+.backdrop {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: 998;
+}
+
+.backdrop.show {
+  opacity: 0.5;
+  pointer-events: auto;
+}
+
+.backdrop.hide {
+  opacity: 0;
+}
+
+@media (min-width: 1512px) {
+  #sideMenu {
+    width: 508px;
+  }
+  #sideMenu.hide {
+    transform: translate3d(-530px, 0, 0);
+  }
 }
