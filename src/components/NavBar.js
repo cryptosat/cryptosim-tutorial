@@ -1,41 +1,45 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './NavBar.css';
-import logo from './cryptosat_logo.svg';
-import Menu from './Menu.js'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faBug } from '@fortawesome/pro-light-svg-icons'
+import React from "react";
+import { Link } from "react-router-dom";
+import "./NavBar.css";
+import logo from "./cryptosat_logo.svg";
+import Menu from "./Menu.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faChevronDoubleRight } from "@fortawesome/pro-light-svg-icons";
 
 class NavBar extends React.Component {
-
   constructor(props) {
     super(props);
     this.fileBug = this.fileBug.bind(this);
     this.setMenuVisible = this.setMenuVisible.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
+    this.togglePanel = this.togglePanel.bind(this);
     this.state = {
       menuVisible: false,
       easterEgg: false,
     };
 
-    window.document.addEventListener('keydown', (e) => {
+    window.document.addEventListener("keydown", (e) => {
       if (e.altKey && e.ctrlKey) {
         this.setState({
           easterEgg: true,
-        })
+        });
       }
     });
   }
 
   setMenuVisible(visible) {
     this.setState({
-      menuVisible: visible
+      menuVisible: visible,
     });
   }
 
   toggleMenu(e) {
     e.stopPropagation();
     this.setMenuVisible(!this.state.menuVisible);
+  }
+  togglePanel(e) {
+    e.stopPropagation();
+    if (this.props.togglePanel) this.props.togglePanel();
   }
 
   fileBug(e) {
@@ -44,26 +48,46 @@ class NavBar extends React.Component {
   }
 
   render() {
-    const href = this.state.easterEgg ? '/multisat' : '/';
-    return(
-      <div className='navbar'>
-        <Menu visible={this.state.menuVisible} setMenuVisible={this.setMenuVisible}/>
-        <div className='title-container'>
-          <Link to={href}>
-            <img src={logo} alt=''/>
-            Crytposat <b>Simulator</b>
-          </Link>
+    const href = this.state.easterEgg ? "/multisat" : "/";
+    if (this.props.isPannelCollapse) {
+      return (
+        <div className="navbar" style={{}}>
+          <div className="actions-container">
+            <button onClick={this.togglePanel}>
+              <FontAwesomeIcon icon={faChevronDoubleRight} />
+            </button>
+          </div>
         </div>
-        <div className='actions-container'>
-          <button onClick={this.fileBug}>
-            <FontAwesomeIcon icon={faBug}/>
-          </button>
-          <button onClick={this.toggleMenu}>
-            <FontAwesomeIcon icon={faBars}/>
-          </button>
+      );
+    }
+    return (
+      <>
+        <Menu
+          visible={this.state.menuVisible}
+          setMenuVisible={this.setMenuVisible}
+        />
+        <div className="navbar" style={{}}>
+          <div className="actions-container">
+            <button onClick={this.toggleMenu}>
+              <FontAwesomeIcon color="white" icon={faBars} />
+            </button>
+          </div>
+
+          <div className="title-container">
+            <Link to={href}>
+              <img src={logo} alt="" />
+              Crytposat <b>Simulator</b>
+            </Link>
+          </div>
+
+          <div className="actions-container">
+            <button onClick={this.togglePanel}>
+              <FontAwesomeIcon icon={faChevronDoubleRight} />
+            </button>
+          </div>
         </div>
-      </div>
-    )
+      </>
+    );
   }
 }
 
