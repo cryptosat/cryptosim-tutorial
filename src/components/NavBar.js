@@ -59,22 +59,15 @@ class NavBar extends React.Component {
       );
     }
     return (
-      <div className="navbar">
+      <>
         <Menu
           visible={this.state.menuVisible}
           setMenuVisible={this.setMenuVisible}
         />
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-around",
-            alignItems: "center",
-          }}
-        >
+        <div className="navbar" style={{}}>
           <div className="actions-container">
             <button onClick={this.toggleMenu}>
-              <FontAwesomeIcon icon={faBars} />
+              <FontAwesomeIcon color="white" icon={faBars} />
             </button>
           </div>
 
@@ -91,7 +84,7 @@ class NavBar extends React.Component {
             </button>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }
