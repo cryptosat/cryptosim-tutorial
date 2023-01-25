@@ -94,9 +94,9 @@
 
 @media (min-width: 1512px) {
   #sideMenu {
-    width: 508px;
+    width: 400px;
   }
   #sideMenu.hide {
-    transform: translate3d(-530px, 0, 0);
+    transform: translate3d(450px, 0, 0);
   }
 }
