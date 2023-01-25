@@ -97,6 +97,6 @@
     width: 400px;
   }
   #sideMenu.hide {
-    transform: translate3d(450px, 0, 0);
+    transform: translate3d(-450px, 0, 0);
   }
 }
