@@ -37,13 +37,24 @@
   background: none;
   border: none;
   padding: 0;
-  margin-left: 20px;
   font: inherit;
   cursor: pointer;
   outline: inherit;
   color: #777e8b;
   font-weight: 100;
 }
+
+.actions-container:first-child button {
+  margin-left: 20px;
+}
+
+.actions-container:nth-child(2) button {
+  margin-left: 25px;
+}
+
+.actions-container:nth-child(3) button {
+  margin-right: 20px;
+}  
 
 .bug-button {
   background-color: transparent;

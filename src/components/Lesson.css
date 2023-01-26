@@ -10,7 +10,8 @@
 
 .lesson-content {
   width:  100%;
-  padding:  16px;
+  padding-top: 16px;
+  padding-right:  32px;
   padding-left: 32px; /* to align with navbar bars icon */
   overflow-y:  scroll;
   overflow-x: hidden;
