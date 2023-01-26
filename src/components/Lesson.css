@@ -37,7 +37,7 @@
 
 .lesson-gradient {
   position: absolute;
-  bottom: 40px;
+  top: 360px;
   height: 50vh;
   width: 100%;
   background: linear-gradient(
@@ -68,4 +68,30 @@
 }
 ::-webkit-scrollbar-track-piece:end {
   background: transparent;
+}
+
+
+.circle-small{
+  position: absolute;
+  width: 3.39px;
+  height: 3.22px;
+  border-radius: 100%;
+  background: #BBBBBB;
+  box-shadow: 0px 0px 172px 14px #2D2D6B;
+}
+.circle-medium{
+  position: absolute;
+  width: 5.93px;
+  height: 5.97px;
+  border-radius: 100%;
+  background: #BBBBBB;
+  box-shadow: 0px 0px 172px 14px #2D2D6B;
+}
+.circle-large{
+position: absolute;
+width: 8.56px;
+height: 8.63px;
+background: #BBBBBB;
+box-shadow: 0px 0px 172px 14px #2D2D6B;
+border-radius: 100%;
 }
