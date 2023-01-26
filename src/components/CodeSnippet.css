@@ -1,11 +1,9 @@
 .code-snippet pre {
-  display: inline-block;
-  width: 100%;
+  line-height: 1.5rem;
+  display: flex;
   box-sizing: border-box;
-  background: #292D36;
-  border: 1px solid #31353E;
-  border-left: 3px solid #7A63F2;
-  line-height: 1.6;
+  background: #353343;
+  border: 1px solid #31353e;
   margin-bottom: 1.6em;
   margin-right: 10px;
   max-width: 100%;
@@ -16,37 +14,50 @@
   color: rgb(152, 152, 152);
   /*color: #666;*/
   page-break-inside: avoid;
-  font-family: "Menlo", consolas, monospace;
+  font-family: 'Menlo', consolas, monospace;
+  position: relative;
+
 }
 
 .code-snippet code {
+  height: 3rem;
   float: left;
   width: calc(100% - 20px);
-  overflow-x: scroll;
-  overflow-y: scroll;
+  overflow-x: hidden;
+  overflow-y: hidden;
   word-wrap: break-word;
-}
 
-.code-snippet icon-container {
-  display: inline-block;
-  width:  20px;
 }
 
 .code-snippet button {
-  color: #777E8B;
+  color: #f4f4f4;
   background: none;
   border-style: none;
   padding: 10px;
-  width: 14px;
-  height: 16px;
+  height: 100%;
   position: relative;
   cursor: pointer;
-  top: -4px;
-  left: -5px;
 }
 
+.code-snippet .icon-container{
+background-image: linear-gradient(to right,
+rgba(53, 51, 67, 0.027),
+rgba(53, 51, 67, 0.959),
+rgb(53, 51, 67),
+rgb(53, 51, 67),
+rgb(53, 51, 67),
+rgb(53, 51, 67));
+position: absolute;
+right: 0;
+padding-left: 40px;
+height: 100%;
+top: 0;
+}
+
+
+
 .code-snippet button:hover {
-  color: #AFB4BE;
+  color: #afb4be;
 }
 
 .code-snippet button:active {
