@@ -26,7 +26,14 @@ class PanelContainer extends React.Component {
           height: "100vh",
           flexDirection: "column",
           display: "flex",
-          backgroundColor: "#02000E",
+          background: `linear-gradient(
+            166.28deg,
+            #02000e 52.56%,
+            #320541 65.04%,
+            #6d0d8d 70.01%,
+            #320541 74.99%,
+            #030014 84.23%
+          )`
         }}
       >
         {/* <div className="nav-container"> */}
