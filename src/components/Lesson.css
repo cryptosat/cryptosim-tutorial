@@ -22,6 +22,8 @@
 .lesson-content h2 {
   font-size: 30px; /* figma is 32px but it causes some headings to overflow to next line */
   margin: 0;
+  margin-top: 4px;
+  margin-bottom: 24px;
   color: #F4F4F4;
   font-weight: 400;
 }
