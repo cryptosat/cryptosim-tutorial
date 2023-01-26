@@ -52,9 +52,16 @@ class NavBar extends React.Component {
     if (this.props.isPannelCollapse) {
       return (
         <div className="navbar" style={{}}>
-          <div className="actions-container">
+          <div
+            className="actions-container"
+            style={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
             <button onClick={this.togglePanel}>
-              <FontAwesomeIcon icon={faChevronDoubleLeft} />
+              <FontAwesomeIcon size="lg" icon={faChevronDoubleLeft} />
             </button>
           </div>
         </div>
@@ -76,7 +83,7 @@ class NavBar extends React.Component {
           <div className="title-container">
             <Link to={href}>
               <img src={logo} alt="" />
-              Crytposat  Simulator
+              Crytposat Simulator
             </Link>
           </div>
 

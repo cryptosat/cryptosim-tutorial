@@ -189,7 +189,7 @@ class App extends React.Component {
             style={{
               display: "flex",
               flexDirection: "row",
-              backgroundColor: "#31353E",
+              backgroundColor: "#030014",
             }}
           >
             <PanelContainer>

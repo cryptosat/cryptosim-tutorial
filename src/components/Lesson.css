@@ -1,7 +1,8 @@
 .lesson {
   height: 100%;
   /* background-color: #02000E; */
- 
+  padding-left: 24px;
+  padding-right: 24px;
   /* overflow:  scroll; */
   display: flex;
   flex-direction: column;
