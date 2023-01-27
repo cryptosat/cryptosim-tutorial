@@ -34,8 +34,14 @@
   width: 80%;
 }
 
-.modal-content p {
-  font-size: larger;
+.modal-content pre {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
+  letter-spacing: 0.5px;
+  color: #F4F4F4;
 }
 
 .exit-icon {
