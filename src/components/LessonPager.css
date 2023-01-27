@@ -84,6 +84,7 @@ padding: 0 10px;
   height: 10px;
   position: absolute;
   bottom: 10px;
+  left: 0;
 }
 
 .progress-bar .progress-fill {
