@@ -14,10 +14,17 @@ function copyToClipboard(text) {
   document.body.removeChild(dummy);
 }
 
+function copyToConsole(text) {
+  const textarea = document.querySelector('.cli');
+  textarea.value = text;
+  textarea.focus();
+}
+
 class CodeSnippet extends React.Component {
 
   copy() {
-    copyToClipboard(this.props.code);
+    // copyToClipboard(this.props.code);
+    copyToConsole(this.props.code);
   }
 
  render() {
