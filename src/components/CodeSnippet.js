@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './CodeSnippet.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExpandAlt, faCopy } from '@fortawesome/pro-light-svg-icons'
-
+import SnippetModal from './SnippetModal';
 
 function copyToClipboard(text) {
   var dummy = document.createElement("textarea");
@@ -15,6 +15,20 @@ function copyToClipboard(text) {
 }
 
 class CodeSnippet extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showModal: false
+    };
+    this.setShowModal = this.setShowModal.bind(this);
+    this.copy = this.copy.bind(this);
+  }
+
+  setShowModal(modalState){
+    this.setState({
+      showModal: modalState
+    })
+  }
 
   copy() {
     copyToClipboard(this.props.code);
@@ -28,7 +42,7 @@ class CodeSnippet extends React.Component {
             {this.props.code}
           </code>
           <div className='icon-container'>
-            <button onClick={this.copy.bind(this)}>
+            <button onClick={()=>this.setShowModal(!this.state.showModal)}>
               <FontAwesomeIcon icon={faExpandAlt} />
             </button>
             <button onClick={this.copy.bind(this)}>
@@ -36,6 +50,7 @@ class CodeSnippet extends React.Component {
             </button>
           </div>
         </pre>
+        {this.state.showModal && <SnippetModal copy={this.copy} code={this.props.code} setShow={this.setShowModal}/>}
       </div>
     )
   }
