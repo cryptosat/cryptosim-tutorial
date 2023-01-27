@@ -38,7 +38,9 @@ class PanelContainer extends React.Component {
         <div
           style={{
             flex: 1,
-            overflow: "scroll",
+            overflowY: "scroll",
+            overflowX: "hidden"
+
           }}
         >
           {!this.state.isCollapse && <>{this.props.children}</>}

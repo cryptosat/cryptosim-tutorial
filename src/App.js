@@ -219,7 +219,8 @@ class App extends React.Component {
               <div
                 style={{
                   height: "40vh",
-                  overflow: "scroll",
+                  overflowY: "scroll",
+                  overflowX: "hidden"
                 }}
               >
                 <Console theme="dark" payload={this.payload} />
