@@ -10,8 +10,8 @@ class LessonPager extends React.Component {
   render() {
     let previous = null;
     let next = null;
-    let totalPages = this.props.totalPages ;
-    let currentPage = this.props.currentPage ;
+    let totalPages = this.props.totalPages;
+    let currentPage = this.props.currentPage;
 
     if (this.props.previous) {
       previous = (
@@ -27,10 +27,10 @@ class LessonPager extends React.Component {
     if (this.props.next) {
       next = (
         <Link to={this.props.next}>
+          <span className='caption'>Next</span>
           <span className='arrow'>
             <FontAwesomeIcon icon={faChevronRight} />
           </span>
-          <span className='caption'>Next</span>
         </Link>
       );
     }
@@ -38,12 +38,18 @@ class LessonPager extends React.Component {
     return (
       <>
         <div className="pager">
-          <div className={'link-container previous'}>{previous}</div>
-          <div className={'link-container numbering'}>{currentPage}/{totalPages}</div>
-          <div className='link-container next'>{next}</div>
+          <div className={'link-container'}>
+            <div className={'previous'}>
+              {previous}
+            </div>
+            <div className={'numbering'}>{currentPage}/{totalPages}</div>
+            <div className={'next'}>
+              {next}
+            </div>
+          </div>
         </div>
         <div className='progress-bar'>
-          <div className='progress-fill' style={{width:`${(currentPage/totalPages)*100}%`}}></div>
+          <div className='progress-fill' style={{ width: `${(currentPage / totalPages) * 100}%` }}></div>
         </div>
       </>
     );

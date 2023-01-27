@@ -8,14 +8,14 @@
   bottom: 70px;
   z-index: 2;
   left: 0;
+  right: 0;
   /* Auto layout */
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
 
   /* Inside auto layout */
-  flex: none;
+  flex: 1;
   order: 1;
   flex-grow: 0;
 }
@@ -23,10 +23,10 @@
 .pager .link-container {
   user-select: none;
   box-sizing: border-box;
-  display: inline-block;
+  display: flex;
   border: none;
   border-width: 1px;
-  width: 30%;
+  width: 100%;
   height: 100%;
   position: relative;
   text-decoration: none;
@@ -35,50 +35,47 @@
   overflow: hidden;
   text-transform: uppercase;
   text-align: center;
+  position: relative;
 }
 
-.pager .link-container.numbering {
+.pager .link-container .numbering {
   padding: 7px 15px;
+  position: absolute;
+  left: 45%;
 }
 
 .pager .link-container a {
   box-sizing: border-box;
-  display: inline-block;
+  display: flex;
   width: 100%;
   height: 100%;
   text-decoration: none;
   color: inherit;
   padding: 7px 15px;
-}
-
-.pager .link-container.next a {
-  text-align: left;
   color: #f4f4f4;
+
 }
 
-.pager .link-container.previous a {
-  text-align: left;
-  color: #f4f4f4;
-}
-
-.pager .link-container.previous a:hover {
+.pager .link-container a:hover {
   color: #8c95a7;
 }
 
-.pager .link-container.next a:hover {
-  color: #8c95a7;
+.pager .link-container .previous {
+  position: absolute;
+  left: 0;
 }
 
-.pager .link-container.previous .arrow,
-.link-container.previous .caption {
-  float: left;
-  margin: 0 5px;
+.pager .link-container .next {
+  position: absolute;
+  right: 0;
 }
 
-.pager .link-container.next .arrow,
-.link-container.next .caption {
-  float: right;
-  margin: 0 5px;
+.pager .link-container .next .arrow {
+padding: 0 10px;
+}
+
+.pager .link-container .previous .arrow{
+  padding: 0 10px;
 }
 
 .progress-bar {
