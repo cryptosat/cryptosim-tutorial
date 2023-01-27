@@ -21,12 +21,13 @@ class PanelContainer extends React.Component {
   render() {
     return (
       <div
+        className={`${this.state.isCollapse ? "" : "apply-gradient"}`}
         style={{
-          width: `calc(100vw - ${this.state.isCollapse ? 90 : 70}%)`,
+          width: `calc(100vw - ${this.state.isCollapse ? 95 : 70}%)`,
           height: "100vh",
           flexDirection: "column",
           display: "flex",
-          backgroundColor: "#02000E",
+          background: "#02000E",
         }}
       >
         {/* <div className="nav-container"> */}

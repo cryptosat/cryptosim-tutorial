@@ -1,7 +1,9 @@
 .lesson {
   height: 100%;
-  background-color: #02000e;
-  overflow: scroll;
+  /* background-color: #02000E; */
+  padding-left: 24px;
+  padding-right: 24px;
+  /* overflow:  scroll; */
   display: flex;
   flex-direction: column;
   color: #f4f4f4;
@@ -13,6 +15,7 @@
 
 .lesson-content {
   width: 100%;
+  padding: 16px;
   overflow-y: scroll;
   overflow-x: hidden;
   margin-bottom: 60px;
@@ -24,74 +27,13 @@
 }
 
 .lesson-content h2 {
-  border-bottom-color: #31353e;
+  /* border-bottom-color: #31353e;
   border-bottom-width: 1px;
-  border-bottom-style: solid;
+  border-bottom-style: solid; */
   padding-bottom: 16px;
   font-weight: 400;
 }
 
 .lesson-content a {
   color: #a9a9a9;
-}
-
-.lesson-gradient {
-  position: absolute;
-  top: 360px;
-  height: 50vh;
-  width: 100%;
-  background: linear-gradient(
-    166.28deg,
-    #030014 22.56%,
-    #320541 42.04%,
-    #6d0d8d 49.01%,
-    #320541 54.99%,
-    #030014 78.23%
-  );
-  z-index: 0;
-}
-
-/* scrollbar */
-::-webkit-scrollbar {
-  background-color: transparent;
-  width: 9px;
-  height: 9px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-}
-
-::-webkit-scrollbar-track-piece:start {
-  background: transparent;
-}
-::-webkit-scrollbar-track-piece:end {
-  background: transparent;
-}
-
-
-.circle-small{
-  position: absolute;
-  width: 3.39px;
-  height: 3.22px;
-  border-radius: 100%;
-  background: #BBBBBB;
-  box-shadow: 0px 0px 172px 14px #2D2D6B;
-}
-.circle-medium{
-  position: absolute;
-  width: 5.93px;
-  height: 5.97px;
-  border-radius: 100%;
-  background: #BBBBBB;
-  box-shadow: 0px 0px 172px 14px #2D2D6B;
-}
-.circle-large{
-position: absolute;
-width: 8.56px;
-height: 8.63px;
-background: #BBBBBB;
-box-shadow: 0px 0px 172px 14px #2D2D6B;
-border-radius: 100%;
 }

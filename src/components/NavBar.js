@@ -4,7 +4,11 @@ import "./NavBar.css";
 import logo from "./cryptosat_logo.svg";
 import Menu from "./Menu.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faChevronDoubleRight } from "@fortawesome/pro-light-svg-icons";
+import {
+  faBars,
+  faChevronDoubleLeft,
+  faChevronDoubleRight,
+} from "@fortawesome/pro-light-svg-icons";
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -52,9 +56,20 @@ class NavBar extends React.Component {
     if (this.props.isPannelCollapse) {
       return (
         <div className="navbar" style={{}}>
-          <div className="actions-container">
+          <div
+            className="actions-container"
+            style={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
             <button onClick={this.togglePanel}>
-              <FontAwesomeIcon icon={faChevronDoubleRight} />
+              <FontAwesomeIcon
+                color="#686672"
+                size="lg"
+                icon={faChevronDoubleRight}
+              />
             </button>
           </div>
         </div>
@@ -69,20 +84,24 @@ class NavBar extends React.Component {
         <div className="navbar" style={{}}>
           <div className="actions-container">
             <button onClick={this.toggleMenu}>
-              <FontAwesomeIcon color="white" icon={faBars} />
+              <FontAwesomeIcon size="lg" color="white" icon={faBars} />
             </button>
           </div>
 
           <div className="title-container">
             <Link to={href}>
               <img src={logo} alt="" />
-              Crytposat <b>Simulator</b>
+              Crytposat Simulator
             </Link>
           </div>
 
           <div className="actions-container">
             <button onClick={this.togglePanel}>
-              <FontAwesomeIcon icon={faChevronDoubleRight} />
+              <FontAwesomeIcon
+                color="#686672"
+                size="lg"
+                icon={faChevronDoubleLeft}
+              />
             </button>
           </div>
         </div>
