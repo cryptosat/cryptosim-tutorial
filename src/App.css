@@ -111,4 +111,57 @@ body {
     #320541 74.99%,
     #030014 84.23%
   ) !important;
+  position: relative;
+}
+
+.apply-gradient .lesson-gradient{
+  position: absolute;
+  top: 360px;
+  height: 50vh;
+  width: 100%;
+  z-index: 0;
+}
+
+.apply-gradient .circle-small {
+  position: absolute;
+  width: 3.39px;
+  height: 3.22px;
+  border-radius: 100%;
+  background: #bbbbbb;
+  box-shadow: 0px 0px 172px 14px #2d2d6b;
+}
+.apply-gradient .circle-medium {
+  position: absolute;
+  width: 5.93px;
+  height: 5.97px;
+  border-radius: 100%;
+  background: #bbbbbb;
+  box-shadow: 0px 0px 172px 14px #2d2d6b;
+}
+.apply-gradient .circle-large {
+  position: absolute;
+  width: 8.56px;
+  height: 8.63px;
+  background: #bbbbbb;
+  box-shadow: 0px 0px 172px 14px #2d2d6b;
+  border-radius: 100%;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-track-piece:start {
+  background: transparent;
+}
+::-webkit-scrollbar-track-piece:end {
+  background: transparent;
 }

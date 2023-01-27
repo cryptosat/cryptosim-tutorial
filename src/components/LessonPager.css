@@ -6,7 +6,8 @@
   width: 100%;
   overflow: hidden;
   bottom: 70px;
-  
+  z-index: 2;
+  left: 0;
   /* Auto layout */
   display: flex;
   flex-direction: row;
