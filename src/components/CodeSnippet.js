@@ -1,8 +1,7 @@
-import React from 'react';
-import './CodeSnippet.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCopy} from '@fortawesome/pro-light-svg-icons'
-
+import React from "react";
+import "./CodeSnippet.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCopy } from "@fortawesome/pro-light-svg-icons";
 
 function copyToClipboard(text) {
   var dummy = document.createElement("textarea");
@@ -15,34 +14,33 @@ function copyToClipboard(text) {
 }
 
 function copyToConsole(text) {
-  const textarea = document.querySelector('.cli');
-  textarea.value = text;
-  textarea.focus();
+  const textarea = document.querySelector(".cli");
+  if (textarea) {
+    textarea.value = text;
+    textarea.focus();
+  }
 }
 
 class CodeSnippet extends React.Component {
-
   copy() {
     // copyToClipboard(this.props.code);
     copyToConsole(this.props.code);
   }
 
- render() {
-    return(
-      <div className='code-snippet'>
+  render() {
+    return (
+      <div className="code-snippet">
         <pre>
-          <code>
-            {this.props.code}
-          </code>
-            <div className='icon-container'>
-              <button onClick={this.copy.bind(this)}>
-                <FontAwesomeIcon icon={faCopy}/>
-              </button>
-            </div>
+          <code>{this.props.code}</code>
+          <div className="icon-container">
+            <button onClick={this.copy.bind(this)}>
+              <FontAwesomeIcon icon={faCopy} />
+            </button>
+          </div>
         </pre>
       </div>
-    )
+    );
   }
 }
 
-export default CodeSnippet
+export default CodeSnippet;
