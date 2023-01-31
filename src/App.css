@@ -1,7 +1,6 @@
 body {
   overscroll-behavior: none;
   overflow-x: hidden;
-  font-family: poppins;
   font-size: 0.9rem;
   background: #030014;
 }
@@ -30,7 +29,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
 }
-.panel-right {
+/* .panel-right {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -85,6 +84,26 @@ body {
 
 .panel-container .panel:nth-of-type(3) {
   z-index: 1;
+} */
+
+.content-container {
+  display: flex;
+  flex-direction: row;
+  background-color: #31353E;
+}
+
+.content-container__right {
+  display: flex;
+  flex: 1;
+  flex-direction: column-reverse;
+  height: 100vh;
+  width: 100%;
+}
+
+.console-container {
+  height: 239px;
+  overflow-y: scroll; /* to hide horizontal scrollbar on chrome for windows */
+  z-index: 1;
 }
 
 .map-hole {
@@ -92,10 +111,10 @@ body {
 }
 
 .map-container {
-  /* position: fixed;
+  position: fixed;
   left:  0;
-  top:  0; */
-  width: 100%;
+  top:  0;
+  width: 100vw;
 }
 
 .mapboxgl-ctrl-attrib-inner {
@@ -111,4 +130,9 @@ body {
     #320541 74.99%,
     #030014 84.23%
   ) !important;
+}
+@media (min-width: 1512px) {
+  .console-container {
+    height: 323px;
+  }
 }

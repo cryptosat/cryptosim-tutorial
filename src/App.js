@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 import tweetnacl from "tweetnacl";
 import "./App.css";
-import NavBar from "./components/NavBar";
 import PanelContainer from "./components/PanelContainer";
 import plan from "./components/lessons/plan";
 import MultiSatDemo from "./components/MultiSatDemo";
@@ -192,6 +191,8 @@ class App extends React.Component {
               backgroundColor: "#030014",
             }}
           >
+            {/* <div className="content-container"> */}
+
             <PanelContainer>
               <Switch>
                 {routes}
@@ -201,27 +202,14 @@ class App extends React.Component {
               </Switch>
             </PanelContainer>
 
-            <div
-              style={{
-                flex: 1,
-                display: "flex",
-                flexDirection: "column",
-                height: "100vh",
-                width: "100%",
-              }}
-            >
+            <div className="content-container__right">
               <WorldMap
                 universe={this.universe}
                 gsnetwork={this.gsnetwork}
                 center={center}
                 zoom={zoom}
               />
-              <div
-                style={{
-                  height: "40vh",
-                  overflow: "scroll",
-                }}
-              >
+              <div className="console-container">
                 <Console theme="dark" payload={this.payload} />
               </div>
             </div>

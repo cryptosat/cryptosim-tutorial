@@ -3,8 +3,15 @@ import { Link } from "react-router-dom";
 import './Menu.css';
 import plan from './lessons/plan';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes } from '@fortawesome/pro-light-svg-icons'
+import { faChevronRight, faTimes } from '@fortawesome/pro-light-svg-icons'
 
+function getPathName(url) {
+  let pathName = url.split('#').slice(-1)[0];
+  if (pathName === '/') {
+    pathName = plan[0].lessons[0].path;
+  }
+  return pathName;
+}
 
 class Menu extends React.Component {
 
@@ -12,11 +19,21 @@ class Menu extends React.Component {
     super(props);
     this.props = props;
     this.closeMenu = this.closeMenu.bind(this);
+    this.state = {
+      currentLocation: '',
+    }
   }
 
-  closeMenu(e) {
+  closeMenu(e, currentLocation) {
     e.stopPropagation();
     this.props.setMenuVisible(false);
+    if (currentLocation) {  
+      this.setState({ currentLocation });
+    }
+  }
+
+  componentDidMount() {
+    this.setState({ currentLocation: getPathName(window.location.href) });
   }
 
  render() {
@@ -36,7 +53,15 @@ class Menu extends React.Component {
         } else {
           elem = (
             <li key={lesson.path}>
-              <Link onClick={this.closeMenu} to={lesson.path}>{lesson.name}</Link>
+              <Link
+                onClick={(e) => this.closeMenu(e, lesson.path)}
+                to={lesson.path}
+              >
+                {lesson.path === this.state.currentLocation ? (
+                  <FontAwesomeIcon icon={faChevronRight} className='active' />
+                ) : null}
+                {lesson.name}
+              </Link>
             </li>
           );
         }

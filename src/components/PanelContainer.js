@@ -1,5 +1,5 @@
 import React from "react";
-import "../App.css"; // DELETE
+import "./PanelContainer.css";
 import NavBar from "./NavBar";
 
 class PanelContainer extends React.Component {
@@ -19,29 +19,17 @@ class PanelContainer extends React.Component {
   }
 
   render() {
+    const contentClassName = this.state.isCollapse 
+      ? "content-container__left collapsed"
+      : "content-container__left";
     return (
-      <div
-        className={`${this.state.isCollapse ? "" : "apply-gradient"}`}
-        style={{
-          width: `calc(100vw - ${this.state.isCollapse ? 95 : 70}%)`,
-          height: "100vh",
-          flexDirection: "column",
-          display: "flex",
-          background: "#02000E",
-        }}
-      >
-        {/* <div className="nav-container"> */}
+      <div className={contentClassName}>
         <NavBar
           togglePanel={this.togglePanel}
           isPannelCollapse={this.state.isCollapse}
         />
 
-        <div
-          style={{
-            flex: 1,
-            overflow: "scroll",
-          }}
-        >
+        <div className="instructions-container">
           {!this.state.isCollapse && <>{this.props.children}</>}
         </div>
       </div>
