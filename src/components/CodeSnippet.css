@@ -1,5 +1,5 @@
 .code-snippet pre {
-  display: inline-block;
+  display: flex;
   width: 100%;
   box-sizing: border-box;
   background: #292D36;
@@ -13,35 +13,45 @@
   padding-bottom: 10px;
   padding-left: 12px;
   /* color: rgb(152, 152, 152); */
-  color: #f4f4f4;
+  color: #fff;
   page-break-inside: avoid;
-  font-family: "Menlo", consolas, monospace;
 }
 
 .code-snippet code {
-  float: left;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  justify-content: flex-start;
   width: calc(100% - 60px);
   overflow-x: scroll;
   overflow-y: scroll;
   word-wrap: break-word;
 }
 
-.code-snippet icon-container {
-  display: inline-block;
-  width:  20px;
+.code-snippet .icon-container {
+  align-self: center;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  justify-content: center;
+  width: 60px;
+}
+
+.code-snippet .icon-container span {
+  margin-left: 5px;
 }
 
 .code-snippet button {
-  color: #777E8B;
+  color: #fff;
   background: none;
   border-style: none;
   padding: 10px;
-  width: 14px;
-  height: 16px;
-  position: relative;
+  /* width: 14px; */
+  /* height: 16px; */
+  /* position: relative; */
   cursor: pointer;
-  top: -4px;
-  left: -5px;
+  /* top: -4px; */
+  /* left: -5px; */
 }
 
 .code-snippet button:hover {

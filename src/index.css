@@ -21,6 +21,7 @@ a {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: 'IBM Plex Mono', Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+  letter-spacing: 0.5px;
 }
