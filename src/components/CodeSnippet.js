@@ -4,14 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExpandAlt, faCopy } from "@fortawesome/pro-light-svg-icons";
 import SnippetModal from "./SnippetModal";
 
-function copyToConsole(text) {
-  const textarea = document.querySelector(".cli");
-  if (textarea) {
-    textarea.value = text;
-    textarea.focus();
-  }
-}
-
 // class CodeSnippet extends React.Component {
 //   constructor(props) {
 //     super(props);
@@ -57,6 +49,16 @@ function copyToConsole(text) {
 //     );
 //   }
 // }
+
+function copyToConsole(text) {
+  const textarea = document.querySelector(".cli");
+  if (textarea) {
+    textarea.value = text;
+    textarea.focus();
+    textarea.style.height = 'auto';
+    textarea.style.height = textarea.scrollHeight + 'px';
+  }
+}
 
 class CodeSnippet extends React.Component {
   copy() {
