@@ -32,7 +32,7 @@ class PanelContainer extends React.Component {
         <div className="instructions-container">
           {!this.state.isCollapse && <>{this.props.children}</>}
         </div>
-        <div>
+        {/* <div>
           <div className='dot' style={{left:'2%',top:'85%'}}></div>
           <div className='dot' style={{left:'2%',top:'65%'}}></div>
           <div className='dot' style={{left:'8%',top:'72%'}}></div>
@@ -46,7 +46,7 @@ class PanelContainer extends React.Component {
           <div className='dot md' style={{left:'38%',top:'65%'}}></div>
           <div className='dot lg' style={{left:'30%',top:'65%'}}></div>
           <div className='dot lg' style={{left:'15%',top:'80%'}}></div>
-        </div>
+        </div> */}
       </div>
     );
   }
