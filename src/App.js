@@ -165,7 +165,7 @@ class App extends React.Component {
       const content = componentMap.get(lesson.content);
       const route = (
         <Route key={lesson.path} exact path={lesson.path}>
-          <Lesson content={content} previous={previous} next={next} />
+          <Lesson content={content} previous={previous} next={next} totalPages={flatLessons.length} currentPage={i + 1} />
         </Route>
       );
       routes.push(route);
