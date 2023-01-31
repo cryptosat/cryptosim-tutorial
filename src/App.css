@@ -133,9 +133,6 @@ body {
   ) !important;
 }
 
-
-
-
 .apply-dots{
   position: absolute;
   top: 360px;
@@ -150,6 +147,7 @@ body {
   height: 3.22px;
   border-radius: 100%;
   background: #bbbbbb;
+  opacity: 0.8;
   box-shadow: 0px 0px 172px 14px #2d2d6b;
 }
 .apply-dots .dot.md {

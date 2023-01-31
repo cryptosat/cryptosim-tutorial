@@ -3,12 +3,18 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #02000E;
+  background-color: #02000e;
+  transition: width 0.1s;
   z-index: 2;
 }
 
 .collapsed {
   width: 90px;
+  position: relative;
+}
+
+.collapsed .apply-dots {
+  display: none;
 }
 
 .instructions-container {
