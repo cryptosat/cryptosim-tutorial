@@ -1,8 +1,8 @@
 .lesson {
   height: 100%;
   /* background-color: #02000E; */
-  padding-left: 24px;
-  padding-right: 24px;
+  /* padding-left: 24px;
+  padding-right: 24px; */
   /* overflow:  scroll; */
   display: flex;
   flex-direction: column;
@@ -12,6 +12,7 @@
 
 .lesson-content {
   width:  100%;
+  height: 90%;
   padding-top: 16px;
   padding-right:  32px;
   padding-left: 32px; /* to align with navbar bars icon */

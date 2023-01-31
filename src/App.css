@@ -131,6 +131,36 @@ body {
     #030014 84.23%
   ) !important;
 }
+
+
+
+
+.lesson-gradient{
+  position: absolute;
+  top: 360px;
+  height: 50vh;
+  width: 100%;
+  z-index: 0;
+}
+
+.apply-gradient .dot {
+  position: absolute;
+  width: 3.39px;
+  height: 3.22px;
+  border-radius: 100%;
+  background: #bbbbbb;
+  box-shadow: 0px 0px 172px 14px #2d2d6b;
+}
+.apply-gradient .dot.md {
+  width: 5.93px;
+  height: 5.97px;
+
+}
+.apply-gradient .dot.lg {
+  width: 8.56px;
+  height: 8.63px;
+}
+
 @media (min-width: 1512px) {
   .console-container {
     height: 323px;

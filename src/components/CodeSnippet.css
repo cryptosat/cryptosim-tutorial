@@ -3,8 +3,7 @@
   width: 100%;
   box-sizing: border-box;
   background: #292D36;
-  border: 1px solid #31353E;
-  border-left: 3px solid #7A63F2;
+  
   line-height: 1.6;
   margin-bottom: 1.6em;
   margin-right: 10px;
@@ -21,7 +20,7 @@
 
 .code-snippet code {
   float: left;
-  width: calc(100% - 20px);
+  width: calc(100% - 60px);
   overflow-x: scroll;
   overflow-y: scroll;
   word-wrap: break-word;

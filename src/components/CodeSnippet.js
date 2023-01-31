@@ -70,7 +70,7 @@ class CodeSnippet extends React.Component {
           <code>{this.props.code}</code>
           <div className="icon-container">
             <button onClick={this.copy.bind(this)}>
-              <FontAwesomeIcon icon={faCopy} />
+              Copy <FontAwesomeIcon icon={faCopy} />
             </button>
           </div>
         </pre>
