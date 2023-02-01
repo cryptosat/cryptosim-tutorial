@@ -19,9 +19,10 @@ class PanelContainer extends React.Component {
   }
 
   render() {
-    const contentClassName = this.state.isCollapse
-      ? "content-container__left collapsed "
-      : "content-container__left apply-gradient";
+    const contentClassName = `content-container__left ${
+      this.state.isCollapse ? "collapsed" : "apply-gradient"
+    }`;
+
     return (
       <div className={contentClassName}>
         <NavBar

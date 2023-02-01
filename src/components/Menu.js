@@ -1,38 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, matchPath, withRouter } from "react-router-dom";
 import "./Menu.css";
 import plan from "./lessons/plan";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faTimes } from "@fortawesome/pro-light-svg-icons";
-
-function getPathName(url) {
-  let pathName = url.split("#").slice(-1)[0];
-  if (pathName === "/") {
-    pathName = plan[0].lessons[0].path;
-  }
-  return pathName;
-}
 
 class Menu extends React.Component {
   constructor(props) {
     super(props);
     this.props = props;
     this.closeMenu = this.closeMenu.bind(this);
-    this.state = {
-      currentLocation: "",
-    };
+    this.navigate = this.navigate.bind(this);
   }
 
-  closeMenu(e, currentLocation) {
+  closeMenu(e) {
     e.stopPropagation();
     this.props.setMenuVisible(false);
-    if (currentLocation) {
-      this.setState({ currentLocation });
-    }
   }
 
-  componentDidMount() {
-    this.setState({ currentLocation: getPathName(window.location.href) });
+  navigate(lesson) {
+    this.props.history.push(lesson.path);
+    this.props.setMenuVisible(false);
   }
 
   render() {
@@ -58,27 +46,34 @@ class Menu extends React.Component {
         } else {
           elem = (
             <li key={lesson.path}>
-              <Link
-                onClick={(e) => this.closeMenu(e, lesson.path)}
-                to={lesson.path}
+              <a
+                href={lesson.path}
+                onClick={(e) => {
+                  e.preventDefault();
+                  this.navigate(lesson);
+                }}
               >
-                {lesson.path === this.state.currentLocation ? (
+                {matchPath(lesson.path, {
+                  path: this.props.location.pathname,
+                  exact: true,
+                }) && (
                   <FontAwesomeIcon icon={faChevronRight} className="active" />
-                ) : null}
+                )}
                 {lesson.name}
-              </Link>
+              </a>
             </li>
           );
         }
         items.push(elem);
       }
     }
+
     return (
       <>
         <div
           className={`backdrop ${visibilityClass}`}
           onClick={this.closeMenu}
-        ></div>
+        />
         <div id="sideMenu" className={visibilityClass}>
           <button onClick={this.closeMenu}>
             <FontAwesomeIcon icon={faTimes} />
@@ -90,4 +85,4 @@ class Menu extends React.Component {
   }
 }
 
-export default Menu;
+export default withRouter(Menu);

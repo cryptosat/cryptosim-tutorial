@@ -4,7 +4,21 @@ import "./NavBar.css";
 import logo from "./cryptosat_logo.svg";
 import Menu from "./Menu.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faChevronDoubleRight, faChevronDoubleLeft, faBug } from "@fortawesome/pro-light-svg-icons";
+import {
+  faBars,
+  faChevronDoubleRight,
+  faChevronDoubleLeft,
+  faBug,
+} from "@fortawesome/pro-light-svg-icons";
+
+const BugButton = (props) => {
+  return (
+    <button className="bug-button" onClick={props.fileBug}>
+      <FontAwesomeIcon icon={faBug} />
+      &nbsp;REPORT BUG
+    </button>
+  );
+};
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -49,59 +63,50 @@ class NavBar extends React.Component {
 
   render() {
     const href = this.state.easterEgg ? "/multisat" : "/";
-    const bugButton = (<button className="bug-button" onClick={this.fileBug}><FontAwesomeIcon icon={faBug} />&nbsp;REPORT BUG</button>)
-    if (this.props.isPannelCollapse) {
-      return (
-        <div className="navbar">
-          {bugButton}
-          <div className="actions-container"
-          // style={{
-          //   width: "100%",
-          //   display: "flex",
-          //   justifyContent: "center",
-          // }}
-          >
-            <button onClick={this.togglePanel}>
-              <FontAwesomeIcon
-                color="#686672"
-                size="lg"
-                icon={faChevronDoubleRight}
-              />
-            </button>
-          </div>
-        </div>
-      );
-    }
+
     return (
       <>
-        {bugButton}
+        <BugButton fileBug={this.fileBug} />
         <Menu
           visible={this.state.menuVisible}
           setMenuVisible={this.setMenuVisible}
         />
+
         <div className="navbar">
-          <div className="actions-container">
-            <button onClick={this.toggleMenu}>
-              <FontAwesomeIcon size="lg" color="white" icon={faBars} />
-            </button>
-          </div>
-
-          <div className="title-container">
-            <Link to={href}>
-              <img src={logo} alt="" />
-              Cryptosat Simulator
-            </Link>
-          </div>
-
-          <div className="actions-container">
-            <button onClick={this.togglePanel}>
-              <FontAwesomeIcon
-                color="#686672"
-                size="lg"
-                icon={faChevronDoubleLeft}
-              />
-            </button>
-          </div>
+          {this.props.isPannelCollapse ? (
+            <div className="actions-container">
+              <button onClick={this.togglePanel}>
+                <FontAwesomeIcon
+                  color="#686672"
+                  size="lg"
+                  icon={faChevronDoubleRight}
+                />
+              </button>
+            </div>
+          ) : (
+            <>
+              <div className="actions-container">
+                <button onClick={this.toggleMenu}>
+                  <FontAwesomeIcon size="lg" color="white" icon={faBars} />
+                </button>
+              </div>
+              <div className="title-container">
+                <Link to={href}>
+                  <img src={logo} alt="" />
+                  Cryptosat Simulator
+                </Link>
+              </div>
+              <div className="actions-container">
+                <button onClick={this.togglePanel}>
+                  <FontAwesomeIcon
+                    color="#686672"
+                    size="lg"
+                    icon={faChevronDoubleLeft}
+                  />
+                </button>
+              </div>
+            </>
+          )}
         </div>
       </>
     );

@@ -1,12 +1,20 @@
 .pager {
-
   /* height:  40px; */
   flex: 1;
-  width:  100%;
+  width: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+.lesson-pager-container {
+  display: flex;
+  flex-direction: column;
+  height: 10%;
+}
+
+.center {
+  justify-content: center;
 }
 
 .pager .link-container {
@@ -26,8 +34,8 @@
   height: 100%;
   position: relative; */
   text-decoration: none;
-  font-size:  1rem;
-  color: #8C95A7;
+  font-size: 1rem;
+  color: #8c95a7;
   overflow: hidden;
 }
 
@@ -45,14 +53,14 @@
 }
 
 .pager .link-container.next a {
-  text-align:  right;
+  text-align: right;
   /* align-self: flex-start; */
   /* background-color: #06DFA4; */
   color: #f4fff4;
-} 
+}
 
 .pager .link-container.previous a {
-  text-align:  left;
+  text-align: left;
   /* background-color: #292D36; */
   /* align-self: flex-end; */
   color: #f4fff4;
@@ -70,16 +78,18 @@
   flex: 1;
 }
 
- /* .pager .link-container.previous a:hover {
+.pager .link-container.previous a:hover {
   background-color: #f4fff4;
 }
 
- .pager .link-container.next a:hover {
+.pager .link-container.next a:hover {
   background-color: #f4fff4;
-} */
+}
 
- /* .pager .link-container.previous .caption { float:right }
- .pager .link-container.previous .arrow { float: left }
+.pager .link-container.previous .arrow {
+  margin-right: 5px;
+}
 
- .pager .link-container.next .caption { float:left }
- .pager .link-container.next .arrow { float: right } */
+.pager .link-container.next .arrow {
+  margin-left: 5px;
+}
