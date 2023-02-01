@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: column;
   background-color: #02000e;
-  transition: width 0.1s;
   z-index: 2;
 }
 
