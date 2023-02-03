@@ -31,15 +31,22 @@ class NavBar extends React.Component {
       menuVisible: false,
       easterEgg: false,
     };
-
-    window.document.addEventListener("keydown", (e) => {
-      if (e.altKey && e.ctrlKey) {
-        this.setState({
-          easterEgg: true,
-        });
-      }
-    });
   }
+  componentDidMount() {
+    window.document.addEventListener("keydown", this.handleKeyDown);
+  }
+
+  componentWillUnmount() {
+    window.document.removeEventListener("keydown", this.handleKeyDown);
+  }
+
+  handleKeyDown = (e) => {
+    if (e.altKey && e.ctrlKey) {
+      this.setState({
+        easterEgg: true,
+      });
+    }
+  };
 
   setMenuVisible(visible) {
     this.setState({

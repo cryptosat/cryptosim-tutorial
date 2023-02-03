@@ -19,8 +19,8 @@ class Menu extends React.Component {
   }
 
   navigate(lesson) {
-    this.props.history.push(lesson.path);
     this.props.setMenuVisible(false);
+    this.props.history.push(lesson.path);
   }
 
   render() {
