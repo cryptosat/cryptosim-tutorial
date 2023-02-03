@@ -79,11 +79,11 @@
 }
 
 .pager .link-container.previous a:hover {
-  background-color: #f4fff4;
+  opacity: .8;
 }
 
 .pager .link-container.next a:hover {
-  background-color: #f4fff4;
+  opacity: .8;
 }
 
 .pager .link-container.previous .arrow {
