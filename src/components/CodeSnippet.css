@@ -1,48 +1,38 @@
 .code-snippet pre {
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
   width: 100%;
   box-sizing: border-box;
   background: #292d36;
-
   line-height: 1.6;
   margin-bottom: 1.6em;
-  margin-right: 10px;
   max-width: 100%;
-  padding-top: 10px;
-  /* padding-right: 12px; */
-  padding-bottom: 10px;
-  padding-left: 12px;
-  /* color: rgb(152, 152, 152); */
+  padding: 12px 10px;
   color: #f4f4f4;
   page-break-inside: avoid;
-  /* white-space: pre-wrap; */
-  word-wrap: break-word;
 }
 
 .code-snippet code {
-  float: left;
-  width: calc(100% - 60px);
+  flex: 1;
   overflow-x: scroll;
-  overflow-y: scroll;
+  overflow-y: hidden;
   word-wrap: break-word;
+  font-size: 12px;
+  max-height: 3.2em; /* 2 lines * 1.6 line-height */
 }
 
-.code-snippet icon-container {
-  display: inline-block;
-  width: 20px;
+.code-snippet .icon-container {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: row;
 }
 
 .code-snippet button {
   color: #777e8b;
   background: none;
   border-style: none;
-  padding: 10px;
-  /* width: 14px;
-  height: 16px; */
-  position: relative;
+  padding: 0 10px;
   cursor: pointer;
-  /* top: -4px;
-  left: -5px; */
 }
 
 .code-snippet button:hover {
