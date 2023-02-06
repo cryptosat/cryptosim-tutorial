@@ -5,6 +5,7 @@
   flex-direction: column;
   background-color: #02000e;
   z-index: 2;
+  overflow-y: hidden;
 }
 
 .collapsed {
