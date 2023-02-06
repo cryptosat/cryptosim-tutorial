@@ -1,0 +1,32 @@
+.content-container__left {
+  width: 390px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #02000e;
+  z-index: 2;
+}
+
+.collapsed {
+  width: 90px;
+  position: relative;
+}
+
+.collapsed .apply-dots {
+  display: none;
+}
+
+.instructions-container {
+  flex: 1;
+  overflow-y: hidden; /* hide vertical scrollbar on chrome for windows */
+}
+
+@media (min-width: 1512px) {
+  .content-container__left {
+    width: 508px;
+  }
+
+  .collapsed {
+    width: 100px;
+  }
+}

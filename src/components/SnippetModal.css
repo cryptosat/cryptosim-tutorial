@@ -1,0 +1,71 @@
+#modal-main {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  background-color: #353343;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  z-index: 3;
+  width: 60%;
+  /* height: 200px; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  overflow-y: scroll;
+}
+
+.modal-content {
+  padding: 2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* height: 50%; */
+  width: 100%;
+}
+
+.modal-content-code {
+  width: 90%;
+  overflow-x: auto;
+}
+
+.modal-content pre {
+  background-color: #353343;
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 120%;
+  letter-spacing: 0.5px;
+  color: #f4f4f4;
+}
+
+.exit-icon {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+.copy-icon {
+  width: 10%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  cursor: pointer;
+}
+
+.exit-icon:hover {
+  cursor: pointer;
+}
+
+.copy-icon:hover {
+  cursor: pointer;
+}
