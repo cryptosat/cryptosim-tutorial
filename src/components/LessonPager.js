@@ -30,7 +30,7 @@ class LessonPager extends React.Component {
                 <span className="arrow">
                   <FontAwesomeIcon icon={faChevronLeft} />
                 </span>
-                <span className="caption">Previous</span>
+                <span className="caption">PREVIOUS</span>
               </Link>
             )}
           </div>
@@ -40,7 +40,7 @@ class LessonPager extends React.Component {
           <div className="link-container next">
             {next && (
               <Link to={next}>
-                <span className="caption">Next</span>
+                <span className="caption">NEXT</span>
                 <span className="arrow">
                   <FontAwesomeIcon icon={faChevronRight} />
                 </span>

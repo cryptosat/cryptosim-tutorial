@@ -1,18 +1,23 @@
 #sideMenu {
-  color: rgb(176, 180, 190);
   padding: 32px 0 0 32px;
   background-color: #030014;
-  /*border-width: 4px;*/
-  /*border-style: solid;*/
   width: 390px;
   box-sizing: border-box;
   position: fixed;
   left: 0px;
-  top: 0px; /* This should match the height of the top menu bar */
+  top: 0px;
   height: 100vh;
   z-index: 999;
   transition: transform 0.4s cubic-bezier(0, 0.52, 0, 1);
   overflow-y: scroll;
+}
+
+#sideMenu::-webkit-scrollbar {
+  background-color: #000;
+}
+
+#sideMenu::-webkit-scrollbar-thumb {
+  background-color: #131313;
 }
 
 #sideMenu.hide {
@@ -24,15 +29,14 @@
 }
 
 #sideMenu button {
-  /* float: right; */
-  font-size: 20px;
+  font-size: 29px; /* to increase the width of the X icon inside to 18px */
   background: none;
   border: none;
-  padding: 2px; /* tolerance for when a click is very close to the button */
-  /* margin-right: 10px; */
+  padding: 0;
+  margin-bottom: 11px;
   cursor: pointer;
   outline: inherit;
-  color: #ffffff;
+  color: #f4f4f4;
   font-weight: 100;
 }
 
@@ -43,28 +47,31 @@
 }
 
 #sideMenu li {
+  line-height: 21px;
   padding-top: 0;
   padding-bottom: 16px;
   font-size: 16px;
   position: relative;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 #sideMenu li.section {
+  line-height: 39px;
   color: #9a99a1;
   padding-top: 24px;
   padding-bottom: 24px;
-  font-size: 30px; /* 32px (same as lesson heading) but reduced to match the lesson heading */
+  font-size: 32px;
   font-weight: 500;
 }
 
 #sideMenu li a {
   text-decoration: none;
-  color: #ffffff;
+  color: #f4f4f4;
   display: block;
   width: 100%;
   height: 100%;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
 #sideMenu li a.disabled {

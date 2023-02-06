@@ -3,9 +3,14 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 12px;
+  padding: 12px 22px;
   margin-top: 20px;
+  margin-right: 16px; /* account for width of scrollbar in lesson content */
   font-size: 18px;
+}
+
+.content-container__left.collapsed .navbar {
+  padding-left: 28px;
 }
 
 .navbar img {
@@ -43,26 +48,13 @@
 .navbar .actions-container button {
   background: none;
   border: none;
-  /* padding: 0; */
-  /* margin-left: 20px; */
+  padding: 10px;
   font: inherit;
   cursor: pointer;
   outline: inherit;
   color: #f4f4f4;
   font-weight: 100;
 }
-
-.actions-container:first-child button {
-  margin-left: 20px;
-}
-
-.actions-container:nth-child(2) button {
-  margin-left: 25px;
-}
-
-.actions-container:nth-child(3) button {
-  margin-right: 20px;
-}  
 
 .bug-button {
   background-color: transparent;

@@ -50,6 +50,14 @@ body {
   z-index: 1;
 }
 
+.console-container::-webkit-scrollbar {
+  background-color: #000;
+}
+
+.console-container::-webkit-scrollbar-thumb {
+  background-color: #131313;
+}
+
 
 .mapboxgl-popup-content {
   pointer-events: none !important;
