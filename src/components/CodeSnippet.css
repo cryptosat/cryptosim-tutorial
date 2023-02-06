@@ -7,7 +7,7 @@
   line-height: 1.6;
   margin-bottom: 1.6em;
   max-width: 100%;
-  padding: 12px 10px;
+  padding: 1rem;
   color: #f4f4f4;
   page-break-inside: avoid;
 }
@@ -17,7 +17,7 @@
   overflow-x: scroll;
   overflow-y: auto;
   word-wrap: break-word;
-  font-size: 12px;
+  font-size: 1.125em;
   max-height: 3.2em; /* 2 lines * 1.6 line-height */
 }
 
@@ -27,8 +27,12 @@
   flex-direction: row;
 }
 
+.code-snippet .icon-container > div {
+  align-self: center;
+}
+
 .code-snippet button {
-  color: #777e8b;
+  color: #f4f4f4;
   background: none;
   border-style: none;
   padding: 0 10px;
