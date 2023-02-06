@@ -29,62 +29,6 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
 }
-/* .panel-right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 100%;
-}
-
-.left {
-  width: 100%;
-  height: 100%;
-  background: limegreen;
-}
-
-.middle {
-  width: 100%;
-  height: 100%;
-  background: paleturquoise;
-}
-
-.right {
-  width: 100%;
-  height: 100%;
-  background: orangered;
-}
-
-.divider {
-  display: inline-block;
-  height: 86px;
-  top: 100px;
-  width: 4px;
-  background-color: #6187eb;
-  cursor: col-resize;
-  z-index: 2;
-}
-
-.panel-container {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  box-sizing: border-box;
-}
-
-.panel-container .divider:nth-of-type(4) {
-  top: 440px;
-}
-
-.panel {
-  box-sizing: border-box;
-  z-index: 2;
-  overflow-y: scroll;
-}
-
-.panel-container .panel:nth-of-type(3) {
-  z-index: 1;
-} */
 
 .content-container {
   display: flex;
@@ -105,6 +49,18 @@ body {
   overflow-y: scroll; /* to hide horizontal scrollbar on chrome for windows */
   z-index: 1;
 }
+
+
+.mapboxgl-popup-content {
+  pointer-events: none !important;
+}
+
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
+  pointer-events: none !important;
+}
+
 
 .map-hole {
   height: 100%;
