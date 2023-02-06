@@ -10,6 +10,7 @@
   flex-direction: column;
   color: #f4f4f4;
   box-sizing: border-box;
+  letter-spacing: 0.5px;
 }
 
 .lesson-content {
@@ -25,12 +26,11 @@
 }
 
 .lesson-content h2 {
-  font-size: 30px; /* figma is 32px but it causes some headings to overflow to next line */
+  font-size: 2em;
   margin: 0;
   margin-top: 4px;
   margin-bottom: 24px;
-  color: #F4F4F4;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .lesson-content a {
@@ -38,7 +38,6 @@
 }
 
 .lesson-content p {
-  color: #F4F4F4;
-  letter-spacing: 0.5px;
   line-height: 19px;
+  font-size: 1em;
 }
