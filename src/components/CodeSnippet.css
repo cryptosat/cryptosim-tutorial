@@ -3,7 +3,7 @@
   flex-direction: row;
   width: 100%;
   box-sizing: border-box;
-  background: #292d36;
+  background: #353343;
   line-height: 1.6;
   margin-bottom: 1.6em;
   max-width: 100%;
@@ -17,7 +17,7 @@
   overflow-x: scroll;
   overflow-y: auto;
   word-wrap: break-word;
-  font-size: 1.125em;
+  font-size: 18px;
   max-height: 3.2em; /* 2 lines * 1.6 line-height */
 }
 

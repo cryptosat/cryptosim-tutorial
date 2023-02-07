@@ -50,7 +50,6 @@ body {
   z-index: 1;
 }
 
-
 .mapboxgl-popup-content {
   pointer-events: none !important;
 }
