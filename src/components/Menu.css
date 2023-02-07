@@ -12,14 +12,6 @@
   overflow-y: scroll;
 }
 
-#sideMenu::-webkit-scrollbar {
-  background-color: #000;
-}
-
-#sideMenu::-webkit-scrollbar-thumb {
-  background-color: #131313;
-}
-
 #sideMenu.hide {
   transform: translate3d(-450px, 0, 0);
 }

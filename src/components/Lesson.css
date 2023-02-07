@@ -20,14 +20,6 @@
   box-sizing: border-box;
 }
 
-.lesson-content::-webkit-scrollbar {
-  background-color: #000;
-}
-
-.lesson-content::-webkit-scrollbar-thumb {
-  background-color: #131313;
-}
-
 .lesson-content h2 {
   font-size: 32px;
   margin: 0;
