@@ -100,7 +100,7 @@ class NavBar extends React.Component {
               <div className="title-container">
                 <Link to={href}>
                   <img src={logo} alt="" />
-                  Cryptosat Simulator
+                  CryptoSat Simulator
                 </Link>
               </div>
               <div className="actions-container">
