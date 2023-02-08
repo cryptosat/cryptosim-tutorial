@@ -17,7 +17,7 @@
   overflow-x: scroll;
   overflow-y: auto;
   word-wrap: break-word;
-  font-size: 18px;
+  font-size: 14px;
   max-height: 3.2em; /* 2 lines * 1.6 line-height */
 }
 
