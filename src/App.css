@@ -1,13 +1,13 @@
 body {
   overscroll-behavior: none;
   overflow-x: hidden;
-  font-family: poppins;
   font-size: 0.9rem;
+  background: #030014;
 }
 
 .main {
-  height:  100vh;
-  width:  100vw;
+  height: 100vh;
+  width: 100vw;
   display: flex;
   flex-flow: column;
   overflow: hidden;
@@ -23,61 +23,43 @@ body {
 }
 
 .content {
-  flex-grow:  1;
+  flex-grow: 1;
   flex-shrink: 1;
   flex-basis: auto;
-  overflow-y:  auto;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
-.left {
-  width:  100%;
-  height:  100%;
-  background: limegreen;
+.content-container {
+  display: flex;
+  flex-direction: row;
+  background-color: #31353E;
 }
 
-.middle {
-  width:  100%;
-  height:  100%;
-  background: paleturquoise;
+.content-container__right {
+  display: flex;
+  flex: 1;
+  flex-direction: column-reverse;
+  height: 100vh;
+  width: 100%;
 }
 
-.right {
-  width:  100%;
-  height:  100%;
-  background: orangered;
-}
-
-.divider {
-  display: inline-block;
-  height:  86px;
-  top:  100px;
-  width:  4px;
-  background-color: #6187EB;
-  cursor: col-resize;
-  z-index: 2;
-}
-
-.panel-container {
-  height:  100%;
-  width:  100%;
-  position: relative;
-  box-sizing: border-box;
-}
-
-.panel-container .divider:nth-of-type(4) {
-  top:  440px;
-}
-
-.panel {
-  box-sizing: border-box;
-  z-index: 2;
-  overflow-y: scroll;
-}
-
-.panel-container .panel:nth-of-type(3) {
+.console-container {
+  height: 239px;
+  overflow-y: scroll; /* to hide horizontal scrollbar on chrome for windows */
   z-index: 1;
 }
+
+.mapboxgl-popup-content {
+  pointer-events: none !important;
+}
+
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
+  pointer-events: none !important;
+}
+
 
 .map-hole {
   height: 100%;
@@ -92,4 +74,49 @@ body {
 
 .mapboxgl-ctrl-attrib-inner {
   z-index: -1;
+}
+
+.apply-gradient {
+  position: relative;
+  background: linear-gradient(
+    166.28deg,
+    #02000e 52.56%,
+    #320541 65.04%,
+    #6d0d8d 70.01%,
+    #320541 74.99%,
+    #030014 84.23%
+  ) !important;
+}
+
+.apply-dots{
+  position: absolute;
+  top: 360px;
+  height: 50vh;
+  width: 100%;
+}
+
+.apply-dots .dot {
+  z-index: 0;
+  position: absolute;
+  width: 3.39px;
+  height: 3.22px;
+  border-radius: 100%;
+  background: #bbbbbb;
+  opacity: 0.8;
+  box-shadow: 0px 0px 172px 14px #2d2d6b;
+}
+.apply-dots .dot.md {
+  width: 5.93px;
+  height: 5.97px;
+
+}
+.apply-dots .dot.lg {
+  width: 8.56px;
+  height: 8.63px;
+}
+
+@media (min-width: 1512px) {
+  .console-container {
+    height: 323px;
+  }
 }

@@ -1,20 +1,23 @@
 .navbar {
-  color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 22px;
+  margin-top: 20px;
+  margin-right: 16px; /* account for width of scrollbar in lesson content */
   font-size: 18px;
-  padding-top: 8px;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 0px;
-  height: 100%;
-  background-color: #31353E;
+}
+
+.content-container__left.collapsed .navbar {
+  padding-left: 28px;
 }
 
 .navbar img {
-  width:  25px;
-  height:  25px;
+  width: 25px;
+  height: 25px;
   margin-right: 12px;
   position: relative;
-  top: 7px;
 }
 
 .navbar .title-container {
@@ -22,27 +25,48 @@
 }
 
 .navbar .actions-container {
-  float:  right;
   display: inline-block;
-  padding-top: 6px;
 }
 
 .navbar .title-container a {
   text-decoration: none;
-  font-family: poppins;
-  color:  white;
-  vertical-align: middle;
-  text-transform: uppercase;
+  color: #F4F4F4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Anek Latin";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
+  /* identical to box height, or 22px */
+
+  text-align: center;
+  letter-spacing: 0.5px;
 }
 
 .navbar .actions-container button {
-  background:  none;
+  background: none;
   border: none;
-  padding: 0;
-  margin-left: 20px;
+  padding: 10px;
   font: inherit;
   cursor: pointer;
   outline: inherit;
-  color: #777E8B;
+  color: #f4f4f4;
   font-weight: 100;
+}
+
+.bug-button {
+  background-color: transparent;
+  color: #686672;
+  border: none;
+  position: fixed;
+  top: 30.5px;
+  right: 22px;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  font-family: 'Anek Latin';
+  padding: 5px 10px;
+  cursor: pointer;
+  z-index: 1;
 }
