@@ -68,7 +68,8 @@ body {
 .map-container {
   position: fixed;
   left:  0;
-  top:  0;
+  /* top:  0; */
+  bottom: 40px;
   width: 100vw;
 }
 
