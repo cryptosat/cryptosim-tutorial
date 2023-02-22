@@ -4,7 +4,7 @@ This repository contains the code for a tutorial demonstrating how to use the Cr
 
 ## Development
 
-###Enforcing Node.js and npm versions
+### Enforcing Node.js and npm versions
 To ensure that all developers working on the project use compatible versions of Node.js and npm, check the engines field of your package.json file. This field specifies the minimum required version of Node.js and npm.
 
 to require Node.js version 16.0.0 or later and npm version 8.0.0 or later.
