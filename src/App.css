@@ -70,6 +70,15 @@ body {
   left:  0;
   top:  0;
   width: 100vw;
+  height: calc(100vh - 239px) !important;
+  overflow: hidden;
+}
+
+.mapboxgl-ctrl-bottom-right{
+  display: none !important;
+}
+.mapboxgl-ctrl-bottom-left{
+  display: none !important;
 }
 
 .mapboxgl-ctrl-attrib-inner {
