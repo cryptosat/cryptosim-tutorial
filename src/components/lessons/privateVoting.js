@@ -20,17 +20,15 @@ const content = (
             participants to guarantee k-anonimity. The public key is timestamped and signed, and 
             its authenticity can be verified using Cryptosat's public verification key.
         </p>
-        <CodeSnippet code={`k = 10; // minimal number of participants
+        <CodeSnippet code={`k = 1; // minimal number of participants
 pubkey = cryptosat.ballot.init(k);`} />
 
         <p>The users then encrypt and sumbit their votes</p>
-        <CodeSnippet code={`encrypted_vote = utils.encrypt(pubkey, "candidate-1");
+        <CodeSnippet code={`encrypted_vote =encrypt_message(pubkey, "candidate-1");
 req = cryptosat.ballot.vote(encrypted_vote);`} />
 
         <p>And finally, the operator finalizes the ballot by calling</p>
-        <CodeSnippet code={`req = cryptosat.ballot.finalize();
-req.status();
-req.result()`} />
+        <CodeSnippet code={`req = cryptosat.ballot.finalize();`} />
     </div>
 )
 
