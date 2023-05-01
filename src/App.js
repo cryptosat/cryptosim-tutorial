@@ -27,6 +27,7 @@ import delayEncryption from "./components/lessons/delay_encryption";
 import sealedBidAuction from "./components/lessons/sealedBidAuction";
 import privateVoting from "./components/lessons/privateVoting";
 
+import init, { encrypt_message } from "@cryptosat/private-voting";
 import { Map as WorldMap } from "@cryptosat/cryptosim-visualization";
 import { Console } from "@cryptosat/jsconsole";
 
@@ -73,6 +74,19 @@ class App extends React.Component {
   constructor() {
     super();
     this.setupUniverse();
+  }
+
+  // This is a hack to make load the wasm file before the component mounts.
+  componentDidMount() {
+    init()
+      .then(() => {
+        console.log("WASM initialized");
+      })
+      .catch((e) => {
+        this.setState({
+          result: `Failed to initialize wasm, reason - ${e}`,
+        });
+      });
   }
 
   setupUniverse() {
@@ -136,6 +150,7 @@ class App extends React.Component {
       binary: binary,
       nacl: tweetnacl,
       util: util,
+      encrypt_message: encrypt_message,
     };
     this.universe = universe;
     this.gsnetwork = gsnetwork;
