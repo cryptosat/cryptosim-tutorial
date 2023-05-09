@@ -14,11 +14,11 @@
 
 .code-snippet code {
   flex: 1;
-  overflow-x: scroll;
+  overflow-x: auto;
   overflow-y: auto;
   word-wrap: break-word;
   font-size: 14px;
-  max-height: 3.2em; /* 2 lines * 1.6 line-height */
+  max-height: fit-content; /* 2 lines * 1.6 line-height */
 }
 
 .code-snippet .icon-container {

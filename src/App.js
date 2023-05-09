@@ -27,7 +27,6 @@ import delayEncryption from "./components/lessons/delay_encryption";
 import sealedBidAuction from "./components/lessons/sealedBidAuction";
 import privateVoting from "./components/lessons/privateVoting";
 
-import init, { encrypt_message } from "@cryptosat/private-voting";
 import { Map as WorldMap } from "@cryptosat/cryptosim-visualization";
 import { Console } from "@cryptosat/jsconsole";
 
@@ -76,19 +75,6 @@ class App extends React.Component {
     this.setupUniverse();
   }
 
-  // This is a hack to make load the wasm file before the component mounts.
-  componentDidMount() {
-    init()
-      .then(() => {
-        console.log("WASM initialized");
-      })
-      .catch((e) => {
-        this.setState({
-          result: `Failed to initialize wasm, reason - ${e}`,
-        });
-      });
-  }
-
   setupUniverse() {
     // This is an ugly hack to make the visualization display the satellite
     // at the same coordiantes regardless of the local time. It's a "hack"
@@ -129,6 +115,11 @@ class App extends React.Component {
       "2 52761  97.5340 109.8220 0010950 219.1582 140.8858 15.13734532 32032",
     ];
 
+    const CRYPTO2_TLE = [
+      "1 55051U 23001AU  23124.90013771  .00003112  00000+0  19027-3 0  9990",
+      "2 55051  98.2228 192.1718 0023999 193.9925 166.0640 15.10876655 18475"
+    ];
+
     const iss = new Satellite(universe, 0, "iss", ISS_TLE[0], ISS_TLE[1]);
     const crypto1 = new Satellite(
       universe,
@@ -137,20 +128,23 @@ class App extends React.Component {
       CRYPTO1_TLE[0],
       CRYPTO1_TLE[1]
     );
+
+    const crypto2 = new Satellite(universe, 1, "crypto2", CRYPTO2_TLE[0], CRYPTO2_TLE[1]);
     const gsnetwork = GroundStationNetwork.load(
       universe,
       require("@cryptosat/cryptosim/data/rbcNetwork")
     );
     const mainService = new MainService(universe);
     crypto1.bindService("main", mainService);
+    crypto2.bindService("main", mainService);
     const client = new MainClient(universe, crypto1, gsnetwork, "main");
+    client.add_satellite(crypto2);
 
     this.payload = {
       cryptosat: client,
       binary: binary,
       nacl: tweetnacl,
       util: util,
-      encrypt_message: encrypt_message,
     };
     this.universe = universe;
     this.gsnetwork = gsnetwork;
