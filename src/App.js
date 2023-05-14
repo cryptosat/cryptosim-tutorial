@@ -40,6 +40,8 @@ import MainClient from "@cryptosat/cryptosim/lib/clients/main";
 import binary from "@cryptosat/cryptosim/lib/binary";
 import util from "tweetnacl-util";
 
+const axios = require('axios');
+
 const componentMap = new Map([
   ["overview", overview],
   ["communication", communication],
@@ -66,6 +68,29 @@ class AppContainer extends React.Component {
         <AppWithRouter />
       </Router>
     );
+  }
+}
+
+function getTLE(satelliteName, catalogNumber) {
+  try {
+      const response = axios.get('https://celestrak.org/NORAD/elements/gp.php?CATNR=' + catalogNumber);
+      console.log(response.data);
+      const tleData = response.data.split('\n');
+
+      if (tleData[0].includes(satelliteName)) {
+        console.log({
+            name: tleData[0].trim(),
+            line1: tleData[1].trim(),
+            line2: tleData[2].trim(),
+        });
+
+        return { "data" : tleData};
+      }
+      
+  } catch (error) {
+      return {
+        "error" : "too many fetches from celestrak"
+      }
   }
 }
 
@@ -105,20 +130,41 @@ class App extends React.Component {
     clock.play();
     const universe = new Universe(clock);
 
-    const ISS_TLE = [
-      "1 25544U 98067A   22357.56376573  .00009640  00000-0  17942-3 0  9996",
-      "2 25544  51.6419 118.4508 0005698 179.4554 285.1029 15.49550321374554",
+    var crypto1_tle_fetch = getTLE('ION SCV-006', 52761);
+    var crypto2_tle_fetch = getTLE('ION SCV-008', 55051);
+    var iss_tle_fetch = getTLE('ISS', 25544);
+
+    var ISS_TLE = [
+      '1 25544U 98067A   22357.56376573  .00009640  00000-0  17942-3 0  9996',
+      '2 25544  51.6419 118.4508 0005698 179.4554 285.1029 15.49550321374554'
     ];
 
-    const CRYPTO1_TLE = [
-      "1 52761U 22057AF  22357.56671706  .00002623  00000-0  14906-3 0  9990",
-      "2 52761  97.5340 109.8220 0010950 219.1582 140.8858 15.13734532 32032",
+    var CRYPTO1_TLE = [
+      '1 52761U 22057AF  22356.77347150  .00003204  00000-0  18130-3 0  9994',
+      '2 52761  97.5340 109.0374 0010896 222.1353 137.9042 15.13730895 31919'
     ];
 
-    const CRYPTO2_TLE = [
-      "1 55051U 23001AU  23124.90013771  .00003112  00000+0  19027-3 0  9990",
-      "2 55051  98.2228 192.1718 0023999 193.9925 166.0640 15.10876655 18475"
+    var CRYPTO2_TLE = [
+      '1 52761U 22057AF  23086.33553366  .00007115  00000-0  38501-3 0  9994',
+      '2 52761  97.5353 202.6397 0010567 258.5907 101.4138 15.14912560 46225'
     ];
+
+    console.log(iss_tle_fetch.hasOwnProperty("error"));
+
+    if(!iss_tle_fetch.hasOwnProperty("error")) {
+      ISS_TLE[0] = iss_tle_fetch["data"].line1;
+      ISS_TLE[1] = iss_tle_fetch["data"].line2;
+    }
+    
+    if(!crypto1_tle_fetch.hasOwnProperty("error")) {
+        CRYPTO1_TLE[0] = crypto1_tle_fetch["data"].line1;
+        CRYPTO1_TLE[1] = crypto1_tle_fetch["data"].line2;
+    }
+
+    if(!crypto2_tle_fetch.hasOwnProperty("error")) {
+      CRYPTO2_TLE[0] = crypto2_tle_fetch["data"].line1;
+      CRYPTO2_TLE[1] = crypto2_tle_fetch["data"].line2;
+    }
 
     const iss = new Satellite(universe, 0, "iss", ISS_TLE[0], ISS_TLE[1]);
     const crypto1 = new Satellite(
