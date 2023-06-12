@@ -130,9 +130,9 @@ class App extends React.Component {
     clock.play();
     const universe = new Universe(clock);
 
-    var crypto1_tle_fetch = getTLE('ION SCV-006', 52761);
-    var crypto2_tle_fetch = getTLE('ION SCV-008', 55051);
-    var iss_tle_fetch = getTLE('ISS', 25544);
+    var crypto1_tle_fetch = getTLE('COSMOS 422 DEB', 38531);
+    var crypto2_tle_fetch = getTLE('COSMOS 422 DEB', 38531);
+    var iss_tle_fetch = getTLE('ISS', 38531);
 
     var ISS_TLE = [
       '1 25544U 98067A   22357.56376573  .00009640  00000-0  17942-3 0  9996',
@@ -180,11 +180,13 @@ class App extends React.Component {
       universe,
       require("@cryptosat/cryptosim/data/rbcNetwork")
     );
-    const mainService = new MainService(universe);
+    const mainService = new MainService(universe, [crypto1, crypto2]);
+    //mainService.addSatellite(crypto1);
+    //mainService.addSatellite(crypto2);
     crypto1.bindService("main", mainService);
     crypto2.bindService("main", mainService);
     const client = new MainClient(universe, crypto1, gsnetwork, "main");
-    client.add_satellite(crypto2);
+    client.addSatellite(crypto2);
 
     this.payload = {
       cryptosat: client,
