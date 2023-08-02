@@ -9,13 +9,13 @@ const content = (
       signing key. The random values and the corresponding signature can be
       obtained using the following API call:
     </p>
-    <CodeSnippet code={`result = cryptosat.getPublicRandom();`} />
+    <CodeSnippet code={`result = await cryptosat.getPublicRandom();`} />
     <p>
       You can verify the signature of the timestamp with
       the <a href="https://nacl.cr.yp.to/box.html">NaCl</a> library as shown
       in the following snippet:
     </p>
-    <CodeSnippet code={`key = cryptosat.getPublicSigningKey();
+    <CodeSnippet code={`key = await cryptosat.getPublicSigningKey();
 nacl.sign.detached.verify(result.publicRandom, result.signature, key);`} />
   </div>
 );

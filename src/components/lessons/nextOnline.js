@@ -7,7 +7,7 @@ const content = (
       If the cryptosat is offline you can query for the next time it
       will be online use the following API call:
     </p>
-    <CodeSnippet code={`cryptosat.nextOnlineTime();`} />
+    <CodeSnippet code={`await cryptosat.nextOnlineTime();`} />
     <p>
       The result will be a javascript <i>Date</i> object of the next
       time the cryptosat will be available. If the cryptosat is currently online

@@ -7,7 +7,7 @@ const content = (
       To obtain the current version of the cryptosat invoke the following
       command:
     </p>
-    <CodeSnippet code={`cryptosat.version();`} />
+    <CodeSnippet code={`await cryptosat.version();`} />
     <p>
       The returned value contains the <a href="https://semver.org/">
       semantic version</a> of the software running onboard the cryptosat.

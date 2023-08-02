@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "dependencies": {
-    "@cryptosat/cryptosim": "github:cryptosat/cryptosim#sandbox-api-integration",
+    "@cryptosat/cryptosim": "github:cryptosat/cryptosim#c2e4c9c11ac5809afdaaa00b5ae8863fdd12282f",
     "@cryptosat/cryptosim-visualization": "^0.3.3",
     "@cryptosat/jsconsole": "^0.2.4",
     "@fortawesome/fontawesome-pro": "^5.15.4",

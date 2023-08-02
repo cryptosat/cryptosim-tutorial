@@ -27,8 +27,8 @@ import delayEncryption from "./components/lessons/delay_encryption";
 import sealedBidAuction from "./components/lessons/sealedBidAuction";
 import privateVoting from "./components/lessons/privateVoting";
 
-import { Map as WorldMap } from "@cryptosat/cryptosim-visualization";
-import { Console } from "@cryptosat/jsconsole";
+import {Map as WorldMap} from "@cryptosat/cryptosim-visualization";
+import {Console} from "@cryptosat/jsconsole";
 
 import SimulatedClock from "@cryptosat/cryptosim/lib/clocks/simulatedClock";
 import GeoCoordinates from "@cryptosat/cryptosim/lib/geoCoordinates";
@@ -36,7 +36,7 @@ import GroundStationNetwork from "@cryptosat/cryptosim/lib/groundStationNetwork"
 import Universe from "@cryptosat/cryptosim/lib/universe";
 import Satellite from "@cryptosat/cryptosim/lib/satellite";
 import MainService from "@cryptosat/cryptosim/lib/services/main";
-import MainClient from "@cryptosat/cryptosim/lib/clients/main";
+import SandboxClient from "@cryptosat/cryptosim/lib/clients/sandbox";
 import binary from "@cryptosat/cryptosim/lib/binary";
 import util from "tweetnacl-util";
 
@@ -50,11 +50,11 @@ const componentMap = new Map([
   ["publicKeys", publicKeys],
   ["timestamp", timestamp],
   ["publicRandomness", publicRandomness],
-  ["privateRandomness", privateRandomness],
+  // ["privateRandomness", privateRandomness],
   ["signature", signature],
   ["nextOnline", nextOnline],
   ["DelayEncryption", delayEncryption],
-  ["sealedBidAuction", sealedBidAuction],
+  // ["sealedBidAuction", sealedBidAuction],
   ["privateVoting", privateVoting],
 ]);
 
@@ -64,33 +64,33 @@ class AppContainer extends React.Component {
   render() {
     const AppWithRouter = withRouter(App);
     return (
-      <Router>
-        <AppWithRouter />
-      </Router>
+        <Router>
+          <AppWithRouter/>
+        </Router>
     );
   }
 }
 
 function getTLE(satelliteName, catalogNumber) {
   try {
-      const response = axios.get('https://celestrak.org/NORAD/elements/gp.php?CATNR=' + catalogNumber);
-      console.log(response.data);
-      const tleData = response.data.split('\n');
+    const response = axios.get('https://celestrak.org/NORAD/elements/gp.php?CATNR=' + catalogNumber);
+    console.log(response.data);
+    const tleData = response.data.split('\n');
 
-      if (tleData[0].includes(satelliteName)) {
-        console.log({
-            name: tleData[0].trim(),
-            line1: tleData[1].trim(),
-            line2: tleData[2].trim(),
-        });
+    if (tleData[0].includes(satelliteName)) {
+      console.log({
+        name: tleData[0].trim(),
+        line1: tleData[1].trim(),
+        line2: tleData[2].trim(),
+      });
 
-        return { "data" : tleData};
-      }
-      
+      return {"data": tleData};
+    }
+
   } catch (error) {
-      return {
-        "error" : "too many fetches from celestrak"
-      }
+    return {
+      "error": "too many fetches from celestrak"
+    }
   }
 }
 
@@ -151,42 +151,41 @@ class App extends React.Component {
 
     console.log(iss_tle_fetch.hasOwnProperty("error"));
 
-    if(!iss_tle_fetch.hasOwnProperty("error")) {
+    if (!iss_tle_fetch.hasOwnProperty("error")) {
       ISS_TLE[0] = iss_tle_fetch["data"].line1;
       ISS_TLE[1] = iss_tle_fetch["data"].line2;
     }
-    
-    if(!crypto1_tle_fetch.hasOwnProperty("error")) {
-        CRYPTO1_TLE[0] = crypto1_tle_fetch["data"].line1;
-        CRYPTO1_TLE[1] = crypto1_tle_fetch["data"].line2;
+
+    if (!crypto1_tle_fetch.hasOwnProperty("error")) {
+      CRYPTO1_TLE[0] = crypto1_tle_fetch["data"].line1;
+      CRYPTO1_TLE[1] = crypto1_tle_fetch["data"].line2;
     }
 
-    if(!crypto2_tle_fetch.hasOwnProperty("error")) {
+    if (!crypto2_tle_fetch.hasOwnProperty("error")) {
       CRYPTO2_TLE[0] = crypto2_tle_fetch["data"].line1;
       CRYPTO2_TLE[1] = crypto2_tle_fetch["data"].line2;
     }
 
     const iss = new Satellite(universe, 0, "iss", ISS_TLE[0], ISS_TLE[1]);
     const crypto1 = new Satellite(
-      universe,
-      1,
-      "crypto1",
-      CRYPTO1_TLE[0],
-      CRYPTO1_TLE[1]
+        universe,
+        1,
+        "crypto1",
+        CRYPTO1_TLE[0],
+        CRYPTO1_TLE[1]
     );
 
     const crypto2 = new Satellite(universe, 1, "crypto2", CRYPTO2_TLE[0], CRYPTO2_TLE[1]);
     const gsnetwork = GroundStationNetwork.load(
-      universe,
-      require("@cryptosat/cryptosim/data/rbcNetwork")
+        universe,
+        require("@cryptosat/cryptosim/data/rbcNetwork")
     );
     const mainService = new MainService(universe, [crypto1, crypto2]);
     //mainService.addSatellite(crypto1);
     //mainService.addSatellite(crypto2);
     crypto1.bindService("main", mainService);
     crypto2.bindService("main", mainService);
-    const client = new MainClient(universe, crypto1, gsnetwork, "main");
-    client.addSatellite(crypto2);
+    const client = new SandboxClient();
 
     this.payload = {
       cryptosat: client,
@@ -221,15 +220,15 @@ class App extends React.Component {
       }
       const content = componentMap.get(lesson.content);
       const route = (
-        <Route key={lesson.path} exact path={lesson.path}>
-          <Lesson
-            content={content}
-            previous={previous}
-            next={next}
-            totalPages={flatLessons.length}
-            currentPage={i + 1}
-          />
-        </Route>
+          <Route key={lesson.path} exact path={lesson.path}>
+            <Lesson
+                content={content}
+                previous={previous}
+                next={next}
+                totalPages={flatLessons.length}
+                currentPage={i + 1}
+            />
+          </Route>
       );
       routes.push(route);
     }
@@ -238,39 +237,39 @@ class App extends React.Component {
 
   render() {
     if (this.props.location.pathname === "/multisat") {
-      return <MultiSatDemo />;
+      return <MultiSatDemo/>;
     }
 
     const zoom = 2.5;
     const center = new GeoCoordinates(40.567952, -98.518132, 0);
     const routes = this.createRoutes();
     return (
-      <div className="main">
-        <div className="content">
-          <div className="content-container">
-            <PanelContainer>
-              <Switch>
-                {routes}
-                <Route path="/">
-                  <Redirect to="/getting-started/overview" />
-                </Route>
-              </Switch>
-            </PanelContainer>
+        <div className="main">
+          <div className="content">
+            <div className="content-container">
+              <PanelContainer>
+                <Switch>
+                  {routes}
+                  <Route path="/">
+                    <Redirect to="/getting-started/overview"/>
+                  </Route>
+                </Switch>
+              </PanelContainer>
 
-            <div className="content-container__right">
-              <WorldMap
-                universe={this.universe}
-                gsnetwork={this.gsnetwork}
-                center={center}
-                zoom={zoom}
-              />
-              <div className="console-container">
-                <Console theme="dark" payload={this.payload} />
+              <div className="content-container__right">
+                <WorldMap
+                    universe={this.universe}
+                    gsnetwork={this.gsnetwork}
+                    center={center}
+                    zoom={zoom}
+                />
+                <div className="console-container">
+                  <Console theme="dark" payload={this.payload}/>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
     );
   }
 }
