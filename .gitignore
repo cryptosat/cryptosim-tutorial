@@ -24,8 +24,11 @@ yarn-error.log*
 
 # configurations
 .yarnrc
+.npmrc
 
+# IDE
 .vscode
+.idea
 
 package-lock.json
-yarn.json
+yarn.lock
