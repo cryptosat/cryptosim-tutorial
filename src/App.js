@@ -20,11 +20,9 @@ import version from "./components/lessons/version";
 import publicKeys from "./components/lessons/publicKeys";
 import timestamp from "./components/lessons/timestamp";
 import publicRandomness from "./components/lessons/publicRandomness";
-import privateRandomness from "./components/lessons/privateRandomness";
 import signature from "./components/lessons/signature";
 import nextOnline from "./components/lessons/nextOnline";
 import delayEncryption from "./components/lessons/delay_encryption";
-import sealedBidAuction from "./components/lessons/sealedBidAuction";
 import privateVoting from "./components/lessons/privateVoting";
 
 import {Map as WorldMap} from "@cryptosat/cryptosim-visualization";
@@ -39,6 +37,7 @@ import MainService from "@cryptosat/cryptosim/lib/services/main";
 import SandboxClient from "@cryptosat/cryptosim/lib/clients/sandbox";
 import binary from "@cryptosat/cryptosim/lib/binary";
 import util from "tweetnacl-util";
+import init, {encrypt_message} from "@cryptosat/private-voting";
 
 const axios = require('axios');
 
@@ -98,6 +97,11 @@ class App extends React.Component {
   constructor() {
     super();
     this.setupUniverse();
+  }
+
+  async componentDidMount() {
+    // Initialize WebAssembly
+    await init();
   }
 
   setupUniverse() {
@@ -192,6 +196,7 @@ class App extends React.Component {
       binary: binary,
       nacl: tweetnacl,
       util: util,
+      encrypt_message: encrypt_message,
     };
     this.universe = universe;
     this.gsnetwork = gsnetwork;

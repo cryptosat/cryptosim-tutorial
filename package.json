@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": false,
   "dependencies": {
-    "@cryptosat/cryptosim": "github:cryptosat/cryptosim#c2e4c9c11ac5809afdaaa00b5ae8863fdd12282f",
+    "@cryptosat/cryptosim": "github:cryptosat/cryptosim#a46819f6273a771b0b4ac38b8abbbd1ef912bbe5",
     "@cryptosat/cryptosim-visualization": "^0.3.3",
     "@cryptosat/jsconsole": "^0.2.4",
+    "@cryptosat/private-voting": "^1.0.0",
     "@fortawesome/fontawesome-pro": "^5.15.4",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",

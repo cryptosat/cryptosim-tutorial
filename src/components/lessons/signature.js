@@ -33,9 +33,7 @@ const content = (
       in the following snippet:
     </p>
     <CodeSnippet code={`key = await cryptosat.getPublicSigningKey();
-msg = binary.appendBuffers(
-      binary.str2ab('hello, world!'),
-      binary.int2ab(result.timestamp));
+msg = binary.str2ab('your message here');
 nacl.sign.detached.verify(msg, result.signature, key);`} />
   </div>
 );
