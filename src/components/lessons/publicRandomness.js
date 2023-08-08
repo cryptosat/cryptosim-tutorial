@@ -16,7 +16,11 @@ const content = (
       in the following snippet:
     </p>
     <CodeSnippet code={`key = await cryptosat.getPublicSigningKey();
-nacl.sign.detached.verify(result.publicRandom, result.signature, key);`} />
+nacl.sign.detached.verify(
+  result.publicRandom, 
+  result.signature, 
+  key
+);`} />
   </div>
 );
 

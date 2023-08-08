@@ -26,7 +26,10 @@ ballot_req = await cryptosat.ballot.init(k);`}/>
       <CodeSnippet code={`result = await ballot_req.result();\npubkey = result.public_key`}/>
 
       <p>The users then encrypt and sumbit their votes</p>
-      <CodeSnippet code={`encrypted_vote = encrypt_message(pubkey, "candidate-1");
+      <CodeSnippet code={`encrypted_vote = encrypt_message(
+  pubkey, 
+  "candidate-1"
+);
 await cryptosat.ballot.vote(encrypted_vote);`}/>
 
       <p>And finally, the operator finalizes the ballot by calling</p>

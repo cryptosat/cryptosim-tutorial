@@ -14,19 +14,19 @@ const content = (
     <p>
       To obtain a signature from the cryptosat invoke the following API call:
     </p>
-    <CodeSnippet code={`sigRequest = await cryptosat.sign('your message here');`} />
+    <CodeSnippet code={`req = await cryptosat.sign('your message here');`} />
     <p>
       The API call returns a request object allowing the user to track
       its status. The status of the request can be obtained by
       invoking the status method:
     </p>
-    <CodeSnippet code={`await sigRequest.status();`} />
+    <CodeSnippet code={`await req.status();`} />
     <p>
       After the cryptosat signed the message and transmits the signature back to
       earth, the status of the message will change to <i>Ready</i> and the result of
       the request can be obtained by invoking the result method:
     </p>
-    <CodeSnippet code={`result = await sigRequest.result();`} />
+    <CodeSnippet code={`result = await req.result();`} />
     <p>
       You can then verify that the signature is valid using
       the <a href="https://nacl.cr.yp.to/box.html">NaCl</a> library as shown
@@ -34,7 +34,11 @@ const content = (
     </p>
     <CodeSnippet code={`key = await cryptosat.getPublicSigningKey();
 msg = binary.str2ab('your message here');
-nacl.sign.detached.verify(msg, result.signature, key);`} />
+nacl.sign.detached.verify(
+  msg, 
+  result.signature, 
+  key
+);`} />
   </div>
 );
 

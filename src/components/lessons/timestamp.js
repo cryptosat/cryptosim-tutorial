@@ -17,7 +17,11 @@ const content = (
     </p>
     <CodeSnippet code={`key = await cryptosat.getPublicSigningKey();
 timestamp = binary.int2ab(result.timestamp);
-nacl.sign.detached.verify(timestamp, result.signature, key);`} />
+nacl.sign.detached.verify(
+  timestamp, 
+  result.signature, 
+  key
+);`} />
   </div>
 );
 
