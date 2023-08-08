@@ -3,8 +3,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 22px;
-  margin-top: 20px;
+  padding: 12px 0;
   font-size: 18px;
 }
 

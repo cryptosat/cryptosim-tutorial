@@ -38,6 +38,7 @@ import SandboxClient from "@cryptosat/cryptosim/lib/clients/sandbox";
 import binary from "@cryptosat/cryptosim/lib/binary";
 import util from "tweetnacl-util";
 import init, {encrypt_message} from "@cryptosat/private-voting";
+import Menu from "./components/Menu";
 
 const axios = require('axios');
 
@@ -252,6 +253,12 @@ class App extends React.Component {
         <div className="main">
           <div className="content">
             <div className="content-container">
+              <div className="content-container__menu">
+                <Menu
+                    visible={true}
+                />
+              </div>
+
               <PanelContainer>
                 <Switch>
                   {routes}

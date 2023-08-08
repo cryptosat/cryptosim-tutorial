@@ -36,6 +36,12 @@ body {
   background-color: #31353E;
 }
 
+.content-container__menu {
+  display: flex;
+  flex-direction: column-reverse;
+  height: 100vh;
+}
+
 .content-container__right {
   display: flex;
   flex: 1;
@@ -45,8 +51,8 @@ body {
 }
 
 .console-container {
-  height: 239px;
-  overflow-y: scroll; /* to hide horizontal scrollbar on chrome for windows */
+  flex: 1;
+  overflow-y: auto; /* to hide horizontal scrollbar on chrome for windows */
   z-index: 1;
 }
 
@@ -66,11 +72,7 @@ body {
 }
 
 .map-container {
-  position: fixed;
-  left:  0;
-  top:  0;
-  width: 100vw;
-  height: calc(100vh - 239px) !important;
+  flex: 1;
   overflow: hidden;
 }
 

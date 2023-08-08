@@ -1,15 +1,15 @@
 #sideMenu {
+  flex: none;
   padding: 32px 0 0 32px;
   background-color: #030014;
-  width: 390px;
+  width: 300px;
   box-sizing: border-box;
-  position: fixed;
+  position: static;
   left: 0px;
   top: 0px;
   height: 100vh;
-  z-index: 999;
   transition: transform 0.4s cubic-bezier(0, 0.52, 0, 1);
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 #sideMenu.hide {
@@ -98,11 +98,8 @@
   left: -20px;
 }
 
-@media (min-width: 1512px) {
-  #sideMenu {
-    width: 508px;
-  }
-  #sideMenu.hide {
-    transform: translate3d(-560px, 0, 0);
-  }
+@media screen and (max-width: 1000px) {
+    #sideMenu {
+        display: none;
+    }
 }

@@ -25,11 +25,6 @@ class PanelContainer extends React.Component {
 
     return (
       <div className={contentClassName}>
-        <NavBar
-          togglePanel={this.togglePanel}
-          isPannelCollapse={this.state.isCollapse}
-        />
-
         <div className="instructions-container">
           {!this.state.isCollapse && <>{this.props.children}</>}
         </div>

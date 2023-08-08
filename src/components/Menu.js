@@ -4,27 +4,20 @@ import "./Menu.css";
 import plan from "./lessons/plan";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faTimes } from "@fortawesome/pro-light-svg-icons";
+import logo from "./cryptosat_logo.svg";
 
 class Menu extends React.Component {
   constructor(props) {
     super(props);
     this.props = props;
-    this.closeMenu = this.closeMenu.bind(this);
     this.navigate = this.navigate.bind(this);
   }
 
-  closeMenu(e) {
-    e.stopPropagation();
-    this.props.setMenuVisible(false);
-  }
-
   navigate(lesson) {
-    this.props.setMenuVisible(false);
     this.props.history.push(lesson.path);
   }
 
   render() {
-    const visibilityClass = this.props.visible ? "show" : "hide";
     const items = [];
     for (const section of Object.values(plan)) {
       items.push(
@@ -68,16 +61,19 @@ class Menu extends React.Component {
       }
     }
 
+    const href = "/";
+
     return (
       <>
-        <div
-          className={`backdrop ${visibilityClass}`}
-          onClick={this.closeMenu}
-        />
-        <div id="sideMenu" className={visibilityClass}>
-          <button onClick={this.closeMenu}>
-            <FontAwesomeIcon icon={faTimes} />
-          </button>
+        <div id="sideMenu">
+          <div className="navbar">
+            <div className="title-container">
+              <Link to={href}>
+                <img src={logo} alt="" />
+                CryptoSat Simulator
+              </Link>
+            </div>
+          </div>
           <ul>{items}</ul>
         </div>
       </>
