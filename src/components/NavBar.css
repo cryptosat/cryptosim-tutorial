@@ -3,8 +3,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 0;
+  padding: 12px 22px;
   font-size: 18px;
+  flex-shrink: 0;
 }
 
 .content-container__left.collapsed .navbar {
@@ -54,17 +55,9 @@
   font-weight: 100;
 }
 
-.bug-button {
-  background-color: transparent;
-  color: #686672;
-  border: none;
-  position: fixed;
-  top: 10px;
-  right: 40px;
-  font-size: 16px;
-  letter-spacing: 0.5px;
-  font-family: 'Anek Latin';
-  padding: 5px 10px;
-  cursor: pointer;
-  z-index: 1;
+/*Navbar is disabled for big screen*/
+@media screen and (min-width: 1560px) {
+  .navbar {
+    display: none;
+  }
 }

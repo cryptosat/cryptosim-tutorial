@@ -39,6 +39,7 @@ import binary from "@cryptosat/cryptosim/lib/binary";
 import util from "tweetnacl-util";
 import init, {encrypt_message} from "@cryptosat/private-voting";
 import Menu from "./components/Menu";
+import NavBar from "./components/NavBar";
 
 const axios = require('axios');
 
@@ -98,6 +99,11 @@ class App extends React.Component {
   constructor() {
     super();
     this.setupUniverse();
+    this.toggleMenu = this.toggleMenu.bind(this);
+    this.setMenuOpen = this.setMenuOpen.bind(this);
+    this.state = {
+      isMenuOpen: false,
+    };
   }
 
   async componentDidMount() {
@@ -241,6 +247,18 @@ class App extends React.Component {
     return routes;
   }
 
+  toggleMenu() {
+    this.setState({
+      isMenuOpen: !this.state.isMenuOpen,
+    });
+  }
+
+  setMenuOpen(isOpen) {
+    this.setState({
+      isMenuOpen: isOpen,
+    });
+  }
+
   render() {
     if (this.props.location.pathname === "/multisat") {
       return <MultiSatDemo/>;
@@ -249,15 +267,15 @@ class App extends React.Component {
     const zoom = 2.5;
     const center = new GeoCoordinates(40.567952, -98.518132, 0);
     const routes = this.createRoutes();
+
     return (
         <div className="main">
+          <NavBar
+              toggleMenu={this.toggleMenu}
+          />
           <div className="content">
             <div className="content-container">
-              <div className="content-container__menu">
-                <Menu
-                    visible={true}
-                />
-              </div>
+              <Menu isOpen={this.state.isMenuOpen} setMenuOpen={this.setMenuOpen}/>
 
               <PanelContainer>
                 <Switch>

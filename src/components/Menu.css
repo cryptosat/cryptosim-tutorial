@@ -7,17 +7,55 @@
   position: static;
   left: 0px;
   top: 0px;
-  height: 100vh;
   transition: transform 0.4s cubic-bezier(0, 0.52, 0, 1);
   overflow-y: auto;
 }
 
-#sideMenu.hide {
+.menu-title {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  font-size: 18px;
+  display: inline-block;
+}
+
+.menu-title img {
+  width: 25px;
+  height: 25px;
+  margin-right: 12px;
+  position: relative;
+}
+
+.menu-title a {
+  text-decoration: none;
+  color: #F4F4F4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Anek Latin";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
+  /* identical to box height, or 22px */
+
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+#sideMenu Link {
   transform: translate3d(-450px, 0, 0);
 }
 
+#sideMenu.hide {
+  transition: all 0.3s;
+  transform: translateX(-100%);
+}
+
 #sideMenu.show {
-  transform: translate3d(0, 0, 0);
+  transition: all 0.3s;
+  transform: translateX(0);
 }
 
 #sideMenu button {
@@ -98,8 +136,24 @@
   left: -20px;
 }
 
-@media screen and (max-width: 1000px) {
-    #sideMenu {
-        display: none;
-    }
+@media screen and (max-width: 1560px) {
+  /*For small screen the Menu has absolute position and is on the top*/
+  #sideMenu {
+    position: absolute;
+    top: 65px;
+    z-index: 999;
+    height: calc(100% - 65px);
+  }
+}
+
+@media screen and (min-width: 1560px) {
+  /*On bigger screens menu is part of the flexbox and backdrop is disabled*/
+  .backdrop {
+    display: none;
+  }
+
+  /* On bigger screens, the hide has no effect*/
+  #sideMenu.hide {
+    transform: translateX(0);
+  }
 }

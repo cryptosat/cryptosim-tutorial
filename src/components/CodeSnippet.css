@@ -17,6 +17,7 @@
   overflow-x: auto;
   overflow-y: auto;
   word-wrap: break-word;
+  white-space: pre-wrap;
   font-size: 14px;
   max-height: fit-content; /* 2 lines * 1.6 line-height */
 }
@@ -45,4 +46,11 @@
 
 .code-snippet button:active {
   color: #cad1de;
+}
+
+@media screen and (max-width: 1000px) {
+  /*On small screen disable icons*/
+  .code-snippet .icon-container {
+    display: none;
+  }
 }

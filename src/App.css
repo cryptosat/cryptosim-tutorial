@@ -3,10 +3,11 @@ body {
   overflow-x: hidden;
   font-size: 0.9rem;
   background: #030014;
+  height: 100%;
 }
 
 .main {
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   display: flex;
   flex-flow: column;
@@ -15,39 +16,29 @@ body {
 
 .main .nav-container {
   z-index: 100;
-  flex-grow: 0;
-  flex-shrink: 0;
   flex-basis: 45px;
   height: 100%;
   width: 100%;
 }
 
 .content {
-  flex-grow: 1;
-  flex-shrink: 1;
   flex-basis: auto;
   overflow-y: auto;
   overflow-x: hidden;
+  height: 100%;
 }
 
 .content-container {
   display: flex;
   flex-direction: row;
   background-color: #31353E;
-}
-
-.content-container__menu {
-  display: flex;
-  flex-direction: column-reverse;
-  height: 100vh;
+  height: 100%;
 }
 
 .content-container__right {
   display: flex;
   flex: 1;
   flex-direction: column-reverse;
-  height: 100vh;
-  width: calc(100vh - 390px) !important;
 }
 
 .console-container {
@@ -76,10 +67,11 @@ body {
   overflow: hidden;
 }
 
-.mapboxgl-ctrl-bottom-right{
+.mapboxgl-ctrl-bottom-right {
   display: none !important;
 }
-.mapboxgl-ctrl-bottom-left{
+
+.mapboxgl-ctrl-bottom-left {
   display: none !important;
 }
 
@@ -90,19 +82,19 @@ body {
 .apply-gradient {
   position: relative;
   background: linear-gradient(
-    166.28deg,
-    #02000e 52.56%,
-    #320541 65.04%,
-    #6d0d8d 70.01%,
-    #320541 74.99%,
-    #030014 84.23%
+      166.28deg,
+      #02000e 52.56%,
+      #320541 65.04%,
+      #6d0d8d 70.01%,
+      #320541 74.99%,
+      #030014 84.23%
   ) !important;
 }
 
-.apply-dots{
+.apply-dots {
   position: absolute;
-  top: 360px;
-  height: 50vh;
+  top: 45%;
+  height: 50%;
   width: 100%;
 }
 
@@ -116,18 +108,21 @@ body {
   opacity: 0.8;
   box-shadow: 0px 0px 172px 14px #2d2d6b;
 }
+
 .apply-dots .dot.md {
   width: 5.93px;
   height: 5.97px;
 
 }
+
 .apply-dots .dot.lg {
   width: 8.56px;
   height: 8.63px;
 }
 
-@media (min-width: 1512px) {
-  .console-container {
-    height: 323px;
+@media screen and (max-width: 1000px) {
+  /*On small screen dont display right container with map and console*/
+  .content-container__right {
+    display: none;
   }
 }

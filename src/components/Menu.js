@@ -10,10 +10,17 @@ class Menu extends React.Component {
   constructor(props) {
     super(props);
     this.props = props;
+    this.closeMenu = this.closeMenu.bind(this);
     this.navigate = this.navigate.bind(this);
   }
 
+  closeMenu(e) {
+    e.stopPropagation();
+    this.props.setMenuOpen(false);
+  }
+
   navigate(lesson) {
+    this.props.setMenuOpen(false);
     this.props.history.push(lesson.path);
   }
 
@@ -62,17 +69,20 @@ class Menu extends React.Component {
     }
 
     const href = "/";
+    const visibilityClassName = this.props.isOpen ? "show" : "hide";
 
     return (
       <>
-        <div id="sideMenu">
-          <div className="navbar">
-            <div className="title-container">
-              <Link to={href}>
-                <img src={logo} alt="" />
-                CryptoSat Simulator
-              </Link>
-            </div>
+        <div
+            className={`backdrop ${visibilityClassName}`}
+            onClick={this.closeMenu}
+        />
+        <div id="sideMenu" className={visibilityClassName}>
+          <div className="menu-title">
+            <Link to={href}>
+              <img src={logo} alt="" />
+              CryptoSat Simulator
+            </Link>
           </div>
           <ul>{items}</ul>
         </div>
