@@ -20,7 +20,7 @@ timestamp = binary.int2ab(result.timestamp);
 nacl.sign.detached.verify(
   timestamp, 
   result.signature, 
-  key
+  binary.pem2ab(key)
 );`} />
   </div>
 );

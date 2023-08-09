@@ -19,7 +19,7 @@ const content = (
 nacl.sign.detached.verify(
   result.publicRandom, 
   result.signature, 
-  key
+  binary.pem2ab(key)
 );`} />
   </div>
 );

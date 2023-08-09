@@ -37,7 +37,7 @@ msg = binary.str2ab('your message here');
 nacl.sign.detached.verify(
   msg, 
   result.signature, 
-  key
+  binary.pem2ab(key)
 );`} />
   </div>
 );

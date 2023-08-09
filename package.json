@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "dependencies": {
-    "@cryptosat/cryptosim": "github:cryptosat/cryptosim#a46819f6273a771b0b4ac38b8abbbd1ef912bbe5",
+    "@cryptosat/cryptosim": "github:cryptosat/cryptosim#5412a4ab7747af34276309f2f2e6dc4e6aff551e",
     "@cryptosat/cryptosim-visualization": "^0.3.3",
     "@cryptosat/jsconsole": "^0.2.4",
     "@cryptosat/private-voting": "^1.0.0",
