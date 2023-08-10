@@ -120,9 +120,26 @@ body {
   height: 8.63px;
 }
 
+.mobile-content {
+  display: none;
+}
+
+.desktop-content {
+  display: block;
+}
+
 @media screen and (max-width: 1000px) {
   /*On small screen dont display right container with map and console*/
   .content-container__right {
+    display: none;
+  }
+
+  /*On small screen show mobile content and disable desktop*/
+  .mobile-content {
+    display: block;
+  }
+
+  .desktop-content {
     display: none;
   }
 }
