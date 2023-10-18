@@ -11,11 +11,18 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.toggleMenu = this.toggleMenu.bind(this);
+    this.setLanguage = this.setLanguage.bind(this);
   }
 
   toggleMenu(e) {
     e.stopPropagation();
     if (this.props.toggleMenu) this.props.toggleMenu();
+  }
+
+  setLanguage(e) {
+    e.stopPropagation();
+    const selectedLanguage = e.target.value;
+    this.props.setLanguage(selectedLanguage);
   }
 
   render() {
@@ -35,7 +42,12 @@ class NavBar extends React.Component {
                 CryptoSat Simulator
               </Link>
             </div>
-            <div className="actions-container"></div>
+            <div className="actions-container">
+              <select name="language" onChange={this.setLanguage}>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Python">Python</option>
+              </select>
+            </div>
           </div>
         </>
     );

@@ -26,12 +26,21 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
   height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.background {
+  position: absolute;
+  top: 66.5px;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .content-container {
   display: flex;
   flex-direction: row;
-  background-color: #31353E;
+  background-color: rgba(49, 53, 62, 0.1);
   height: 100%;
 }
 
@@ -45,6 +54,8 @@ body {
   flex: 1;
   overflow-y: auto; /* to hide horizontal scrollbar on chrome for windows */
   z-index: 1;
+  background-color: rgba(49, 53, 62, 0.1);
+  color: #ffffff;
 }
 
 .mapboxgl-popup-content {
@@ -83,11 +94,11 @@ body {
   position: relative;
   background: linear-gradient(
       166.28deg,
-      #02000e 52.56%,
-      #320541 65.04%,
-      #6d0d8d 70.01%,
-      #320541 74.99%,
-      #030014 84.23%
+      rgba(2, 0, 14, 0.7) 52.56%,
+      rgba(50, 5, 65, 0.7) 65.04%,
+      rgba(109, 13, 141, 0.7) 70.01%,
+      rgba(50, 5, 65, 0.7) 74.99%,
+      rgba(3, 0, 20, 0.7) 84.23%
   ) !important;
 }
 
@@ -142,4 +153,89 @@ body {
   .desktop-content {
     display: none;
   }
+}
+
+/* override jsconsole styles */
+.theme-dark {
+  background-color: rgba(49, 53, 62, 0.1) !important;
+}
+
+.Input {
+  background-color: rgba(49, 53, 62, 0.1) !important;
+}
+
+.Line {
+  background-color: rgba(49, 53, 62, 0.1) !important;
+}
+
+
+.commandline {
+  color: #ffffff;
+  align-content: normal;
+  align-items: normal;
+  appearance: none;
+  background-color: rgba(0, 0, 0, 0);
+  border-block-end-style: none;
+  border-block-start-style: none;
+  border-bottom-style: none;
+  border-inline-start-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  border-top-style: none;
+  box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px, rgba(59, 130, 246, 0.5) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+  box-sizing: border-box;
+  caret-color: rgb(255, 255, 255);
+  cursor: text;
+  direction: ltr;
+  empty-cells: show;
+  fill: rgb(0, 0, 0);
+  fill-opacity: 1;
+  fill-rule: nonzero;
+  flood-color: rgb(255, 255, 255);
+  flood-opacity: 1;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 16px;
+  font-stretch: 100%;
+  font-weight: 400;
+  grid-auto-flow: row;
+  height: 40px;
+  inline-size: 710.586px;
+  justify-content: normal;
+  justify-items: normal;
+  letter-spacing: normal;
+  lighting-color: rgb(255, 255, 255);
+  line-height: 24px;
+  object-position: 50% 50%;
+  outline-color: rgb(0, 0, 0);
+  outline-style: none;
+  overflow-wrap: break-word;
+  padding-block-end: 8px;
+  padding-block-start: 8px;
+  padding-bottom: 8px;
+  padding-inline-end: 8px;
+  padding-inline-start: 4px;
+  padding-left: 4px;
+  padding-right: 8px;
+  padding-top: 8px;
+  perspective-origin: 355.289px 20px;
+  position: static;
+  tab-size: 8;
+  text-align: start;
+  text-anchor: start;
+  text-decoration: none solid rgb(0, 0, 0);
+  text-decoration-color: rgb(0, 0, 0);
+  text-decoration-line: none;
+  text-decoration-style: solid;
+  text-emphasis-color: rgb(0, 0, 0);
+  text-emphasis-position: over;
+  text-emphasis-style: none;
+  text-overflow: clip;
+  text-shadow: none;
+  text-size-adjust: 100%;
+  text-transform: none;
+  text-wrap: wrap;
+  vertical-align: middle;
+  width: 90%;
+  word-break: normal;
+  writing-mode: horizontal-tb;
 }

@@ -1,4 +1,4 @@
-import CodeSnippet from '../CodeSnippet';
+import CodeSnippet from '../../CodeSnippet';
 
 const content = (
   <div>
