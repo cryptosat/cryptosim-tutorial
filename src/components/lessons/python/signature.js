@@ -24,7 +24,7 @@ const content = (
 print(result)`} />
     <p>
       After the cryptosat signed the message and transmits the signature back to
-      earth, the status of the message will change to <i>Ready</i> and the result of
+      earth, the type of the result will change from <i>None</i> and the result of
       the request can be obtained by invoking the result method:
     </p>
     <CodeSnippet code={`result = request.try_fetch_result()`} />
@@ -40,8 +40,8 @@ from cryptography.exceptions import InvalidSignature
 pem_data = cryptosat.get_public_signing_key().encode()
 public_key = serialization.load_pem_public_key(pem_data)
 message = b'your message here'
-signature_data = result.signature.encode()
-public_key.verify(message,signature_data)
+signature = bytes.fromhex(result.signature)
+public_key.verify(signature, message)
 `} />
   </div>
 );

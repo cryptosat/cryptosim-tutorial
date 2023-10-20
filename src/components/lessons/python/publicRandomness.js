@@ -21,9 +21,9 @@ from cryptography.exceptions import InvalidSignature
 
 pem_data = cryptosat.get_public_signing_key().encode()
 public_key = serialization.load_pem_public_key(pem_data)
-public_random = str(result.randomness).encode()
-signature_data = result.signature.encode()
-public_key.verify(public_random,signature_data)
+randomness_bytes = bytes.fromhex(result.randomness)
+signature = bytes.fromhex(result.signature)
+public_key.verify(signature, randomness_bytes)
 `} />
   </div>
 );
