@@ -353,6 +353,7 @@ module.exports = function (webpackEnv) {
         net: false,
         tls: false,
         child_process: false,
+        querystring: require.resolve("querystring-es3"),
       },
       // End of this block
     },

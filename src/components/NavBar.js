@@ -35,7 +35,8 @@ class NavBar extends React.Component {
                 CryptoSat Simulator
               </Link>
             </div>
-            <div className="actions-container"></div>
+            <div className="actions-container">
+            </div>
           </div>
         </>
     );

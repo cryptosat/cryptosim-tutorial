@@ -25,8 +25,11 @@ class CodeSnippet extends React.Component {
     if (textarea) {
       textarea.value = this.props.code;
       textarea.focus();
-      textarea.style.height = "auto";
-      textarea.style.height = textarea.scrollHeight + "px";
+      let event = new Event('input', { bubbles: true });
+      textarea.dispatchEvent(event);
+
+//      textarea.style.height = "auto";
+//      textarea.style.height = textarea.scrollHeight + "px";
     }
   }
 

@@ -13,17 +13,29 @@ import plan from "./components/lessons/plan";
 import MultiSatDemo from "./components/MultiSatDemo";
 import Lesson from "./components/Lesson";
 
-import overview from "./components/lessons/overview";
-import communication from "./components/lessons/communication";
-import asynchrony from "./components/lessons/asynchrony";
-import version from "./components/lessons/version";
-import publicKeys from "./components/lessons/publicKeys";
-import timestamp from "./components/lessons/timestamp";
-import publicRandomness from "./components/lessons/publicRandomness";
-import signature from "./components/lessons/signature";
-import nextOnline from "./components/lessons/nextOnline";
-import delayEncryption from "./components/lessons/delay_encryption";
-import privateVoting from "./components/lessons/privateVoting";
+import overview from "./components/lessons/javascript/overview";
+import communication from "./components/lessons/javascript/communication";
+import asynchrony from "./components/lessons/javascript/asynchrony";
+import version from "./components/lessons/javascript/version";
+import publicKeys from "./components/lessons/javascript/publicKeys";
+import timestamp from "./components/lessons/javascript/timestamp";
+import publicRandomness from "./components/lessons/javascript/publicRandomness";
+import signature from "./components/lessons/javascript/signature";
+import nextOnline from "./components/lessons/javascript/nextOnline";
+import delayEncryption from "./components/lessons/javascript/delay_encryption";
+import privateVoting from "./components/lessons/javascript/privateVoting";
+
+import overviewPython from "./components/lessons/python/overview";
+import communicationPython from "./components/lessons/python/communication";
+import asynchronyPython from "./components/lessons/python/asynchrony";
+import versionPython from "./components/lessons/python/version";
+import publicKeysPython from "./components/lessons/python/publicKeys";
+import timestampPython from "./components/lessons/python/timestamp";
+import publicRandomnessPython from "./components/lessons/python/publicRandomness";
+import signaturePython from "./components/lessons/python/signature";
+import nextOnlinePython from "./components/lessons/python/nextOnline";
+import delayEncryptionPython from "./components/lessons/python/delay_encryption";
+import privateVotingPython from "./components/lessons/python/privateVoting";
 
 import {Map as WorldMap} from "@cryptosat/cryptosim-visualization";
 import {Console} from "@cryptosat/jsconsole";
@@ -41,6 +53,8 @@ import init, {encrypt_message} from "@cryptosat/private-voting";
 import Menu from "./components/Menu";
 import NavBar from "./components/NavBar";
 
+import PyConsole from "./components/PyConsole";
+
 const axios = require('axios');
 
 const componentMap = new Map([
@@ -57,6 +71,22 @@ const componentMap = new Map([
   ["DelayEncryption", delayEncryption],
   // ["sealedBidAuction", sealedBidAuction],
   ["privateVoting", privateVoting],
+]);
+
+const componentMapPython = new Map([
+  ["overview", overviewPython],
+  ["communication", communicationPython],
+  ["asynchrony", asynchronyPython],
+  ["version", versionPython],
+  ["publicKeys", publicKeysPython],
+  ["timestamp", timestampPython],
+  ["publicRandomness", publicRandomnessPython],
+  // ["privateRandomness", privateRandomness],
+  ["signature", signaturePython],
+  ["nextOnline", nextOnlinePython],
+  ["DelayEncryption", delayEncryptionPython],
+  // ["sealedBidAuction", sealedBidAuction],
+  ["privateVoting", privateVotingPython],
 ]);
 
 /* This is an ugly hack in order to make MultiSatDemo override the entire
@@ -101,8 +131,10 @@ class App extends React.Component {
     this.setupUniverse();
     this.toggleMenu = this.toggleMenu.bind(this);
     this.setMenuOpen = this.setMenuOpen.bind(this);
+    this.setLanguage = this.setLanguage.bind(this);
     this.state = {
       isMenuOpen: false,
+      language: 'JavaScript',
     };
   }
 
@@ -230,7 +262,7 @@ class App extends React.Component {
         const nextLesson = flatLessons[i + 1];
         next = nextLesson.disabled ? null : nextLesson.path;
       }
-      const content = componentMap.get(lesson.content);
+      const content = this.state.language === 'JavaScript' ? componentMap.get(lesson.content) : componentMapPython.get(lesson.content);
       const route = (
           <Route key={lesson.path} exact path={lesson.path}>
             <Lesson
@@ -253,6 +285,12 @@ class App extends React.Component {
     });
   }
 
+  setLanguage(language) {
+    this.setState({
+      language,
+    });
+  }
+
   setMenuOpen(isOpen) {
     this.setState({
       isMenuOpen: isOpen,
@@ -266,7 +304,7 @@ class App extends React.Component {
 
     const zoom = 2.5;
     const center = new GeoCoordinates(40.567952, -98.518132, 0);
-    const routes = this.createRoutes();
+    const routes = this.createRoutes(this.state.language);
 
     return (
         <div className="main">
@@ -274,8 +312,18 @@ class App extends React.Component {
               toggleMenu={this.toggleMenu}
           />
           <div className="content">
+
+            <div className="background">
+              <WorldMap
+                  universe={this.universe}
+                  gsnetwork={this.gsnetwork}
+                  center={center}
+                  zoom={zoom}
+              />
+            </div>
+
             <div className="content-container">
-              <Menu isOpen={this.state.isMenuOpen} setMenuOpen={this.setMenuOpen}/>
+              <Menu isOpen={this.state.isMenuOpen} setMenuOpen={this.setMenuOpen} setLanguage={this.setLanguage} />
 
               <PanelContainer>
                 <Switch>
@@ -286,16 +334,12 @@ class App extends React.Component {
                 </Switch>
               </PanelContainer>
 
-              <div className="content-container__right">
-                <WorldMap
-                    universe={this.universe}
-                    gsnetwork={this.gsnetwork}
-                    center={center}
-                    zoom={zoom}
-                />
-                <div className="console-container">
-                  <Console theme="dark" payload={this.payload}/>
-                </div>
+              <div className="console-container">
+                { this.state.language === 'JavaScript' ? (
+                  <Console payload={this.payload} />
+                ) : (
+                  <PyConsole />
+                )}
               </div>
             </div>
           </div>

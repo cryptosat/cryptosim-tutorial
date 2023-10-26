@@ -9,13 +9,13 @@ const content = (
         functionality of the Cryptosat API.
       </p>
       <p>
-        On the bottom right of the screen there is a map visualizing the location of the
+        On the background of the screen there is a map visualizing the location of the
         cryptosat and the ground stations that we use to communicate with it.
         Ground stations appear as blue dots whereas the cryptosat will
         appear as a pulsing red or green circle.
       </p>
       <p>
-        The top right panel is a javascript console that you can use to type in
+        The right-side panel is a javascript console that you can use to type in
         commands. Throughout this tutorial you will find code snippets that
         showcase commands for interacting with the Cryptosat API. You are welcome
         to type the commands into the console and see the outcome for yourself.
