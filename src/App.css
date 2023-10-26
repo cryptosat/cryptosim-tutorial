@@ -54,7 +54,7 @@ body {
   flex: 1;
   overflow-y: auto; /* to hide horizontal scrollbar on chrome for windows */
   z-index: 1;
-  background-color: rgba(49, 53, 62, 0.1);
+  background-color: rgba(49, 53, 62, 0.66);
   color: #ffffff;
 }
 
@@ -168,6 +168,9 @@ body {
   background-color: rgba(49, 53, 62, 0.1) !important;
 }
 
+pre {
+  margin: 0;
+}
 
 .commandline {
   color: #ffffff;
@@ -194,9 +197,8 @@ body {
   flood-color: rgb(255, 255, 255);
   flood-opacity: 1;
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: 16px;
+  font-size: 14.4px;
   font-stretch: 100%;
-  font-weight: 400;
   grid-auto-flow: row;
   height: 40px;
   inline-size: 710.586px;
@@ -214,7 +216,7 @@ body {
   padding-bottom: 8px;
   padding-inline-end: 8px;
   padding-inline-start: 4px;
-  padding-left: 4px;
+  padding-left: 0px;
   padding-right: 8px;
   padding-top: 8px;
   perspective-origin: 355.289px 20px;

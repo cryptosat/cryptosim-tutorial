@@ -12,6 +12,7 @@ class Menu extends React.Component {
     this.props = props;
     this.closeMenu = this.closeMenu.bind(this);
     this.navigate = this.navigate.bind(this);
+    this.setLanguage = this.setLanguage.bind(this);
   }
 
   closeMenu(e) {
@@ -22,6 +23,12 @@ class Menu extends React.Component {
   navigate(lesson) {
     this.props.setMenuOpen(false);
     this.props.history.push(lesson.path);
+  }
+
+  setLanguage(e) {
+    e.stopPropagation();
+    const selectedLanguage = e.target.value;
+    this.props.setLanguage(selectedLanguage);
   }
 
   render() {
@@ -85,6 +92,10 @@ class Menu extends React.Component {
             </Link>
           </div>
           <ul>{items}</ul>
+          <select name="language" onChange={this.setLanguage}>
+            <option value="JavaScript">JavaScript</option>
+            <option value="Python">Python</option>
+          </select>
         </div>
       </>
     );

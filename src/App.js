@@ -310,7 +310,6 @@ class App extends React.Component {
         <div className="main">
           <NavBar
               toggleMenu={this.toggleMenu}
-              setLanguage={this.setLanguage}
           />
           <div className="content">
 
@@ -324,7 +323,7 @@ class App extends React.Component {
             </div>
 
             <div className="content-container">
-              <Menu isOpen={this.state.isMenuOpen} setMenuOpen={this.setMenuOpen}/>
+              <Menu isOpen={this.state.isMenuOpen} setMenuOpen={this.setMenuOpen} setLanguage={this.setLanguage} />
 
               <PanelContainer>
                 <Switch>

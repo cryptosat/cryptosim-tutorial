@@ -3,9 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { usePythonConsole } from 'react-py';
 import { ConsoleState } from 'react-py/dist/types/Console';
 
-import Controls from './Controls';
 import Loader from './Loader';
-import { ArrowPathIcon, Bars3BottomLeftIcon } from '@heroicons/react/24/solid';
 import clsx from 'clsx';
 
 import pythonInit from './pyodideInit';
@@ -41,88 +39,76 @@ export default function PyConsole() {
     if(isReady) {
       await runPython(pythonInit);
     }
-  }, [isReady])
+  }, [isReady]);
 
   useEffect(() => {
-    banner && setOutput((prev) => [...prev, { text: 'Python 3.11.2 (Pyodide/Emscripten)\n' + 'CryptoSat SDK Ready\n'}])
-  }, [banner])
+    banner && setOutput((prev) => [...prev, { text: 'Python 3.11.2 (Pyodide/Emscripten)\n' + 'CryptoSat SDK Ready\n'}]);
+  }, [banner]);
 
   useEffect(() => {
-    stdout && setOutput((prev) => [...prev, { text: stdout }])
-  }, [stdout])
+    stdout && setOutput((prev) => [...prev, { text: stdout }]);
+  }, [stdout]);
 
   useEffect(() => {
     stderr &&
       setOutput((prev) => [
         ...prev,
         { text: stderr + '\n', className: 'text-red-500' }
-      ])
-  }, [stderr])
+      ]);
+  }, [stderr]);
 
   useEffect(() => {
     if (isLoading || isRunning) {
-      textArea.current?.blur()
+      textArea.current?.blur();
     }
-  }, [isLoading, isRunning])
+  }, [isLoading, isRunning]);
 
   useEffect(() => {
     if (isAwaitingInput) {
-      setInput('')
+      setInput('');
       // Remove the last line of output since we render the prompt
-      setOutput((prev) => prev.slice(0, -1))
+      setOutput((prev) => prev.slice(0, -1));
     }
-  }, [isAwaitingInput])
+  }, [isAwaitingInput]);
 
   function getPrompt() {
     return isAwaitingInput
       ? prompt || ps1
       : consoleState === ConsoleState.incomplete
       ? ps2
-      : ps1
+      : ps1;
   }
 
   async function send() {
-    if (!input) return
-    setCursor(0)
-    setHistory((prev) => [input, ...prev])
+    if (!input) return;
+    setCursor(0);
+    setHistory((prev) => [input, ...prev]);
     if (isAwaitingInput) {
-      setOutput((prev) => [...prev, { text: getPrompt() + ' ' + input }])
-      sendInput(input)
+      setOutput((prev) => [...prev, { text: getPrompt() + ' ' + input }]);
+      sendInput(input);
     } else {
-      setOutput((prev) => [...prev, { text: getPrompt() + input + '\n' }])
-      await runPython(input)
+      setOutput((prev) => [...prev, { text: getPrompt() + input + '\n' }]);
+      const runInput = input + ' ';
+      setInput('');
+      console.log(runInput);
+      await runPython(runInput);
     }
-    setInput('')
-    textArea.current?.focus()
+    setInput('');
+    textArea.current?.focus();
   }
 
   function clear() {
-    setOutput([])
+    setOutput([]);
   }
 
   function reset() {
-    interruptExecution()
-    clear()
+    interruptExecution();
+    clear();
   }
 
   return (
     <div className="relative mb-10">
       <div className="absolute right-0 z-20">
-        <Controls
-          items={[
-            {
-              label: 'Clear',
-              icon: Bars3BottomLeftIcon,
-              onClick: clear,
-              disabled: isRunning
-            },
-            {
-              label: 'Reset',
-              icon: ArrowPathIcon,
-              onClick: reset
-            }
-          ]}
-        />
       </div>
 
       {isLoading && <Loader />}
@@ -133,8 +119,8 @@ export default function PyConsole() {
             {line.text}
           </code>
         ))}
-        <div className="group relative flex items-center">
-          <code className="text-gray-500" style={{marginLeft:'-7px'}}>{getPrompt()}</code>
+        <div className="relative flex items-center" style={{backgroundColor:'rgba(0,0,0,0.3)'}}>
+          <code className="text-gray-500">{getPrompt()}</code>
           <textarea
             ref={textArea}
             className={clsx(

@@ -36,6 +36,7 @@ export default function Controls(props) {
         <span className="isolate inline-flex rounded-md">
           {visibleItems.map((item, i) => (
             <button
+              style={{float:'right'}}
               key={item.label}
               type="button"
               onClick={item.onClick}
