@@ -80,11 +80,6 @@
   margin: 0;
 }
 
-#sideMenu select {
-  color: #F4F4F4;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
 #sideMenu li {
   line-height: 21px;
   padding-top: 0;
