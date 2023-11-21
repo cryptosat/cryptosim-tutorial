@@ -5,16 +5,27 @@
   box-sizing: border-box;
   background: #353343;
   line-height: 1.6;
-  margin-bottom: 1.6em;
   max-width: 100%;
-  padding: 1rem;
   color: #f4f4f4;
   page-break-inside: avoid;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .code-snippet.light pre {
   background-color: #FFF;
   color: #000;
+}
+
+.code-snippet.light {
+  border-radius: 8px;
+  border: 1px solid #E7EAEF;
+}
+
+.code-snippet.dark {
+  border-radius: 8px;
+  border: 1px solid #111111;
+  background-color: #353343;
 }
 
 .code-snippet code {

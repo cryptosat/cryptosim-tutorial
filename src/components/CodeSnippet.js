@@ -38,7 +38,7 @@ class CodeSnippet extends React.Component {
     if (this.props.code.split("\n").length > 2) {
       expandIcon = (
         <button onClick={() => this.setShowModal(!this.state.showModal)}>
-          <FontAwesomeIcon color="#ffffff" icon={faExpandAlt} />
+          <FontAwesomeIcon color={ this.props.theme === 'light' ? '#000' : "#ffffff" } icon={faExpandAlt} />
         </button>
       );
     }
@@ -51,7 +51,7 @@ class CodeSnippet extends React.Component {
             <div>{expandIcon}</div>
             <div>
               <button onClick={() => this.pasteToConsole()}>
-                <FontAwesomeIcon color="#ffffff" icon={faPaste} />
+                <FontAwesomeIcon color={ this.props.theme === 'light' ? '#000' : "#ffffff" } icon={faPaste} />
               </button>
             </div>
           </div>
@@ -61,6 +61,7 @@ class CodeSnippet extends React.Component {
             pasteToConsole={this.pasteToConsole}
             code={this.props.code}
             setShow={this.setShowModal}
+            theme={this.props.theme}
           />
         )}
       </div>

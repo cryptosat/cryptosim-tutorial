@@ -153,10 +153,6 @@ body {
   background-color: rgba(49, 53, 62, 0.1) !important;
 }
 
-pre {
-  margin: 0;
-}
-
 .commandline {
   color: #ffffff;
   align-content: normal;
