@@ -20,7 +20,7 @@
   box-sizing: border-box;
 }
 
-.lesson-content .light {
+.lesson-content.light {
   background-color: #F7F8FC !important;
 }
 

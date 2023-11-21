@@ -1,6 +1,6 @@
 import CodeSnippet from '../../CodeSnippet';
 
-const content = (
+const content = (props) => (
   <div>
     <h2>Delay encryption</h2>
     <p>
@@ -9,18 +9,18 @@ const content = (
     To generate a delayed keypair a user can use the following function:
     </p>
     <CodeSnippet code={`time_to_release_in_secs = 10;
-keypair_req = cryptosat.create_keypair(str(time_to_release_in_secs))`} />
-    <CodeSnippet code={`keypair_req.try_fetch_public_key()`} />
-    <CodeSnippet code={`result = keypair_req.try_fetch_public_key()\nkeypair_id = keypair_req.keypair_id`} />
+keypair_req = cryptosat.create_keypair(str(time_to_release_in_secs))`} theme={props.theme} />
+    <CodeSnippet code={`keypair_req.try_fetch_public_key()`} theme={props.theme} />
+    <CodeSnippet code={`result = keypair_req.try_fetch_public_key()\nkeypair_id = keypair_req.keypair_id`} theme={props.theme} />
     <p>
         The result of the function will be the id of the keypair on the satellite and the public key.
         To fetch the public key a user can use the next function:
     </p>
-    <CodeSnippet code={`pubkey = keypair_req.try_fetch_public_key()`} />
+    <CodeSnippet code={`pubkey = keypair_req.try_fetch_public_key()`} theme={props.theme} />
     <p>
         After the specified time we can also fetch the private key using the following function:
     </p>
-    <CodeSnippet code={'privkey = keypair_req.try_fetch_private_key()'} />
+    <CodeSnippet code={'privkey = keypair_req.try_fetch_private_key()'} theme={props.theme} />
     <p>
         If user will try to fetch the private key before the specified time, it will resolve in an error.
     </p>

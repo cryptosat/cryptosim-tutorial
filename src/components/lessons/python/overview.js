@@ -1,4 +1,4 @@
-const content = (
+const content = (props) => (
   <div >
     <div className="desktop-content">
       <h2>Welcome</h2>

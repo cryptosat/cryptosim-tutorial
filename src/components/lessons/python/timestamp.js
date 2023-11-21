@@ -1,6 +1,6 @@
 import CodeSnippet from '../../CodeSnippet';
 
-const content = (
+const content = (props) => (
   <div>
     <h2>Timestamp</h2>
     <p>
@@ -9,7 +9,7 @@ const content = (
       satellite’s public signing key. The timestamp and its signature can be
       obtained using the following API call:
     </p>
-    <CodeSnippet code={`result = cryptosat.get_timestamp()`} />
+    <CodeSnippet code={`result = cryptosat.get_timestamp()`} theme={props.theme} />
     <p>
       You can verify the signature of the timestamp with
       the 'cryptography' library as shown
@@ -24,7 +24,7 @@ public_key = serialization.load_pem_public_key(pem_data)
 timestamp_bytes = result.timestamp.to_bytes(8, byteorder='little')
 signature = bytes.fromhex(result.signature)
 public_key.verify(signature, timestamp_bytes)
-`} />
+`} theme={props.theme} />
   </div>
 );
 

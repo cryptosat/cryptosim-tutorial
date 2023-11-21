@@ -1,13 +1,13 @@
 import CodeSnippet from '../../CodeSnippet';
 
-const content = (
+const content = (props) => { return(
   <div>
     <h2>Version</h2>
     <p>
       To obtain the current version of the cryptosat invoke the following
       command:
     </p>
-    <CodeSnippet code={`await cryptosat.version();`} />
+    <CodeSnippet code={`await cryptosat.version();`} theme={props.theme} />
     <p>
       The returned value contains the <a href="https://semver.org/">
       semantic version</a> of the software running onboard the cryptosat.
@@ -15,6 +15,6 @@ const content = (
       cryptosat last reported its software version.
     </p>
   </div>
-);
+)};
 
 export default content;

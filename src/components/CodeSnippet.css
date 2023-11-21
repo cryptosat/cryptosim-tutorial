@@ -12,6 +12,11 @@
   page-break-inside: avoid;
 }
 
+.code-snippet.light pre {
+  background-color: #FFF;
+  color: #000;
+}
+
 .code-snippet code {
   flex: 1;
   overflow-x: auto;

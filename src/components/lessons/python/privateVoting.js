@@ -1,7 +1,7 @@
 import CodeSnippet from "../../CodeSnippet";
 
-const content = (
-    <div>
+const content = (props) => (
+  <div>
       <h2>Private Ballot API</h2>
       <p>
         Privacy-preserving voting has many applications in online elections,
@@ -21,19 +21,19 @@ const content = (
         its authenticity can be verified using Cryptosat's public verification key.
       </p>
       <CodeSnippet code={`k = 1 # minimal number of participants
-ballot_req = cryptosat.create_ballot(k)`}/>
-      <CodeSnippet code={`pubkey = ballot_req.try_fetch_public_key()`}/>
+ballot_req = cryptosat.create_ballot(k)`} theme={props.theme} />
+      <CodeSnippet code={`pubkey = ballot_req.try_fetch_public_key()`} theme={props.theme} />
 
       <p>The users then encrypt and sumbit their votes</p>
       <CodeSnippet code={`encrypted_vote = encrypt_message(
   pubkey, 
   "candidate-1"
 )
-ballot_req.vote(encrypted_vote)`}/>
+ballot_req.vote(encrypted_vote)`} theme={props.theme} />
 
       <p>And finally, the operator finalizes the ballot by calling</p>
-      <CodeSnippet code={`ballot_req.finalize()\n`}/>
-      <CodeSnippet code={`result = ballot_req.try_fetch_result()`}/>
+      <CodeSnippet code={`ballot_req.finalize()\n`} theme={props.theme} />
+      <CodeSnippet code={`result = ballot_req.try_fetch_result()`} theme={props.theme} />
     </div>
 )
 

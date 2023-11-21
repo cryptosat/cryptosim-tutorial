@@ -1,6 +1,6 @@
 import CodeSnippet from '../../CodeSnippet';
 
-const content = (
+const content = (props) => (
   <div>
     <h2>Signature</h2>
     <p>
@@ -14,19 +14,19 @@ const content = (
     <p>
       To obtain a signature from the cryptosat invoke the following API call:
     </p>
-    <CodeSnippet code={`req = await cryptosat.sign('your message here');`} />
+    <CodeSnippet code={`req = await cryptosat.sign('your message here');`} theme={props.theme} />
     <p>
       The API call returns a request object allowing the user to track
       its status. The status of the request can be obtained by
       invoking the status method:
     </p>
-    <CodeSnippet code={`await req.status();`} />
+    <CodeSnippet code={`await req.status();`} theme={props.theme} />
     <p>
       After the cryptosat signed the message and transmits the signature back to
       earth, the status of the message will change to <i>Ready</i> and the result of
       the request can be obtained by invoking the result method:
     </p>
-    <CodeSnippet code={`result = await req.result();`} />
+    <CodeSnippet code={`result = await req.result();`} theme={props.theme} />
     <p>
       You can then verify that the signature is valid using
       the <a href="https://nacl.cr.yp.to/box.html">NaCl</a> library as shown
@@ -38,7 +38,7 @@ nacl.sign.detached.verify(
   msg, 
   result.signature, 
   binary.pem2ab(key)
-);`} />
+);`} theme={props.theme} />
   </div>
 );
 

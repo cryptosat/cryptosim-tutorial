@@ -1,6 +1,6 @@
 import CodeSnippet from '../../CodeSnippet';
 
-const content = (
+const content = (props) => (
   <div>
     <h2>Signature</h2>
     <p>
@@ -14,20 +14,20 @@ const content = (
     <p>
       To obtain a signature from the cryptosat invoke the following API call:
     </p>
-    <CodeSnippet code={`request = cryptosat.sign_message('your message here')`} />
+    <CodeSnippet code={`request = cryptosat.sign_message('your message here')`} theme={props.theme} />
     <p>
       The API call returns a request object allowing the user to track
       its status. The status of the request can be obtained by
       invoking the status method:
     </p>
     <CodeSnippet code={`result = request.try_fetch_result()
-print(result)`} />
+print(result)`} theme={props.theme} />
     <p>
       After the cryptosat signed the message and transmits the signature back to
       earth, the type of the result will change from <i>None</i> and the result of
       the request can be obtained by invoking the result method:
     </p>
-    <CodeSnippet code={`result = request.try_fetch_result()`} />
+    <CodeSnippet code={`result = request.try_fetch_result()`} theme={props.theme} />
     <p>
       You can then verify that the signature is valid using
       the 'cryptography' library as shown
@@ -42,7 +42,7 @@ public_key = serialization.load_pem_public_key(pem_data)
 message = b'your message here'
 signature = bytes.fromhex(result.signature)
 public_key.verify(signature, message)
-`} />
+`} theme={props.theme} />
   </div>
 );
 

@@ -1,7 +1,7 @@
 import CodeSnippet from "../../CodeSnippet";
 
-const content = (
-    <div>
+const content = (props) => (
+  <div>
       <h2>Private Ballot API</h2>
       <p>
         Privacy-preserving voting has many applications in online elections,
@@ -21,21 +21,21 @@ const content = (
         its authenticity can be verified using Cryptosat's public verification key.
       </p>
       <CodeSnippet code={`k = 1; // minimal number of participants
-ballot_req = await cryptosat.ballot.init(k);`}/>
-      <CodeSnippet code={`await ballot_req.status();`}/>
-      <CodeSnippet code={`result = await ballot_req.result();\npubkey = result.public_key`}/>
+ballot_req = await cryptosat.ballot.init(k);`} theme={props.theme} />
+      <CodeSnippet code={`await ballot_req.status();`} theme={props.theme} />
+      <CodeSnippet code={`result = await ballot_req.result();\npubkey = result.public_key`} theme={props.theme} />
 
       <p>The users then encrypt and sumbit their votes</p>
       <CodeSnippet code={`encrypted_vote = encrypt_message(
   pubkey, 
   "candidate-1"
 );
-await cryptosat.ballot.vote(encrypted_vote);`}/>
+await cryptosat.ballot.vote(encrypted_vote);`} theme={props.theme} />
 
       <p>And finally, the operator finalizes the ballot by calling</p>
-      <CodeSnippet code={`req = await cryptosat.ballot.finalize();\n`}/>
-      <CodeSnippet code={`await req.status()`}/>
-      <CodeSnippet code={`await req.result()`}/>
+      <CodeSnippet code={`req = await cryptosat.ballot.finalize();\n`} theme={props.theme} />
+      <CodeSnippet code={`await req.status()`} theme={props.theme} />
+      <CodeSnippet code={`await req.result()`} theme={props.theme} />
     </div>
 )
 

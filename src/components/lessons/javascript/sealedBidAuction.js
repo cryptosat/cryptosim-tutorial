@@ -1,6 +1,6 @@
 import CodeSnippet from '../../CodeSnippet';
 
-const content = (
+const content = (props) => (
     <div>
         <h2>Sealed-bid Auction using Delay Encryption</h2>
         <p>
@@ -13,13 +13,13 @@ const content = (
             We first generate a "delayed" key-pair as in the <a href="#/cryptosat-api/delay_encryption">previous tutorial</a>:
         </p>
         <CodeSnippet code={`const time_to_release_in_secs = 10;\nlet keypair_id_req = cryptosat.createDelayedKeypair(time_to_release_in_secs);
-keypair_id = keypair_id_req.result().keypair_id;`} />
+keypair_id = keypair_id_req.result().keypair_id;`} theme={props.theme} />
 
         <p>
             The result of the function will be the id of the keypair on the satellite and the public key.
             To fetch the public key a user can use the next function:
         </p>
-        <CodeSnippet code={`pub_key_req = cryptosat.fetchDelayedPubKey(keypair_id);\nauctioneer_pub_key = pub_key_req.result().public_key;`} />
+        <CodeSnippet code={`pub_key_req = cryptosat.fetchDelayedPubKey(keypair_id);\nauctioneer_pub_key = pub_key_req.result().public_key;`} theme={props.theme} />
 
         <p>
             Bidders encrypt their bids using to the public-key.
@@ -29,7 +29,7 @@ const nonce1 = nacl.randomBytes(nacl.box.nonceLength);
 const sealed_bid_1 = nacl.box(util.decodeUTF8(bid1), 
                               nonce1,
                               auctioneer_pub_key, 
-                              bidder1_ephemeral_keyPair.secretKey);`} />
+                              bidder1_ephemeral_keyPair.secretKey);`} theme={props.theme} />
 
         <p>
             After `time_to_release_in_secs` seconds, we request the private key and decrypt the bids:
@@ -40,7 +40,7 @@ unsealed_bid_1 = util.encodeUTF8(nacl.box.open(sealed_bid_1,
                                                nonce1, 
                                                bidder1_ephemeral_keyPair.publicKey,
                                                auctioneer_priv_key));
-`} />
+`} theme={props.theme} />
         
         <p>at which point the results of the auction are disclosed.</p>
 

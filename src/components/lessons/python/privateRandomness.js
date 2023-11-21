@@ -1,6 +1,6 @@
 import CodeSnippet from '../../CodeSnippet';
 
-const content = (
+const content = (props) => (
   <div>
     <h2>Private Randomness</h2>
     <p>
@@ -14,28 +14,28 @@ const content = (
       key pair and a nonce:
     </p>
     <CodeSnippet code={`clientKey = nacl.box.keyPair();
-nonce = nacl.randomBytes(nacl.box.nonceLength);`} />
+nonce = nacl.randomBytes(nacl.box.nonceLength);`} theme={props.theme} />
     <p>
       Then invoke the Cryptosat API call:
     </p>
-    <CodeSnippet code={`request = cryptosat.getPrivateRandom(clientKey.publicKey, nonce);`} />
+    <CodeSnippet code={`request = cryptosat.getPrivateRandom(clientKey.publicKey, nonce);`} theme={props.theme} />
     <p>
       The API call returns a request object allowing the user to track its
       status. The status can be obtained by invoking the status method:
     </p>
-    <CodeSnippet code={`request.status();`} />
+    <CodeSnippet code={`request.status();`} theme={props.theme} />
     <p>
       After the cryptosat signed the message and transmits the signature back
       to earth, the status of the message will change to <i>Ready</i> and the result
       of the request can be obtained by invoking the result method:
     </p>
-    <CodeSnippet code={`result = request.result();`} />
+    <CodeSnippet code={`result = request.result();`} theme={props.theme} />
     <p>You can then decrypt the message using the following snippet:</p>
     <CodeSnippet code={`encryptionKey = cryptosat.getPublicEncryptionKey();
-plain = nacl.box.open(result.encryptedRandom, nonce, encryptionKey, clientKey.secretKey);`} />
+plain = nacl.box.open(result.encryptedRandom, nonce, encryptionKey, clientKey.secretKey);`} theme={props.theme} />
     <p>And verify that the signature is valid using the this snippet:</p>
     <CodeSnippet code={`signingKey = cryptosat.getPublicSigningKey();
-nacl.sign.detached.verify(result.encryptedRandom, result.signature, signingKey)`} />
+nacl.sign.detached.verify(result.encryptedRandom, result.signature, signingKey)`} theme={props.theme} />
   </div>
 );
 

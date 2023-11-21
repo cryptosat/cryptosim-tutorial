@@ -281,7 +281,7 @@ class App extends React.Component {
       const route = (
           <Route key={lesson.path} exact path={lesson.path}>
             <Lesson
-                content={content}
+                content={content({theme:this.state.theme})}
                 previous={previous}
                 next={next}
                 totalPages={flatLessons.length}

@@ -1,6 +1,6 @@
 import CodeSnippet from '../../CodeSnippet';
 
-const content = (
+const content = (props) => (
   <div>
     <h2>Public Randomness</h2>
     <p>
@@ -9,7 +9,7 @@ const content = (
       signing key. The random values and the corresponding signature can be
       obtained using the following API call:
     </p>
-    <CodeSnippet code={`result = await cryptosat.getPublicRandom();`} />
+    <CodeSnippet code={`result = await cryptosat.getPublicRandom();`} theme={props.theme} />
     <p>
       You can verify the signature of the timestamp with
       the <a href="https://nacl.cr.yp.to/box.html">NaCl</a> library as shown
@@ -20,7 +20,7 @@ nacl.sign.detached.verify(
   result.publicRandom, 
   result.signature, 
   binary.pem2ab(key)
-);`} />
+);`} theme={props.theme} />
   </div>
 );
 

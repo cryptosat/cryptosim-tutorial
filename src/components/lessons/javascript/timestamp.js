@@ -1,6 +1,6 @@
 import CodeSnippet from '../../CodeSnippet';
 
-const content = (
+const content = (props) => (
   <div>
     <h2>Timestamp</h2>
     <p>
@@ -9,7 +9,7 @@ const content = (
       satellite’s public signing key. The timestamp and its signature can be
       obtained using the following API call:
     </p>
-    <CodeSnippet code={`result = await cryptosat.getTimestamp();`} />
+    <CodeSnippet code={`result = await cryptosat.getTimestamp();`} theme={props.theme} />
     <p>
       You can verify the signature of the timestamp with
       the <a href="https://nacl.cr.yp.to/box.html">NaCl</a> library as shown
@@ -21,7 +21,7 @@ nacl.sign.detached.verify(
   timestamp, 
   result.signature, 
   binary.pem2ab(key)
-);`} />
+);`} theme={props.theme} />
   </div>
 );
 

@@ -1,6 +1,6 @@
 import CodeSnippet from '../../CodeSnippet';
 
-const content = (
+const content = (props) => (
   <div>
     <h2>Public Randomness</h2>
     <p>
@@ -9,7 +9,7 @@ const content = (
       signing key. The random values and the corresponding signature can be
       obtained using the following API call:
     </p>
-    <CodeSnippet code={`result = cryptosat.get_public_random()`} />
+    <CodeSnippet code={`result = cryptosat.get_public_random()`} theme={props.theme} />
     <p>
       You can verify the signature of the timestamp with
       the 'cryptography' library as shown
@@ -24,7 +24,7 @@ public_key = serialization.load_pem_public_key(pem_data)
 randomness_bytes = bytes.fromhex(result.randomness)
 signature = bytes.fromhex(result.signature)
 public_key.verify(signature, randomness_bytes)
-`} />
+`} theme={props.theme} />
   </div>
 );
 

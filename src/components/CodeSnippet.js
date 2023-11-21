@@ -44,7 +44,7 @@ class CodeSnippet extends React.Component {
     }
 
     return (
-      <div className="code-snippet">
+      <div className={'code-snippet '+this.props.theme}>
         <pre>
           <code>{this.props.code}</code>
           <div className="icon-container">

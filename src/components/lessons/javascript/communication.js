@@ -1,4 +1,4 @@
-const content = (
+const content = (props) => (
   <div>
     <h2>Communication Windows</h2>
     <p>
