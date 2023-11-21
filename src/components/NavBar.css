@@ -8,6 +8,11 @@
   flex-shrink: 0;
 }
 
+.light {
+  background-color: #FFF !important;
+  color: #000 !important;
+}
+
 .content-container__left.collapsed .navbar {
   padding-left: 28px;
 }

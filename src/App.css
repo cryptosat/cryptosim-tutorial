@@ -31,17 +31,22 @@ body {
 
 .background {
   position: absolute;
-  top: 66.5px;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  bottom: 50px;
+  right: 50px;
+  width: 500px;
+  height: 300px;
 }
 
 .content-container {
   display: flex;
   flex-direction: row;
-  background-color: rgba(49, 53, 62, 0.1);
+  background-color: #000;
   height: 100%;
+}
+
+.content-container .light {
+  background-color: #FFF;
+  color: #000;
 }
 
 .content-container__right {
@@ -54,8 +59,14 @@ body {
   flex: 1;
   overflow-y: auto; /* to hide horizontal scrollbar on chrome for windows */
   z-index: 1;
-  background-color: rgba(49, 53, 62, 0.66);
+  background-color: #000;
   color: #ffffff;
+  height: 60%;
+}
+
+.console-container .light {
+  background-color: #FFF;
+  color: #000;
 }
 
 .mapboxgl-popup-content {
@@ -90,34 +101,8 @@ body {
   z-index: -1;
 }
 
-.apply-gradient {
-  position: relative;
-  background: linear-gradient(
-      166.28deg,
-      rgba(2, 0, 14, 0.7) 52.56%,
-      rgba(50, 5, 65, 0.7) 65.04%,
-      rgba(109, 13, 141, 0.7) 70.01%,
-      rgba(50, 5, 65, 0.7) 74.99%,
-      rgba(3, 0, 20, 0.7) 84.23%
-  ) !important;
-}
-
-.apply-dots {
-  position: absolute;
-  top: 45%;
-  height: 50%;
-  width: 100%;
-}
-
-.apply-dots .dot {
-  z-index: 0;
-  position: absolute;
-  width: 3.39px;
-  height: 3.22px;
-  border-radius: 100%;
-  background: #bbbbbb;
-  opacity: 0.8;
-  box-shadow: 0px 0px 172px 14px #2d2d6b;
+.mapboxgl-ctrl-compass {
+  display: none !important;
 }
 
 .apply-dots .dot.md {

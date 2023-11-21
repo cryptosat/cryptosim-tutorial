@@ -5,37 +5,42 @@ import plan from "./lessons/plan";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faTimes } from "@fortawesome/pro-light-svg-icons";
 import logo from "./cryptosat_logo.svg";
+import lightLogo from "./cryptosat_logo_light.svg";
 
 class Menu extends React.Component {
   constructor(props) {
     super(props);
     this.props = props;
-    this.closeMenu = this.closeMenu.bind(this);
-    this.navigate = this.navigate.bind(this);
-    this.setLanguage = this.setLanguage.bind(this);
   }
 
-  closeMenu(e) {
+  closeMenu = (e) => {
     e.stopPropagation();
     this.props.setMenuOpen(false);
-  }
+  };
 
-  navigate(lesson) {
+  navigate = (lesson) => {
     this.props.setMenuOpen(false);
     this.props.history.push(lesson.path);
-  }
+  };
 
-  setLanguage(e) {
+  setLanguage = (e) => {
     e.stopPropagation();
     const selectedLanguage = e.target.value;
     this.props.setLanguage(selectedLanguage);
-  }
+  };
+
+  setTheme = (e) => {
+    e.stopPropagation();
+    const selectedTheme = e.target.value;
+    this.props.setTheme(selectedTheme);
+  };
 
   render() {
+    const sectionClass = 'section '+this.props.theme;
     const items = [];
     for (const section of Object.values(plan)) {
       items.push(
-        <li key={section.name} className="section">
+        <li key={section.name} className={sectionClass}>
           {section.name}
         </li>
       );
@@ -44,7 +49,7 @@ class Menu extends React.Component {
         let elem = null;
         if (lesson.disabled) {
           elem = (
-            <li key={lesson.path}>
+            <li key={lesson.path} className={this.props.theme}>
               <a href={lesson.path} className="disabled">
                 {lesson.name}
               </a>
@@ -59,6 +64,7 @@ class Menu extends React.Component {
                   e.preventDefault();
                   this.navigate(lesson);
                 }}
+                className={this.props.theme}
               >
                 {matchPath(lesson.path, {
                   path: this.props.location.pathname,
@@ -76,7 +82,11 @@ class Menu extends React.Component {
     }
 
     const href = "/";
-    const visibilityClassName = this.props.isOpen ? "show" : "hide";
+    let visibilityClassName = this.props.isOpen ? "show" : "hide";
+    if(this.props.theme === 'light') {
+      visibilityClassName += ' light';
+    }
+    const linkClass = this.props.theme;
 
     return (
       <>
@@ -86,15 +96,19 @@ class Menu extends React.Component {
         />
         <div id="sideMenu" className={visibilityClassName}>
           <div className="menu-title">
-            <Link to={href}>
-              <img src={logo} alt="" />
+            <Link to={href} className={linkClass}>
+              <img src={this.props.theme === 'light' ? lightLogo : logo} alt="" />
               CryptoSat Simulator
             </Link>
           </div>
           <ul>{items}</ul>
-          <select name="language" onChange={this.setLanguage}>
+          <select name="language" onChange={this.setLanguage} value={this.props.language}>
             <option value="JavaScript">JavaScript</option>
             <option value="Python">Python</option>
+          </select><br/><br/>
+          <select name="theme" onChange={this.setTheme} value={this.props.theme}>
+            <option value="dark">Dark</option>
+            <option value="light">Light</option>
           </select>
         </div>
       </>

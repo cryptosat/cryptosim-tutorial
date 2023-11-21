@@ -20,6 +20,10 @@
   box-sizing: border-box;
 }
 
+.lesson-content .light {
+  background-color: #F7F8FC !important;
+}
+
 .lesson-content h2 {
   font-size: 32px;
   margin: 0;

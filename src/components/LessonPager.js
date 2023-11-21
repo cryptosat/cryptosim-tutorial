@@ -20,11 +20,12 @@ class LessonPager extends React.Component {
   render() {
     const { currentPage, totalPages, progressBarWidth } = this.state;
     const { previous, next } = this.props;
+    const linkContainerClass = 'link-container '+this.props.theme;
 
     return (
       <div className="lesson-pager-container">
         <div className="pager">
-          <div className="link-container previous">
+          <div className={linkContainerClass + ' previous'}>
             {previous && (
               <Link to={previous}>
                 <span className="arrow">
@@ -37,7 +38,7 @@ class LessonPager extends React.Component {
           <div className="link-container center">
             {`${currentPage}/${totalPages}`}
           </div>
-          <div className="link-container next">
+          <div className={linkContainerClass + ' next'}>
             {next && (
               <Link to={next}>
                 <span className="caption">NEXT</span>
@@ -48,9 +49,9 @@ class LessonPager extends React.Component {
             )}
           </div>
         </div>
-        <div className="progress-bar">
+        <div className={'progress-bar '+this.props.theme}>
           <div
-            className="progress-done"
+            className={'progress-done bar'+this.props.theme}
             style={{ width: `${progressBarWidth}%` }}
           />
           <div className="progress-left" />

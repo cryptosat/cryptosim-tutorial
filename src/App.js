@@ -129,12 +129,27 @@ class App extends React.Component {
   constructor() {
     super();
     this.setupUniverse();
-    this.toggleMenu = this.toggleMenu.bind(this);
-    this.setMenuOpen = this.setMenuOpen.bind(this);
-    this.setLanguage = this.setLanguage.bind(this);
+
+    // default to dark if browser set to dark
+    const queryParams = new URLSearchParams(window.location.search);
+    let theme = 'light';
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      theme = 'dark';
+    }
+    // allow override of browser setting based on HTTP query string param 'theme'
+    if(queryParams.has('theme')) {
+      const themeValue = queryParams.get('theme');
+      if(themeValue === 'dark') {
+        theme = 'dark';
+      } else {
+        theme = 'light';
+      }
+    }
+
     this.state = {
       isMenuOpen: false,
       language: 'JavaScript',
+      theme,
     };
   }
 
@@ -271,6 +286,7 @@ class App extends React.Component {
                 next={next}
                 totalPages={flatLessons.length}
                 currentPage={i + 1}
+                theme={this.state.theme}
             />
           </Route>
       );
@@ -279,23 +295,30 @@ class App extends React.Component {
     return routes;
   }
 
-  toggleMenu() {
+  toggleMenu = () => {
     this.setState({
       isMenuOpen: !this.state.isMenuOpen,
-    });
+    });;
   }
 
-  setLanguage(language) {
+  setLanguage = (language) => {
     this.setState({
       language,
     });
-  }
+  };
 
-  setMenuOpen(isOpen) {
+  setMenuOpen = (isOpen) => {
     this.setState({
       isMenuOpen: isOpen,
     });
-  }
+  };
+
+  setTheme = (theme) => {
+    this.setState({
+      theme,
+    });
+    console.log('theme changed to ',theme);
+  };
 
   render() {
     if (this.props.location.pathname === "/multisat") {
@@ -306,10 +329,13 @@ class App extends React.Component {
     const center = new GeoCoordinates(40.567952, -98.518132, 0);
     const routes = this.createRoutes(this.state.language);
 
+    const consoleContainerClassname = 'console-container '+this.state.theme;
+    const contentContainerClassname = 'content-container '+this.state.theme;
+
     return (
         <div className="main">
           <NavBar
-              toggleMenu={this.toggleMenu}
+              toggleMenu={this.toggleMenu} theme={this.state.theme}
           />
           <div className="content">
 
@@ -319,13 +345,14 @@ class App extends React.Component {
                   gsnetwork={this.gsnetwork}
                   center={center}
                   zoom={zoom}
+                  theme={this.state.theme}
               />
             </div>
 
-            <div className="content-container">
-              <Menu isOpen={this.state.isMenuOpen} setMenuOpen={this.setMenuOpen} setLanguage={this.setLanguage} />
+            <div className={contentContainerClassname}>
+              <Menu isOpen={this.state.isMenuOpen} setMenuOpen={this.setMenuOpen} setLanguage={this.setLanguage} setTheme={this.setTheme} theme={this.state.theme} language={this.state.language} />
 
-              <PanelContainer>
+              <PanelContainer theme={this.state.theme}>
                 <Switch>
                   {routes}
                   <Route path="/">
@@ -334,11 +361,11 @@ class App extends React.Component {
                 </Switch>
               </PanelContainer>
 
-              <div className="console-container">
+              <div className={consoleContainerClassname}>
                 { this.state.language === 'JavaScript' ? (
-                  <Console payload={this.payload} />
+                  <Console payload={this.payload} theme={this.state.theme} />
                 ) : (
-                  <PyConsole />
+                  <PyConsole theme={this.state.theme} />
                 )}
               </div>
             </div>

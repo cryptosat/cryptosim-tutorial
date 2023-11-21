@@ -24,6 +24,10 @@
   overflow: hidden;
 }
 
+.pager.link-container.light {
+  color: #8C0BB7;
+}
+
 .link-container.center {
   color: #9a99a1;
   justify-content: center;
@@ -59,6 +63,9 @@
 }
 .progress-done {
   background-color: #1ef9fa;
+}
+.progress-done.barlight {
+  background-color: #8C0BB7 !important;
 }
 .progress-left {
   flex: 1;

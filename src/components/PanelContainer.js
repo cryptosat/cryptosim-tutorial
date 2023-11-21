@@ -29,19 +29,6 @@ class PanelContainer extends React.Component {
           {!this.state.isCollapse && <>{this.props.children}</>}
         </div>
         <div className="apply-dots">
-          <div className="dot" style={{ left: "2%", top: "85%" }}></div>
-          <div className="dot" style={{ left: "2%", top: "65%" }}></div>
-          <div className="dot" style={{ left: "8%", top: "72%" }}></div>
-          <div className="dot" style={{ left: "23%", top: "62%" }}></div>
-          <div className="dot" style={{ left: "40%", top: "53%" }}></div>
-          <div className="dot" style={{ left: "50%", top: "60%" }}></div>
-          <div className="dot" style={{ left: "58%", top: "48%" }}></div>
-          <div className="dot" style={{ left: "48%", top: "38%" }}></div>
-          <div className="dot md" style={{ left: "45%", top: "70%" }}></div>
-          <div className="dot md" style={{ left: "20%", top: "72%" }}></div>
-          <div className="dot md" style={{ left: "38%", top: "65%" }}></div>
-          <div className="dot lg" style={{ left: "30%", top: "65%" }}></div>
-          <div className="dot lg" style={{ left: "15%", top: "80%" }}></div>
         </div>
       </div>
     );
