@@ -41,7 +41,7 @@ class NavBar extends React.Component {
             <div className="title-container">
               <Link to={href} className={this.props.theme}>
                 <img src={this.props.theme === 'light' ? lightLogo : logo} alt=""/>
-                CryptoSat Simulator
+                Cryptosat Simulator
               </Link>
             </div>
             <div className="actions-container">

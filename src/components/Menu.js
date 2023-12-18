@@ -98,7 +98,7 @@ class Menu extends React.Component {
           <div className="menu-title">
             <Link to={href} className={linkClass}>
               <img src={this.props.theme === 'light' ? lightLogo : logo} alt="" />
-              CryptoSat Simulator
+              Cryptosat Simulator
             </Link>
           </div>
           <ul>{items}</ul>

@@ -42,7 +42,7 @@ export default function PyConsole() {
   }, [isReady]);
 
   useEffect(() => {
-    banner && setOutput((prev) => [...prev, { text: 'Python 3.11.2 (Pyodide/Emscripten)\n' + 'CryptoSat SDK Ready\n'}]);
+    banner && setOutput((prev) => [...prev, { text: 'Python 3.11.2 (Pyodide/Emscripten)\n' + 'Cryptosat SDK Ready\n'}]);
   }, [banner]);
 
   useEffect(() => {
