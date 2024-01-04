@@ -11,6 +11,8 @@ to require Node.js version 16.0.0 or later and npm version 8.0.0 or later.
 
 ### Installation
 
+**Before installing the dependencies, please ask for the fontawesome registry and authToken**
+
 To install the project dependencies first run:
 
     yarn install
